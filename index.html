@@ -1,0 +1,2478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EMS Rescue Quest | Chapters 1-4 Study Game</title>
+  <style>
+    :root {
+      --ink: #13202a;
+      --muted: #54616c;
+      --line: #d7e1e5;
+      --paper: #f7fbfa;
+      --panel: #ffffff;
+      --aqua: #0f8b8d;
+      --aqua-dark: #0a6466;
+      --coral: #f25c54;
+      --gold: #f5b841;
+      --green: #2e9d64;
+      --blue: #3c6eaa;
+      --night: #10222c;
+      --shadow: 0 18px 44px rgba(20, 32, 42, .14);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(242, 92, 84, .18), transparent 28%),
+        radial-gradient(circle at 88% 8%, rgba(245, 184, 65, .20), transparent 25%),
+        linear-gradient(135deg, rgba(15, 139, 141, .14), transparent 34%),
+        linear-gradient(315deg, rgba(60, 110, 170, .12), transparent 32%),
+        var(--paper);
+      min-height: 100vh;
+    }
+
+    button, input { font: inherit; }
+    button {
+      border: 0;
+      cursor: pointer;
+      color: inherit;
+    }
+
+    .app {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 22px 0 40px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 16px;
+    }
+
+    .hero {
+      min-height: 360px;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(115deg, rgba(9, 30, 43, .96), rgba(8, 74, 83, .90) 52%, rgba(242, 92, 84, .72)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='620' viewBox='0 0 1200 620'%3E%3Crect width='1200' height='620' fill='%230f8b8d'/%3E%3Cpath d='M0 466 C160 390 255 542 420 455 S760 330 900 420 1090 540 1200 420 V620 H0Z' fill='%23f5b841' opacity='.58'/%3E%3Cpath d='M765 95 h100 v100 h100 v86 h-100 v100 h-100 v-100 h-100 v-86 h100z' fill='%23fff' opacity='.18'/%3E%3Cpath d='M95 120 h210 v48 H95zM95 192h342v30H95zM95 240h265v30H95z' fill='%23fff' opacity='.13'/%3E%3Ccircle cx='1018' cy='142' r='90' fill='%23f25c54' opacity='.52'/%3E%3Cpath d='M150 480 h700' stroke='%23fff' stroke-width='10' stroke-dasharray='48 32' opacity='.18'/%3E%3C/svg%3E");
+      background-size: cover;
+      padding: clamp(22px, 4vw, 42px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(230px, .7fr);
+      gap: 18px;
+      align-items: end;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.07) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(110deg, rgba(0,0,0,.55), transparent 62%);
+      pointer-events: none;
+    }
+
+    .hero-copy, .rescue-visual { position: relative; z-index: 1; }
+
+    .hero h1 {
+      font-size: clamp(2.05rem, 6vw, 4.7rem);
+      line-height: .92;
+      margin: 0 0 10px;
+      letter-spacing: 0;
+      max-width: 780px;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 640px;
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+      line-height: 1.5;
+      color: rgba(255, 255, 255, .88);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .hero-actions .btn {
+      min-height: 48px;
+      padding: 12px 16px;
+      background: #fff;
+      color: var(--night);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, .18);
+    }
+
+    .hero-actions .btn.secondary {
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      border-color: rgba(255,255,255,.34);
+    }
+
+    .rescue-visual {
+      min-height: 250px;
+      display: grid;
+      place-items: end center;
+    }
+
+    .badge-ring {
+      width: min(260px, 100%);
+      aspect-ratio: 1;
+      border: 2px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      position: relative;
+      background: radial-gradient(circle, rgba(255,255,255,.20), rgba(255,255,255,.04) 62%, transparent);
+      animation: slowSpin 16s linear infinite;
+    }
+
+    .badge-ring::before,
+    .badge-ring::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 22px rgba(245, 184, 65, .9);
+    }
+
+    .badge-ring::before { top: 18px; left: 52px; }
+    .badge-ring::after { right: 24px; bottom: 62px; background: #fff; }
+
+    .ambulance {
+      width: 188px;
+      height: 112px;
+      border-radius: 14px 18px 12px 12px;
+      background: #fff;
+      position: relative;
+      box-shadow: 0 20px 34px rgba(0,0,0,.24);
+      animation: hoverRig 2.8s ease-in-out infinite;
+    }
+
+    .ambulance::before {
+      content: "";
+      position: absolute;
+      right: 12px;
+      top: 18px;
+      width: 55px;
+      height: 34px;
+      border-radius: 7px;
+      background: #bfe9ee;
+      box-shadow: -76px 0 0 #bfe9ee;
+    }
+
+    .ambulance::after {
+      content: "";
+      position: absolute;
+      inset: 50px 18px auto 18px;
+      height: 14px;
+      background: var(--coral);
+      border-radius: 999px;
+      box-shadow: 23px -28px 0 -4px var(--coral), 23px -28px 0 -1px #fff, 23px -28px 0 7px var(--coral);
+    }
+
+    .wheel {
+      position: absolute;
+      bottom: -13px;
+      width: 36px;
+      height: 36px;
+      border: 7px solid var(--night);
+      border-radius: 50%;
+      background: #c8d8dd;
+    }
+
+    .wheel.left { left: 28px; }
+    .wheel.right { right: 28px; }
+
+    @keyframes hoverRig {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .status {
+      display: grid;
+      gap: 12px;
+      align-content: stretch;
+    }
+
+    .stat-panel {
+      background: rgba(255, 255, 255, .82);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, .8);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 12px 24px rgba(20, 32, 42, .08);
+    }
+
+    .stat-panel.primary {
+      background: var(--night);
+      color: #fff;
+      border-color: rgba(255,255,255,.16);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-panel.primary::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -55px auto;
+      width: 160px;
+      height: 160px;
+      border: 28px solid rgba(245,184,65,.2);
+      border-radius: 50%;
+    }
+
+    .stat-panel.primary .metric {
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.16);
+    }
+
+    .stat-panel.primary .metric span,
+    .stat-panel.primary .mini-title { color: rgba(255,255,255,.72); }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .metric {
+      background: #f5f8f8;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 11px;
+      min-height: 72px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .metric span, .mini-title {
+      color: var(--muted);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+    }
+
+    .progress {
+      height: 13px;
+      background: #e7eff1;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 12px;
+      border: 1px solid #cfdee2;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--coral), var(--gold), var(--green));
+      transition: width .35s ease;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin: 16px 0;
+      position: sticky;
+      top: 8px;
+      z-index: 3;
+    }
+
+    .tab {
+      min-height: 48px;
+      padding: 9px 10px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 850;
+      box-shadow: 0 7px 18px rgba(20, 32, 42, .06);
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .tab:hover { transform: translateY(-2px); border-color: rgba(15, 139, 141, .5); }
+
+    .tab.active {
+      background: linear-gradient(135deg, var(--night), #144b56);
+      border-color: rgba(255,255,255,.18);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(16, 34, 44, .20);
+    }
+
+    .screen {
+      display: none;
+      background: rgba(255, 255, 255, .90);
+      border: 1px solid rgba(217, 227, 231, .9);
+      border-radius: var(--radius);
+      min-height: 505px;
+      padding: clamp(16px, 3vw, 28px);
+      box-shadow: var(--shadow);
+    }
+
+    .screen.active {
+      display: block;
+      animation: pageIn .25s ease both;
+    }
+
+    @keyframes pageIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      margin: 0 0 6px;
+      letter-spacing: 0;
+    }
+
+    .section-top p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      max-width: 720px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      min-height: 42px;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--aqua);
+      color: #fff;
+      font-weight: 850;
+      box-shadow: 0 8px 18px rgba(15, 139, 141, .20);
+      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); filter: saturate(1.08); }
+    .btn:active { transform: translateY(0); }
+
+    .btn.secondary {
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .btn.warn { background: var(--coral); }
+    .btn.gold { background: #855f10; }
+    .btn:disabled { opacity: .55; cursor: not-allowed; }
+
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .chapter {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.90)),
+        linear-gradient(135deg, rgba(15,139,141,.12), rgba(245,184,65,.12));
+      padding: 14px;
+      min-height: 122px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .chapter::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: rgba(15,139,141,.10);
+    }
+
+    .chapter:hover { transform: translateY(-4px); box-shadow: 0 18px 34px rgba(20,32,42,.10); }
+
+    .chapter b {
+      display: block;
+      margin: 8px 0 8px;
+      font-size: 1.02rem;
+    }
+
+    .chapter p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.35;
+      font-size: .92rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #eaf5f5;
+      color: var(--aqua-dark);
+      font-weight: 850;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    .mode-card {
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      min-height: 142px;
+      padding: 16px;
+      background: #fff;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 26px rgba(20,32,42,.07);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .mode-card::after {
+      content: attr(data-number);
+      position: absolute;
+      right: 12px;
+      bottom: -18px;
+      font-size: 5.5rem;
+      line-height: 1;
+      color: rgba(15, 139, 141, .10);
+      font-weight: 950;
+    }
+
+    .mode-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(15,139,141,.45);
+      box-shadow: 0 20px 34px rgba(20,32,42,.12);
+    }
+
+    .mode-card strong { font-size: 1.12rem; }
+    .mode-card span { color: var(--muted); line-height: 1.35; }
+
+    .mode-card .tag {
+      width: fit-content;
+      background: #fff4dc;
+      color: #805a0a;
+    }
+
+    .play-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .flashcard {
+      min-height: 360px;
+      perspective: 1300px;
+      background: transparent;
+      padding: 0;
+    }
+
+    .card-inner {
+      position: relative;
+      min-height: 360px;
+      transition: transform .5s ease;
+      transform-style: preserve-3d;
+    }
+
+    .flashcard.flipped .card-inner { transform: rotateY(180deg); }
+
+    .face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: var(--radius);
+      padding: clamp(20px, 4vw, 36px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, #ffffff, #f7fbfb);
+      box-shadow: 0 18px 36px rgba(20, 32, 42, .12);
+    }
+
+    .face.back {
+      transform: rotateY(180deg);
+      background:
+        linear-gradient(145deg, rgba(16, 34, 44, .98), rgba(20, 80, 90, .98)),
+        radial-gradient(circle at top right, rgba(245,184,65,.30), transparent 35%);
+      color: #fff;
+      border-color: var(--night);
+    }
+
+    .term {
+      font-size: clamp(1.65rem, 4.6vw, 3.35rem);
+      line-height: 1.05;
+      margin: 14px 0 0;
+      font-weight: 950;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+      hyphens: auto;
+      max-height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .definition {
+      font-size: clamp(1.05rem, 2.35vw, 1.55rem);
+      line-height: 1.32;
+      margin: 12px 0 0;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+      hyphens: auto;
+      max-height: 255px;
+      overflow: auto;
+    }
+
+    .term.fit-md { font-size: clamp(1.35rem, 3.5vw, 2.55rem); }
+    .term.fit-sm { font-size: clamp(1.05rem, 2.75vw, 1.95rem); line-height: 1.12; }
+    .term.fit-xs { font-size: clamp(.9rem, 2.2vw, 1.45rem); line-height: 1.16; }
+    .definition.fit-sm { font-size: clamp(.94rem, 2vw, 1.18rem); line-height: 1.28; }
+    .definition.fit-xs { font-size: clamp(.82rem, 1.65vw, 1rem); line-height: 1.24; }
+
+    .reveal-lab {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, #ffffff, #f7fbfb);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      box-shadow: 0 10px 22px rgba(20,32,42,.06);
+    }
+
+    .reveal-lab h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .reveal-inputs {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto auto;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .reveal-inputs input {
+      min-height: 42px;
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      font-weight: 850;
+      font-size: 1rem;
+      background: #fff;
+    }
+
+    .reveal-inputs input.correct {
+      border-color: var(--green);
+      background: #eaf7ef;
+    }
+
+    .reveal-inputs input.wrong {
+      border-color: var(--coral);
+      background: #fff0ef;
+    }
+
+    .term-hint {
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.35;
+    }
+
+    .coach {
+      background:
+        linear-gradient(180deg, #ffffff, #f6fafb);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      min-height: 315px;
+    }
+
+    .coach h3 { margin: 0 0 10px; font-size: 1.1rem; }
+    .coach ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.55; }
+
+    .quiz-box {
+      display: grid;
+      gap: 12px;
+      max-width: 880px;
+    }
+
+    .question {
+      background:
+        linear-gradient(135deg, rgba(16,34,44,.98), rgba(20,83,91,.98)),
+        radial-gradient(circle at 90% 10%, rgba(245,184,65,.30), transparent 32%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: clamp(18px, 3vw, 28px);
+      min-height: 144px;
+    }
+
+    .question .tag { background: rgba(255,255,255,.14); color: #fff; }
+    .question h3 {
+      font-size: clamp(1.25rem, 2.7vw, 2rem);
+      margin: 12px 0 0;
+      line-height: 1.22;
+    }
+
+    .answers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .answer {
+      text-align: left;
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      min-height: 68px;
+      font-weight: 780;
+      transition: transform .14s ease, border-color .14s ease, background .14s ease;
+    }
+
+    .answer:hover { border-color: var(--aqua); transform: translateY(-2px); }
+    .answer.correct { border-color: var(--green); background: #eaf7ef; box-shadow: 0 0 0 3px rgba(46,157,100,.13); }
+    .answer.wrong { border-color: var(--coral); background: #fff0ef; box-shadow: 0 0 0 3px rgba(242,92,84,.12); }
+
+    .feedback {
+      min-height: 58px;
+      border-radius: var(--radius);
+      border: 1px dashed #cbd9dd;
+      padding: 13px 14px;
+      color: var(--muted);
+      background: #f8fbfb;
+      line-height: 1.4;
+    }
+
+    .feedback.good {
+      border-color: rgba(46,157,100,.42);
+      background: #eaf7ef;
+      color: #256645;
+    }
+
+    .feedback.bad {
+      border-color: rgba(242,92,84,.45);
+      background: #fff0ef;
+      color: #8b332e;
+    }
+
+    .result-panel {
+      display: none;
+      margin-top: 14px;
+      border-radius: var(--radius);
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(16,34,44,.98), rgba(18,92,101,.94)),
+        radial-gradient(circle at 88% 18%, rgba(245,184,65,.28), transparent 34%);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .result-panel.show { display: block; animation: pageIn .25s ease both; }
+    .result-panel h3 { margin: 0 0 8px; font-size: clamp(1.25rem, 3vw, 2rem); }
+    .result-panel p { margin: 0 0 14px; color: rgba(255,255,255,.84); line-height: 1.45; }
+
+    .timer-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .timer-box input {
+      width: 110px;
+      min-height: 42px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      font-weight: 850;
+    }
+
+    .timer-readout {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: var(--radius);
+      background: var(--night);
+      color: #fff;
+      font-weight: 900;
+      min-width: 96px;
+      justify-content: center;
+    }
+
+    .match-board {
+      display: grid;
+      grid-template-columns: minmax(170px, .6fr) minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .pill-card {
+      text-align: left;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 12px;
+      min-height: 48px;
+      font-weight: 850;
+      transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
+    }
+
+    .pill-card:hover { transform: translateY(-2px); border-color: rgba(15,139,141,.48); }
+
+    .pill-card.selected {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(245, 184, 65, .24);
+    }
+
+    .pill-card.done {
+      background: #eaf7ef;
+      border-color: #bfe2cd;
+      color: #256645;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .scenario {
+      background:
+        linear-gradient(180deg, #fff, #f8fbfb);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .scenario h3 { margin: 0; font-size: 1.1rem; }
+    .scenario p { margin: 0; color: var(--muted); line-height: 1.45; }
+    .scenario .scene-stem {
+      color: var(--ink);
+      font-weight: 850;
+      background: #eef7f7;
+      border: 1px solid #cfe6e6;
+      border-radius: var(--radius);
+      padding: 10px 12px;
+    }
+    .scenario .answer { min-height: 48px; padding: 11px; }
+
+    .grade-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .grade {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      min-height: 72px;
+      box-shadow: 0 10px 22px rgba(20,32,42,.06);
+    }
+
+    .grade strong {
+      display: block;
+      font-size: 1.55rem;
+      line-height: 1;
+      margin-top: 5px;
+    }
+
+    .grade span {
+      color: var(--muted);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      font-weight: 850;
+    }
+
+    .dispatch-board {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .radio-card {
+      min-height: 330px;
+      border-radius: var(--radius);
+      padding: clamp(18px, 3vw, 30px);
+      color: #fff;
+      background:
+        linear-gradient(145deg, rgba(16,34,44,.98), rgba(11,91,101,.95)),
+        radial-gradient(circle at 85% 12%, rgba(245,184,65,.35), transparent 35%);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .radio-card::after {
+      content: "";
+      position: absolute;
+      right: -52px;
+      bottom: -58px;
+      width: 190px;
+      height: 190px;
+      border: 26px solid rgba(255,255,255,.10);
+      border-radius: 50%;
+    }
+
+    .radio-card h3 {
+      font-size: clamp(1.35rem, 3vw, 2.2rem);
+      line-height: 1.12;
+      margin: 14px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .radio-card p {
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      line-height: 1.45;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dispatch-options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .dispatch-options .answer {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+    }
+
+    .boss-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .boss-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-left: 7px solid var(--coral);
+      border-radius: var(--radius);
+      padding: 14px;
+      min-height: 114px;
+      box-shadow: 0 10px 22px rgba(20,32,42,.06);
+    }
+
+    .boss-card.mastered { border-left-color: var(--green); }
+    .boss-card h3 { margin: 0 0 8px; }
+    .boss-card p { margin: 0; color: var(--muted); line-height: 1.38; }
+
+    .tiny {
+      font-size: .86rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 5;
+      background: var(--night);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      min-width: min(310px, calc(100vw - 36px));
+      box-shadow: 0 18px 40px rgba(16,34,44,.25);
+      opacity: 0;
+      transform: translateY(14px);
+      pointer-events: none;
+      transition: opacity .22s ease, transform .22s ease;
+      font-weight: 800;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pop {
+      animation: pop .32s ease both;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(.98); }
+      50% { transform: scale(1.035); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 860px) {
+      header, .hero, .play-grid, .match-board, .dispatch-board { grid-template-columns: 1fr; }
+      nav { grid-template-columns: repeat(2, 1fr); }
+      .chapter-grid, .scenario-grid, .answers, .mode-grid { grid-template-columns: 1fr; }
+      .section-top { display: grid; }
+      .controls { justify-content: stretch; }
+      .controls .btn { flex: 1 1 140px; }
+      .reveal-inputs { grid-template-columns: 1fr; }
+      .hero { min-height: 560px; align-items: end; }
+      .rescue-visual { min-height: 210px; place-items: center; }
+      .badge-ring { width: 220px; }
+      nav { top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="tag">Chapters 1-4 Exam Prep</span>
+          <h1>EMS Rescue Quest</h1>
+          <p>Train like an EMT: flip terms, match fast, make scene decisions, and drill the full expanded Chapter 1-4 bank.</p>
+          <div class="hero-actions">
+            <button class="btn" data-jump="flash">Start With Flashcards</button>
+            <button class="btn secondary" data-jump="quiz">Take Exam Sprint</button>
+          </div>
+        </div>
+        <div class="rescue-visual" aria-hidden="true">
+          <div class="badge-ring">
+            <div class="ambulance">
+              <span class="wheel left"></span>
+              <span class="wheel right"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <aside class="status">
+        <div class="stat-panel primary">
+          <span class="mini-title">Mission Dashboard</span>
+          <div class="metric-row">
+            <div class="metric"><strong id="score">0</strong><span>XP</span></div>
+            <div class="metric"><strong id="streak">0</strong><span>Streak</span></div>
+            <div class="metric"><strong id="mastery">0%</strong><span>Mastery</span></div>
+          </div>
+          <div class="progress" aria-label="Mastery progress"><div class="bar" id="bar"></div></div>
+        </div>
+        <div class="stat-panel">
+          <span class="mini-title">Memory Hook</span>
+          <p class="tiny" id="hook">Start with Scene Safety, then protect yourself, move smart, and finish every call legally.</p>
+        </div>
+      </aside>
+    </header>
+
+    <nav aria-label="Study modes">
+      <button class="tab active" data-screen="map">Mission Map</button>
+      <button class="tab" data-screen="flash">Flashcards</button>
+      <button class="tab" data-screen="match">Match Lab</button>
+      <button class="tab" data-screen="scenes">Scene Calls</button>
+      <button class="tab" data-screen="dispatch">Dispatch Dash</button>
+      <button class="tab" data-screen="quiz">Exam Sprint</button>
+    </nav>
+
+    <section class="screen active" id="map">
+      <div class="section-top">
+        <div>
+          <h2>Pick Your Study Mission</h2>
+          <p>Choose a mode based on your energy. Short burst, memory drill, scenario practice, or full exam sprint.</p>
+        </div>
+        <div class="controls">
+          <button class="btn" id="randomMode">Surprise Round</button>
+          <button class="btn secondary" id="resetAll">Reset XP</button>
+        </div>
+      </div>
+      <div class="mode-grid" id="modeGrid"></div>
+      <div class="chapter-grid" id="chapterGrid"></div>
+      <div class="boss-grid" id="quickHooks"></div>
+    </section>
+
+    <section class="screen" id="flash">
+      <div class="section-top">
+        <div>
+          <h2>Flashcard Flip Deck</h2>
+          <p>Say the definition out loud before flipping. Mark the card as solid or shaky to build your boss review.</p>
+        </div>
+        <div class="controls">
+          <button class="btn secondary" id="prevCard">Prev</button>
+          <button class="btn" id="flipCard">Flip</button>
+          <button class="btn secondary" id="nextCard">Next</button>
+          <button class="btn secondary" id="restartFlash">Restart</button>
+        </div>
+      </div>
+      <div class="controls" id="flashFilters" style="justify-content:flex-start; margin-bottom:12px"></div>
+      <div class="play-grid">
+        <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="Flip flashcard">
+          <div class="card-inner">
+            <div class="face front">
+              <span class="tag" id="cardChapter">Chapter</span>
+              <div class="term" id="cardTerm">EMS</div>
+            </div>
+            <div class="face back">
+              <span class="tag">Definition</span>
+              <div class="definition" id="cardDefinition">An organized system that provides emergency medical care.</div>
+            </div>
+          </div>
+        </div>
+        <aside class="coach">
+          <h3 id="cardCounter">Card 1 of 42</h3>
+          <ul>
+            <li>Turn the term into a tiny scene in your head.</li>
+            <li>Explain it like you are teaching a new EMT.</li>
+            <li>Use “Shaky” for anything you cannot say without peeking.</li>
+          </ul>
+          <div class="controls" style="margin-top:16px; justify-content:flex-start">
+            <button class="btn warn" id="markShaky">Shaky</button>
+            <button class="btn gold" id="markSolid">Solid</button>
+          </div>
+        </aside>
+      </div>
+      <div class="reveal-lab">
+        <h3>Recall Check</h3>
+        <p class="term-hint">Read the card cue, then type the exact term or answer name.</p>
+        <div class="reveal-inputs">
+          <input id="termGuess" autocomplete="off" placeholder="Type the term / answer" />
+          <button class="btn" id="checkTerm">Check Term</button>
+          <button class="btn secondary" id="revealFlashAnswers">Reveal</button>
+        </div>
+        <p class="feedback" id="termFeedback">No blanks here. Just name the term.</p>
+      </div>
+      <div class="grade-strip">
+        <div class="grade"><span>Flashcard Grade</span><strong id="gradeFlash">--</strong></div>
+        <div class="grade"><span>Record</span><strong id="gradeFlashDetail">0/0</strong></div>
+      </div>
+      <div class="result-panel" id="flashResult"></div>
+    </section>
+
+    <section class="screen" id="match">
+      <div class="section-top">
+        <div>
+          <h2>Match Lab</h2>
+          <p>Pick a term, then pick its matching meaning. Clear the shuffled set to earn a rescue badge.</p>
+        </div>
+        <div class="controls">
+          <button class="btn" id="newMatch">New Set</button>
+        </div>
+      </div>
+      <div class="controls" id="matchFilters" style="justify-content:flex-start; margin-bottom:12px"></div>
+      <div class="match-board">
+        <div class="stack" id="termStack"></div>
+        <div class="stack" id="defStack"></div>
+      </div>
+      <p class="feedback" id="matchFeedback">Choose a term to begin.</p>
+      <div class="grade-strip">
+        <div class="grade"><span>Match Lab Grade</span><strong id="gradeMatch">--</strong></div>
+        <div class="grade"><span>Record</span><strong id="gradeMatchDetail">0/0</strong></div>
+      </div>
+      <div class="result-panel" id="matchResult"></div>
+    </section>
+
+    <section class="screen" id="scenes">
+      <div class="section-top">
+        <div>
+          <h2>Scene Calls</h2>
+          <p>Scenario practice helps the exam facts feel real. Choose the best EMT action for each call.</p>
+        </div>
+        <div class="controls">
+          <button class="btn" id="resetScenes">Replay Calls</button>
+        </div>
+      </div>
+      <div class="controls" id="sceneFilters" style="justify-content:flex-start; margin-bottom:12px"></div>
+      <div class="scenario-grid" id="scenarioGrid"></div>
+      <div class="grade-strip">
+        <div class="grade"><span>Scene Calls Grade</span><strong id="gradeScenes">--</strong></div>
+        <div class="grade"><span>Record</span><strong id="gradeScenesDetail">0/0</strong></div>
+      </div>
+      <div class="result-panel" id="scenesResult"></div>
+    </section>
+
+    <section class="screen" id="dispatch">
+      <div class="section-top">
+        <div>
+          <h2>Dispatch Dash</h2>
+          <p>A fast call-card game. Read the dispatch, spot the concept, and choose the best EMT move.</p>
+        </div>
+        <div class="controls">
+          <button class="btn" id="newDispatch">New Call</button>
+          <button class="btn secondary" id="restartDispatch">Restart</button>
+        </div>
+      </div>
+      <div class="controls" id="dispatchFilters" style="justify-content:flex-start; margin-bottom:12px"></div>
+      <div class="grade-strip">
+        <div class="grade"><span>Dispatch Dash Grade</span><strong id="gradeDispatch">--</strong></div>
+        <div class="grade"><span>Record</span><strong id="gradeDispatchDetail">0/0</strong></div>
+      </div>
+      <div class="dispatch-board">
+        <article class="radio-card">
+          <div>
+            <span class="tag" id="dispatchChapter">Dispatch</span>
+            <h3 id="dispatchTitle">Radio traffic loading...</h3>
+          </div>
+          <p id="dispatchText">Choose the best EMT concept or action.</p>
+        </article>
+        <div>
+          <div class="dispatch-options" id="dispatchOptions"></div>
+          <p class="feedback" id="dispatchFeedback">Read the call, then make the move.</p>
+        </div>
+      </div>
+      <div class="result-panel" id="dispatchResult"></div>
+    </section>
+
+    <section class="screen" id="quiz">
+      <div class="section-top">
+        <div>
+          <h2>Exam Sprint</h2>
+          <p>Drill one chapter or run the full mixed exam sprint. The question count grows with the expanded study bank.</p>
+        </div>
+        <div class="controls">
+          <button class="btn" id="restartQuiz">Restart Sprint</button>
+        </div>
+      </div>
+      <div class="controls" id="quizFilters" style="justify-content:flex-start; margin-bottom:12px"></div>
+      <div class="timer-box">
+        <span class="timer-readout" id="quizTimer">No timer</span>
+        <input id="quizMinutes" type="number" min="1" max="180" value="20" aria-label="Quiz timer minutes" />
+        <button class="btn secondary" id="startTimer">Start Timer</button>
+      </div>
+      <div class="grade-strip">
+        <div class="grade"><span>Exam Sprint Grade</span><strong id="gradeQuiz">--</strong></div>
+        <div class="grade"><span>Record</span><strong id="gradeQuizDetail">0/0</strong></div>
+      </div>
+      <div class="quiz-box">
+        <div class="question">
+          <span class="tag" id="quizMeta">All Chapters • Question 1</span>
+          <h3 id="quizQuestion">Question text</h3>
+        </div>
+        <div class="answers" id="quizAnswers"></div>
+        <div class="feedback" id="quizFeedback">Choose your answer.</div>
+        <div class="controls" style="justify-content:flex-start">
+          <button class="btn secondary" id="quizPrev">Prev</button>
+          <button class="btn" id="quizNext">Next</button>
+        </div>
+      </div>
+      <div class="result-panel" id="quizResult"></div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const cards = [
+      ["EMS", "An organized system that provides emergency medical care to people who are sick or injured.", 1],
+      ["EMT", "A trained healthcare provider who gives emergency care before and during transport to the hospital.", 1],
+      ["911 system", "The emergency phone system used to access police, fire, and EMS help.", 1],
+      ["Medical director", "A physician who oversees EMS care and gives medical direction.", 1],
+      ["Offline medical direction", "Standing orders, protocols, and policies written ahead of time.", 1],
+      ["Online medical direction", "Direct communication with a physician during a call.", 1],
+      ["Scope of practice", "What an EMT is legally allowed to do based on training, certification, and state rules.", 1],
+      ["Standard of care", "The level of care expected from a trained EMT in the same situation.", 1],
+      ["Quality improvement", "A process used to review EMS calls and improve patient care.", 1],
+      ["Public health", "Actions that protect and improve the health of the community.", 1],
+      ["EMR", "An emergency medical responder who provides immediate basic care before higher-level EMS arrives.", 1],
+      ["AEMT", "An advanced emergency medical technician with EMT skills plus limited advanced emergency care skills.", 1],
+      ["Paramedic", "The EMS clinician level with the most advanced prehospital training and skills.", 1],
+      ["Certification", "Recognition that a person has met training or testing standards.", 1],
+      ["Licensure", "State permission to practice as an EMS clinician.", 1],
+      ["Credentialing", "Local permission to practice under an EMS agency and its medical director.", 1],
+      ["Evidence-based EMS", "Patient care guided by research, data, and the best available evidence.", 1],
+      ["NREMT", "The National Registry organization associated with national EMS certification testing.", 1],
+      ["Patient advocacy", "Speaking up for patient needs, dignity, privacy, and appropriate care.", 1],
+      ["Continuing education", "Ongoing training used to maintain EMS knowledge, skills, and certification requirements.", 1],
+      ["Scene safety", "Making sure the scene is safe before entering and treating a patient.", 2],
+      ["BSI / Standard precautions", "Using gloves, masks, eye protection, and other barriers to prevent infection.", 2],
+      ["PPE", "Personal protective equipment used to protect rescuers from blood, body fluids, and hazards.", 2],
+      ["Pathogen", "A disease-causing organism.", 2],
+      ["Communicable disease", "A disease that can spread from one person to another.", 2],
+      ["Stress", "The physical and emotional response to difficult or threatening situations.", 2],
+      ["Burnout", "Long-term emotional exhaustion caused by repeated stress.", 2],
+      ["CISM", "Critical incident stress management used to help responders after stressful events.", 2],
+      ["OSHA", "The workplace-safety agency whose rules help protect EMS providers from occupational hazards.", 2],
+      ["Ryan White notification", "A process for notifying responders after certain possible infectious disease exposures.", 2],
+      ["TST", "A tuberculin skin test used to screen for possible tuberculosis exposure.", 2],
+      ["Hepatitis B vaccine", "A vaccine especially emphasized for EMS protection against a serious bloodborne disease.", 2],
+      ["Direct contact transmission", "Disease spread through contact with blood, body fluids, broken skin, or mucous membranes.", 2],
+      ["Indirect contact transmission", "Disease spread through contaminated objects or surfaces.", 2],
+      ["Airborne transmission", "Disease spread through tiny particles suspended in the air.", 2],
+      ["Vector-borne transmission", "Disease spread by animals or insects.", 2],
+      ["Hand hygiene", "Cleaning hands after patient contact, after removing gloves, or when contamination is possible.", 2],
+      ["Disinfection", "Killing many disease-causing organisms on equipment or surfaces.", 2],
+      ["N95 respirator", "Respiratory PPE used when airborne disease exposure is possible.", 2],
+      ["Acute stress reaction", "A stress reaction that occurs during or shortly after a stressful event.", 2],
+      ["Delayed stress reaction", "A stress reaction that appears later after the event.", 2],
+      ["Cumulative stress", "Stress that builds from repeated stressors over time.", 2],
+      ["Fatigue", "Tiredness that can reduce alertness, judgment, and safety.", 2],
+      ["HAZMAT scene", "A hazardous-materials scene where EMTs should keep distance and stay uphill/upwind when possible.", 2],
+      ["Body mechanics", "Using proper posture and movement to prevent injury while lifting or moving.", 3],
+      ["Power lift", "A safe lifting technique using the legs while keeping the back straight.", 3],
+      ["Emergency move", "A rapid move used when there is immediate danger to the patient or rescuer.", 3],
+      ["Urgent move", "A quick move used when the patient needs fast treatment or transport but there is no immediate scene danger.", 3],
+      ["Non-urgent move", "A move done when there is no immediate threat and time allows proper positioning.", 3],
+      ["Direct carry", "A move where two or more rescuers carry a patient from bed to stretcher.", 3],
+      ["Extremity lift", "A move where one rescuer holds under the arms and another holds the legs.", 3],
+      ["Stair chair", "A device used to carry a patient up or down stairs.", 3],
+      ["Backboard", "A device used to move patients when spinal precautions may be needed.", 3],
+      ["Power grip", "A secure grip with palms up and all fingers wrapped around the handle when possible.", 3],
+      ["Direct ground lift", "A multi-rescuer lift used to move a patient from the ground to a stretcher.", 3],
+      ["Blanket drag", "An emergency move where a patient is dragged on a blanket away from danger.", 3],
+      ["Clothes drag", "An emergency move where a patient is dragged by clothing away from immediate danger.", 3],
+      ["Draw-sheet method", "A lateral movement method used to slide a patient from bed to stretcher.", 3],
+      ["Scoop stretcher", "A stretcher that separates so a supine patient can be lifted with less rolling.", 3],
+      ["Soft stretcher", "A flexible carrying device useful for moving patients through tight spaces.", 3],
+      ["Wheeled ambulance stretcher", "The main ambulance stretcher that must be controlled, locked, and secured during movement.", 3],
+      ["Log roll", "A coordinated roll that moves a patient as one unit.", 3],
+      ["Spinal precautions", "Techniques used to limit spinal movement when spinal injury is suspected.", 3],
+      ["Rapid extrication", "Fast removal of a vehicle patient when life threats require quick access or movement.", 3],
+      ["Bariatric move", "A patient move requiring additional personnel and appropriate equipment for a larger patient.", 3],
+      ["Consent", "Permission from the patient to provide care.", 4],
+      ["Expressed consent", "Consent clearly given by words or actions.", 4],
+      ["Implied consent", "Consent assumed when a patient is unconscious or unable to respond and needs emergency care.", 4],
+      ["Informed consent", "Consent after the patient understands the risks, benefits, and options.", 4],
+      ["Refusal of care", "When a competent patient declines treatment or transport.", 4],
+      ["Competent patient", "A patient who is alert, oriented, and able to make decisions.", 4],
+      ["Minor", "A person under the legal adult age who usually needs parent or guardian consent.", 4],
+      ["Duty to act", "A legal obligation to provide care once called or assigned to respond.", 4],
+      ["Negligence", "Failure to provide the expected standard of care, causing harm.", 4],
+      ["Abandonment", "Ending care without transferring the patient to someone with equal or higher training.", 4],
+      ["Assault", "Threatening to touch or harm a patient without consent.", 4],
+      ["Battery", "Touching or treating a patient without consent.", 4],
+      ["False imprisonment", "Restraining or transporting a patient against their will without legal reason.", 4],
+      ["HIPAA", "A federal law that protects patient privacy and medical information.", 4],
+      ["Confidentiality", "Keeping patient information private.", 4],
+      ["DNR", "Do Not Resuscitate order that tells providers not to perform CPR under specific conditions.", 4],
+      ["Advance directive", "A legal document that explains a patient's healthcare wishes.", 4],
+      ["Good Samaritan law", "Law that may protect people who provide emergency care in good faith.", 4],
+      ["Decision-making capacity", "The ability to understand information, appreciate consequences, reason, and communicate a choice.", 4],
+      ["Emancipated minor", "A minor who may legally make health-care decisions for themself in some situations.", 4],
+      ["Involuntary consent", "Consent that may apply when law authorizes care or transport for certain dangerous or impaired patients.", 4],
+      ["Living will", "An advance directive that states a patient's health-care wishes.", 4],
+      ["Durable power of attorney for health care", "A document naming someone to make health-care decisions if the patient cannot.", 4],
+      ["Negligence elements", "Duty, breach, causation, and damages.", 4],
+      ["Breach of duty", "Failure to meet the expected standard of care.", 4],
+      ["Damages", "Actual harm or injury in a negligence claim.", 4],
+      ["Proximate cause", "The link between a provider's breach and the patient's harm.", 4],
+      ["Mandatory reporting", "Legal reporting required for suspected abuse, neglect, certain injuries, or crimes.", 4],
+      ["Minimum necessary", "Sharing only the patient information needed for the purpose.", 4],
+      ["Defamation", "A false statement that harms a person's reputation.", 4],
+      ["Libel", "Written defamation.", 4],
+      ["Slander", "Spoken defamation.", 4],
+      ["Autonomy", "Respect for a patient's right to make decisions.", 4],
+      ["Beneficence", "The ethical principle of doing good for the patient.", 4],
+      ["Nonmaleficence", "The ethical principle of avoiding unnecessary harm.", 4],
+      ["Ethics", "Moral principles that guide behavior and patient care.", 4]
+    ].map(([term, definition, chapter], id) => ({ id, term, definition, chapter }));
+
+    const flashDeck = cards.map(({ id, term, definition, chapter }) => ({
+      id,
+      chapter,
+      q: definition,
+      options: [term],
+      answer: 0,
+      why: definition,
+      term,
+      definition
+    }));
+
+    const quiz = [
+      [1, "What is the main purpose of an EMS system?", ["Provide emergency care before and during transport", "Replace emergency departments", "Diagnose every illness in the field", "Only transport patients"], 0, "EMS starts emergency medical care and continues it during transport."],
+      [1, "Which level of EMS provider has training beyond EMT and can perform more advanced skills?", ["EMR", "AEMT or paramedic", "Dispatcher", "Bystander"], 1, "AEMTs and paramedics have advanced training compared with EMTs."],
+      [1, "Who is responsible for medical oversight of EMT patient care?", ["Medical director", "Police chief", "Hospital billing office", "Ambulance mechanic"], 0, "A physician medical director provides EMS medical oversight."],
+      [1, "Standing orders and written protocols are examples of:", ["Online medical direction", "Offline medical direction", "Patient refusal", "Public relations"], 1, "Offline medical direction is written guidance created ahead of time."],
+      [1, "Calling a physician during a call for direct orders is:", ["Quality improvement", "Online medical direction", "Licensure", "A public health campaign"], 1, "Online direction is live communication with a physician."],
+      [1, "Scope of practice means:", ["What an EMT is legally allowed to do", "What the patient asks for", "What the EMT has seen online", "What any rescuer can attempt"], 0, "Scope of practice is the legal boundary for EMT care."],
+      [1, "The expected care from a similarly trained EMT in a similar situation is:", ["Consent", "Standard of care", "Negligence", "Confidentiality"], 1, "Standard of care is the expected level of care."],
+      [1, "Quality improvement programs are mainly used to:", ["Punish all errors publicly", "Review care and improve the EMS system", "Replace medical direction", "Avoid documentation"], 1, "QI reviews calls to improve patient care and system performance."],
+      [1, "Which action best shows professionalism?", ["Arguing with bystanders", "Maintaining patient dignity and calm communication", "Posting about calls", "Ignoring protocols"], 1, "Professional EMT behavior includes respect, calm communication, and privacy."],
+      [1, "Evidence-based medicine means care decisions are guided by:", ["Rumors", "Research and best available evidence", "Personal preference only", "Television shows"], 1, "Evidence-based care uses research and sound clinical evidence."],
+      [1, "Which is an example of EMS supporting public health?", ["Teaching injury prevention", "Refusing all noncritical patients", "Skipping reports", "Hiding disease trends"], 0, "EMS can support public health through prevention, education, and surveillance."],
+      [1, "The 911 system is designed to:", ["Access emergency police, fire, and EMS help", "Schedule routine appointments", "Handle billing disputes", "Replace dispatch"], 0, "911 connects callers to emergency resources."],
+      [1, "Certification is best described as:", ["Recognition that a person has met training or testing standards", "Permission from a patient", "A guaranteed job", "A hospital diagnosis"], 0, "Certification verifies training/testing standards; licensure gives legal permission to practice."],
+      [1, "Licensure usually refers to:", ["State permission to practice", "A patient's written refusal", "A stretcher inspection sticker", "A federal privacy rule"], 0, "Licensure is legal permission, usually granted by the state."],
+      [1, "An EMT's role in QI may include:", ["Accurate documentation and participating in case review", "Deleting unfavorable information", "Changing protocols alone", "Ignoring patient outcomes"], 0, "Documentation and case review help QI improve care."],
+      [1, "Which statement best compares EMR and EMT roles?", ["EMRs provide initial basic care; EMTs have more training and transport responsibilities", "EMRs always supervise paramedics", "EMTs cannot provide emergency care", "They are identical in every state"], 0, "EMTs generally have broader training and transport-related responsibilities than EMRs."],
+      [1, "Which trait is especially important for EMTs?", ["Integrity", "Carelessness", "Impatience", "Ignoring feedback"], 0, "Integrity supports trust, safety, and professional patient care."],
+      [1, "A protocol is best described as:", ["A written plan for care in specific situations", "A patient's insurance card", "A legal complaint", "A disease-causing organism"], 0, "Protocols guide EMT care in defined situations."],
+      [1, "Which is a common EMT work setting?", ["Ambulance service", "Courtroom jury box only", "Pharmacy checkout only", "Aircraft control tower only"], 0, "EMTs commonly work in ambulance services, fire departments, hospitals, and similar settings."],
+      [1, "The National Registry of Emergency Medical Technicians is associated with:", ["Certification testing and competency standards", "Ambulance fuel purchases", "Hospital room assignments", "Patient billing codes only"], 0, "The NREMT is tied to EMS certification and competency assessment."],
+
+      [2, "What should an EMT do before entering a potentially unsafe scene?", ["Wait until the scene is safe", "Enter quickly alone", "Ignore the hazard", "Send a bystander first"], 0, "Scene safety comes before patient contact."],
+      [2, "Gloves, masks, gowns, and eye protection are examples of:", ["PPE", "DNR", "CISM", "QI"], 0, "PPE protects the rescuer from exposure."],
+      [2, "Standard precautions are used to:", ["Prevent exposure to blood, body fluids, and infectious material", "Avoid patient assessment", "Speed up billing", "Replace hand washing"], 0, "Standard precautions reduce infection exposure."],
+      [2, "A pathogen is:", ["A disease-causing organism", "A lifting device", "A type of consent", "A legal order"], 0, "Pathogens can cause disease."],
+      [2, "A communicable disease is one that:", ["Can spread from person to person", "Only affects bones", "Cannot be transmitted", "Is always genetic"], 0, "Communicable diseases can be transmitted between people."],
+      [2, "Which habit best supports EMT wellness?", ["Regular sleep, nutrition, exercise, and stress management", "Skipping meals every shift", "Ignoring repeated stress", "Never talking after hard calls"], 0, "Healthy routines help protect physical and mental well-being."],
+      [2, "The purpose of CISM is to:", ["Support responders after stressful incidents", "Punish responders", "Replace all mental health care", "Diagnose patients"], 0, "CISM provides support after critical incidents."],
+      [2, "Burnout is best described as:", ["Long-term emotional exhaustion from repeated stress", "A type of pathogen", "A consent form", "A lifting technique"], 0, "Burnout develops from ongoing stress and exhaustion."],
+      [2, "An N95 or HEPA respirator is especially important when:", ["Airborne disease exposure is possible", "Moving a patient down stairs", "Writing a refusal form", "Calling medical direction"], 0, "Respirators help protect against airborne hazards."],
+      [2, "Hand washing should occur:", ["After removing gloves or after patient contact", "Only at the end of the month", "Only if gloves tear", "Only after eating"], 0, "Hand hygiene is a core infection-control step."],
+      [2, "OSHA rules are important in EMS because they:", ["Help protect workers from occupational hazards", "Replace medical direction", "Create DNR orders", "Approve patient refusals"], 0, "OSHA focuses on workplace safety and exposure protection."],
+      [2, "The Ryan White notification process is related to:", ["Notification after possible infectious disease exposure", "Ambulance maintenance", "HIPAA billing", "Organ donation"], 0, "Ryan White provisions relate to responder notification after exposure risk."],
+      [2, "Which scene clue suggests possible danger?", ["Traffic, fire, violence, unstable structures, or hazardous materials", "A calm room with no hazards", "A patient sitting quietly", "A clear driveway"], 0, "These hazards may injure rescuers or patients."],
+      [2, "What should you do if a HAZMAT incident is suspected?", ["Stay uphill/upwind when possible and wait for trained resources", "Walk into the substance to identify it", "Remove PPE", "Bring the patient into the ambulance immediately"], 0, "HAZMAT scenes require distance, isolation, and trained responders."],
+      [2, "Which is a healthy stress-management strategy?", ["Exercise and talking with appropriate support people", "Using alcohol after every hard call", "Pretending nothing happened forever", "Sleeping as little as possible"], 0, "Healthy coping reduces stress load."],
+      [2, "An acute stress reaction occurs:", ["During or shortly after a stressful event", "Only years later", "Only after legal action", "Only during sleep"], 0, "Acute stress reactions are immediate or near-immediate."],
+      [2, "A delayed stress reaction may appear:", ["Later after the event", "Only before the call begins", "Only in patients", "Only after equipment failure"], 0, "Delayed reactions can show up after time has passed."],
+      [2, "When dealing with death and dying, the EMT should:", ["Use compassionate, honest, calm communication", "Argue with family members", "Make promises that are not true", "Ignore emotions"], 0, "Compassion and honesty help patients and families."],
+      [2, "Changing gloves between patients helps prevent:", ["Cross-contamination", "Patient refusal", "Online medical direction", "Abandonment"], 0, "Changing gloves reduces spread between patients."],
+      [2, "Your first responsibility as an EMT is to:", ["Protect your own safety and your crew's safety", "Rush in no matter what", "Begin paperwork", "Call billing"], 0, "Responder safety comes first."],
+
+      [3, "Before lifting a patient, the EMT should first consider:", ["Patient weight, obstacles, resources, and plan", "Only the fastest route", "Only the patient's age", "Only the color of the stretcher"], 0, "Planning reduces injury and improves safety."],
+      [3, "Proper body mechanics primarily help prevent:", ["Injury to EMTs and patients", "HIPAA violations", "Online medical direction", "Communicable disease"], 0, "Good mechanics protect the lifter and patient."],
+      [3, "In a power lift, the EMT should use the:", ["Legs with the back kept straight", "Back with knees locked", "Neck muscles", "Arms fully extended"], 0, "The power lift uses strong leg muscles and a straight back."],
+      [3, "A power grip means:", ["Hands palms up with all fingers wrapped around the handle when possible", "Only fingertips on the handle", "One-handed lifting", "A loose grip"], 0, "A secure power grip improves control and reduces strain."],
+      [3, "When carrying a patient, keep the load:", ["Close to your body", "Far from your body", "Above your head", "Behind your back"], 0, "Keeping the load close reduces back strain."],
+      [3, "Which action increases injury risk while lifting?", ["Twisting the torso", "Keeping feet shoulder-width apart", "Bending knees", "Communicating with your partner"], 0, "Twisting while loaded is unsafe."],
+      [3, "An emergency move is used when:", ["There is immediate danger to patient or rescuer", "The patient is stable and comfortable", "You have plenty of time", "The patient asks for a blanket"], 0, "Emergency moves are for immediate danger."],
+      [3, "An urgent move is most appropriate when:", ["The patient needs rapid treatment or transport but the scene is not immediately dangerous", "There is no need to move", "The EMT is tired", "The patient is refusing care"], 0, "Urgent moves are fast but not because of immediate scene danger."],
+      [3, "A non-urgent move is used when:", ["No immediate threat exists and time allows proper positioning", "A fire is spreading", "Traffic is striking the scene", "A weapon is present"], 0, "Non-urgent moves allow careful positioning."],
+      [3, "A stair chair is designed to:", ["Move a patient up or down stairs", "Diagnose spinal injury", "Provide oxygen", "Replace every stretcher"], 0, "Stair chairs are useful on stairs."],
+      [3, "A direct carry commonly moves a patient:", ["From bed to stretcher", "From an unsafe fire scene", "Against their will", "Into a courtroom"], 0, "Direct carry is often used for bed-to-stretcher transfers."],
+      [3, "An extremity lift involves:", ["One rescuer under the arms and one at the legs", "Only a blanket drag", "A wheeled stretcher only", "A stair chair only"], 0, "The extremity lift uses arm and leg support by two rescuers."],
+      [3, "A backboard is most associated with:", ["Moving patients when spinal precautions may be needed", "Treating communicable disease", "Giving consent", "Measuring blood pressure"], 0, "Backboards can be used when spinal precautions are needed."],
+      [3, "A draw-sheet method is useful for:", ["Moving a patient laterally from bed to stretcher", "Walking a patient down stairs", "Replacing PPE", "Getting medical direction"], 0, "Draw sheets can slide patients between surfaces."],
+      [3, "When pushing or pulling, an EMT should:", ["Keep the line of pull close to the body and avoid twisting", "Push with arms fully extended and back twisted", "Use only one hand", "Lean backward blindly"], 0, "Good mechanics apply to pushing and pulling too."],
+      [3, "When reaching, avoid:", ["Reaching far away from the body with a heavy load", "Using help", "Keeping the back straight", "Communicating"], 0, "Long reaches with weight increase injury risk."],
+      [3, "The safest lift team communication includes:", ["Clear commands and lifting together", "Silent guessing", "Each rescuer moving separately", "Letting the patient count"], 0, "Coordinated commands prevent surprise movement."],
+      [3, "Which device is commonly used for a patient who must be carried on stairs and can sit upright?", ["Stair chair", "Long backboard only", "Oxygen tank", "Blood pressure cuff"], 0, "A stair chair fits seated stair movement."],
+      [3, "If a patient is too heavy for the available crew, the EMT should:", ["Request additional help or appropriate equipment", "Lift anyway to save time", "Use poor body mechanics", "Drag by one arm"], 0, "Additional resources protect everyone."],
+      [3, "A rapid extrication may be considered when:", ["A patient in a vehicle has life threats requiring fast removal", "The patient wants a faster ride", "There is no patient", "The scene is calm and nonurgent"], 0, "Rapid extrication is used when immediate care/removal is needed."],
+
+      [4, "Consent means:", ["Permission to provide care", "A disease exposure", "A lifting technique", "A quality review"], 0, "Consent is patient permission."],
+      [4, "Expressed consent is given by:", ["Words or clear actions", "Only unconsciousness", "Only a court order", "Only a DNR"], 0, "Expressed consent is clearly stated or shown."],
+      [4, "Implied consent applies when:", ["An unresponsive patient needs emergency care", "A competent adult refuses care", "A patient jokes with you", "A bystander waves"], 0, "Implied consent covers emergency care when the patient cannot respond."],
+      [4, "Informed consent requires the patient to understand:", ["Risks, benefits, and options", "Only ambulance color", "Only the EMT's name", "Only the weather"], 0, "Informed consent depends on understanding."],
+      [4, "A competent adult refuses transport. The EMT should:", ["Explain risks, assess competence, involve medical direction as needed, and document", "Force transport", "Ignore the refusal", "Leave without documentation"], 0, "Refusals require explanation, competence, and documentation."],
+      [4, "A competent patient is one who can:", ["Understand information and make decisions", "Pay immediately", "Walk without help", "Drive"], 0, "Competence is decision-making ability."],
+      [4, "Duty to act means:", ["A legal obligation to provide care once called or assigned", "Permission from a patient", "A disease rule", "A lifting method"], 0, "Duty to act is a legal obligation to provide care."],
+      [4, "Negligence requires which general idea?", ["Failure to meet duty/standard causing harm", "Perfect care with no harm", "A patient saying thank you", "A valid DNR"], 0, "Negligence involves duty, breach, causation, and damages."],
+      [4, "Abandonment occurs when an EMT:", ["Ends care without proper transfer to equal or higher care", "Receives online medical direction", "Uses PPE", "Documents accurately"], 0, "Abandonment is improper termination of care."],
+      [4, "Assault in EMS is best described as:", ["Threatening unwanted touching or harm", "Actual unwanted touching", "Keeping records private", "Following a protocol"], 0, "Assault is the threat."],
+      [4, "Battery in EMS is best described as:", ["Actual unwanted touching or treatment", "Threatening words only", "Quality improvement", "A DNR order"], 0, "Battery is actual unwanted contact."],
+      [4, "False imprisonment may occur if an EMT:", ["Restrains or transports a patient without legal reason", "Lets a competent adult refuse", "Keeps information private", "Uses a stair chair"], 0, "False imprisonment involves unlawful restraint or transport."],
+      [4, "HIPAA is mainly concerned with:", ["Patient privacy and medical information", "Lifting posture", "Scene lighting", "Ambulance fuel"], 0, "HIPAA protects health information."],
+      [4, "Confidentiality means:", ["Keeping patient information private", "Posting a call story online", "Talking about a patient with friends", "Avoiding documentation"], 0, "Confidentiality protects patient information."],
+      [4, "A DNR order tells providers:", ["Not to perform resuscitation under specified conditions", "Never assess the patient", "Never transport the patient", "Never provide comfort care"], 0, "A DNR limits resuscitation, not all care."],
+      [4, "An advance directive is:", ["A legal document stating health care wishes", "A type of PPE", "A radio report", "A stair chair strap"], 0, "Advance directives communicate patient wishes."],
+      [4, "Good Samaritan laws generally protect rescuers who:", ["Act in good faith within training", "Act recklessly", "Demand payment first", "Ignore consent"], 0, "Protection usually depends on good faith and staying within training."],
+      [4, "Libel is:", ["Written defamation", "Spoken defamation", "A consent type", "A moving device"], 0, "Libel is defamatory writing."],
+      [4, "Slander is:", ["Spoken defamation", "Written defamation", "A DNR", "An infection-control step"], 0, "Slander is defamatory speech."],
+      [4, "At a crime scene, the EMT should:", ["Provide care while disturbing evidence as little as possible", "Collect souvenirs", "Move all evidence before care", "Ignore patient needs"], 0, "EMTs care for the patient while minimizing evidence disturbance."],
+
+      [1, "EMS is activated when:", ["A medical bill is due", "A call for help is made after serious illness or injury", "A hospital closes for the day", "A patient wants a routine refill"], 1, "EMS activation begins with a call for help after illness or injury."],
+      [1, "Which is part of a coordinated EMS system?", ["A single responder acting without communication", "Only the ambulance vehicle", "Communications, trained personnel, transportation, hospitals, and public access", "Only the emergency department"], 2, "EMS systems include communication, trained responders, transport, hospitals, and public access."],
+      [1, "Why do EMS systems use national standards and system assessment?", ["To compare and improve system performance", "To remove medical direction", "To make every local system identical", "To avoid public education"], 0, "System standards and assessment help EMS leaders evaluate and improve performance."],
+      [1, "Which responsibility belongs to the EMS medical director?", ["Approving clinical protocols and overseeing patient care standards", "Issuing driver's licenses", "Replacing all EMT documentation", "Collecting patient copays"], 0, "Medical directors approve protocols and oversee clinical care."],
+      [1, "Which task is outside the EMT's usual field role?", ["Providing basic emergency care", "Transporting a patient", "Making a definitive hospital diagnosis", "Communicating with receiving staff"], 2, "EMTs assess and treat within scope but do not make definitive hospital diagnoses."],
+      [1, "Which action best represents patient advocacy?", ["Protecting the patient's dignity and speaking up for needed care", "Ignoring a patient's concerns", "Choosing the easiest transport option only", "Sharing private details with friends"], 0, "Patient advocacy means protecting dignity and speaking up for patient needs."],
+      [1, "The National Registry of Emergency Medical Technicians is most associated with:", ["National EMS certification testing", "Hospital billing codes", "Traffic control plans", "DNR order storage"], 0, "NREMT is associated with national EMS certification testing."],
+      [1, "Continuing education is important because it helps EMTs:", ["Maintain knowledge, skills, and certification requirements", "Avoid all protocols", "Practice beyond scope", "Skip medical direction"], 0, "Continuing education keeps EMT knowledge current and supports recertification."],
+      [1, "Compared with an EMT, an AEMT generally can:", ["Provide basic and limited advanced emergency care", "Never transport patients", "Act without protocols", "Replace the medical director"], 0, "AEMTs have EMT-level abilities plus limited advanced skills."],
+      [1, "Paramedics generally have:", ["Less education than EMRs", "The most advanced prehospital training among the four common EMS levels", "No need for protocols", "Only dispatch training"], 1, "Paramedics have the most advanced training among EMR, EMT, AEMT, and paramedic levels."],
+      [1, "Which agency setting can provide EMS service?", ["Only private ambulance companies", "Only hospitals", "Fire departments, government agencies, volunteer squads, private companies, or hospitals", "Only federal agencies"], 2, "EMS may be delivered by fire, public, volunteer, private, hospital-based, and other models."],
+      [1, "Credentialing by an EMS agency usually means:", ["Local permission to practice under that agency and medical director", "A patient's permission to treat", "A type of stretcher movement", "Automatic paramedic certification"], 0, "Credentialing is local authorization to function in a system under medical oversight."],
+      [1, "EMS research and data collection can lead to:", ["Updated protocols and better patient outcomes", "Less accurate documentation", "Elimination of QI", "Ignoring trends"], 0, "Research and data help EMS systems update care and improve outcomes."],
+      [1, "Which example best shows evidence-based EMS?", ["Changing a protocol after reliable research shows better outcomes", "Doing a skill because it feels dramatic", "Ignoring updated guidelines", "Copying a television rescue scene"], 0, "Evidence-based EMS uses reliable research to guide protocols and care."],
+      [1, "Which action is a public health role for EMS?", ["Teaching fall prevention to older adults", "Posting patient names online", "Avoiding injury-prevention education", "Refusing to document overdose trends"], 0, "EMS supports public health through prevention education and community risk awareness."],
+      [1, "Which statement best describes EMS?", ["A system of coordinated emergency response and medical care", "Only a ride to the hospital", "A hospital-only service", "A replacement for all physician care"], 0, "EMS is a coordinated system of emergency medical care, not just transport."],
+      [1, "When a written protocol does not fit the patient's situation, the EMT should usually:", ["Guess and hope", "Contact medical direction as allowed by local policy", "Ignore the patient", "Practice outside scope"], 1, "Medical direction helps guide care when protocols do not clearly fit."],
+      [1, "If a state rule does not allow an EMT to perform a skill, the EMT should:", ["Stay within scope and not perform the prohibited skill", "Do it if a bystander asks", "Do it if the patient looks sick", "Do it because another state allows it"], 0, "State scope of practice limits what an EMT may legally perform."],
+      [1, "A professional EMT should respond to feedback during QI by:", ["Using it to improve future patient care", "Deleting the run report", "Arguing that QI never applies", "Posting the review online"], 0, "QI feedback is meant to improve future care and system performance."],
+      [1, "The informed public is part of an EMS system because people need to:", ["Recognize emergencies and know how to access help", "Diagnose patients before EMS arrives", "Approve protocols", "Replace dispatchers"], 0, "An informed public can recognize emergencies and activate EMS quickly."],
+
+      [2, "The tuberculin skin test is used to screen for possible exposure to:", ["Tuberculosis", "Hepatitis C", "HIV only", "Heat illness"], 0, "The tuberculin skin test screens for tuberculosis exposure."],
+      [2, "Which vaccination is especially emphasized for EMS bloodborne-pathogen protection?", ["Hepatitis B vaccine", "Tetanus only", "Rabies vaccine for every call", "No vaccines are useful"], 0, "Hepatitis B vaccination helps protect EMS providers from a serious bloodborne disease."],
+      [2, "After a significant blood or body-fluid exposure, the EMT should first:", ["Report it promptly and follow exposure-control procedures", "Hide it to avoid paperwork", "Wait several weeks", "Clean the ambulance only"], 0, "Prompt reporting and exposure-control steps are essential after a possible exposure."],
+      [2, "Direct contact transmission can occur when:", ["Blood or body fluids touch broken skin or mucous membranes", "A patient calls 911", "A protocol is updated", "A patient signs a refusal"], 0, "Direct contact can spread disease through contaminated fluids contacting vulnerable tissue."],
+      [2, "Indirect contact transmission involves:", ["A contaminated object or surface", "Only legal paperwork", "Only radio communication", "Only emotional stress"], 0, "Indirect contact uses contaminated objects or surfaces as the route."],
+      [2, "Vector-borne transmission occurs through:", ["Animals or insects", "Written protocols", "Patient consent", "Stretcher straps"], 0, "Vector-borne transmission uses animals or insects to spread disease."],
+      [2, "Which PPE is most important when blood could splash into the face?", ["Gloves plus eye and face protection", "No PPE if the call is fast", "Only turnout pants", "Only a watch cap"], 0, "Splash risk calls for gloves and eye/face protection."],
+      [2, "A gown should be considered when:", ["Clothing may be contaminated by blood or body fluids", "The patient refuses care", "Only lifting a clean bag", "Writing a report"], 0, "Gowns protect clothing and skin when contamination is likely."],
+      [2, "Which hand-cleaning method is preferred when hands are visibly soiled?", ["Soap and water", "No cleaning", "Only waving them dry", "Only changing gloves"], 0, "Visible soil should be removed with soap and water."],
+      [2, "Disinfection is best described as:", ["Killing many disease-causing organisms on surfaces", "Getting a patient's consent", "Completing a run report", "Performing a power lift"], 0, "Disinfection reduces pathogens on surfaces and equipment."],
+      [2, "Cleaning an ambulance after visible blood contamination should include:", ["PPE and an approved cleaning/disinfection process", "Bare hands and a dry towel", "Ignoring areas under straps", "Only spraying air freshener"], 0, "PPE plus proper cleaning and disinfection reduce exposure risk."],
+      [2, "Which patient situation most strongly suggests an airborne-precaution concern?", ["Persistent cough with possible tuberculosis", "Minor ankle pain", "Routine lift assist with no symptoms", "Patient asks for a blanket"], 0, "Tuberculosis concern calls for airborne respiratory protection."],
+      [2, "The stages of grief are best understood as:", ["Not always linear and sometimes overlapping", "Always in the same exact order", "Only experienced by EMTs", "A legal consent process"], 0, "Grief reactions may overlap and do not always occur in a fixed order."],
+      [2, "When speaking with a grieving family member, the EMT should:", ["Use calm, compassionate, honest language", "Use false reassurance", "Rush them with no explanation", "Argue about emotions"], 0, "Compassionate and honest communication is appropriate around death and dying."],
+      [2, "Critical incident stress management is meant to:", ["Offer support and resources after difficult events", "Replace all professional counseling forever", "Punish emotional reactions", "Guarantee no stress reaction"], 0, "CISM offers support and resources after critical incidents."],
+      [2, "Cumulative stress is most likely caused by:", ["Repeated stressors building over time", "One glove change", "One written protocol", "A single clean stretcher"], 0, "Cumulative stress builds from repeated exposure to stressors."],
+      [2, "Which finding may suggest a responder needs mental-health support?", ["Persistent intrusive memories, sleep problems, or hopelessness after calls", "Asking for lunch", "Checking equipment", "Using PPE"], 0, "Persistent distress symptoms can signal a need for support."],
+      [2, "Fatigue in EMS is dangerous because it can:", ["Reduce alertness, judgment, and safety", "Improve reaction time", "Replace training", "Prevent every infection"], 0, "Fatigue can impair judgment, reaction time, and safety."],
+      [2, "At a violent scene, the EMT should:", ["Stage until law enforcement secures the scene", "Enter alone to save time", "Argue with the aggressor", "Ignore dispatch warnings"], 0, "Violence is a scene-safety threat; stage until secure."],
+      [2, "At a suspected hazardous-materials scene, the safest first positioning is generally:", ["Uphill and upwind at a safe distance", "Downhill in the spill", "Inside the hot zone without training", "Next to the leaking container"], 0, "Uphill and upwind positioning helps reduce exposure risk."],
+
+      [3, "The first rule of moving patients is to:", ["Move them only when necessary and avoid further harm", "Move every patient immediately", "Use the fastest move every time", "Let bystanders choose the method"], 0, "Patients should be moved only when needed and without causing additional harm."],
+      [3, "Before lifting, the crew should communicate a plan because:", ["Everyone must lift and move together", "It makes documentation unnecessary", "It removes the need for equipment", "It guarantees consent"], 0, "A shared plan and commands help the team move together safely."],
+      [3, "Which foot position is safest for lifting?", ["Feet about shoulder-width apart", "Feet touching together", "One foot on the stretcher wheel", "Standing on tiptoe"], 0, "A shoulder-width stance improves balance and lifting stability."],
+      [3, "When lifting, the back should be:", ["Locked in and kept straight", "Rounded forward", "Twisted toward the patient", "Bent at the waist"], 0, "A straight, locked-in back reduces injury risk."],
+      [3, "The direct ground lift is used to:", ["Lift a patient from the ground to a stretcher with multiple rescuers", "Move a patient by dragging clothing only", "Carry a seated patient down stairs", "Document medical necessity"], 0, "A direct ground lift moves a patient from ground level to a stretcher."],
+      [3, "A blanket drag is an example of:", ["An emergency move", "A non-urgent bed transfer", "A type of consent", "A quality-improvement meeting"], 0, "A blanket drag can be used as an emergency move when rapid removal is needed."],
+      [3, "A clothes drag may be appropriate when:", ["A patient must be moved quickly from immediate danger", "A stable patient needs careful transfer", "A patient refuses transport", "A patient can walk safely"], 0, "Clothes drags are emergency moves for immediate danger."],
+      [3, "Which patient is the best candidate for a stair chair?", ["A stable patient who can sit upright and needs stair movement", "An unresponsive patient who cannot sit", "A patient requiring CPR during transport", "A patient with no stairs"], 0, "Stair chairs are for appropriate seated patients on stairs."],
+      [3, "A scoop stretcher is useful because it can:", ["Separate and scoop a supine patient with less rolling", "Treat infection", "Provide online medical direction", "Replace consent"], 0, "Scoop stretchers can separate and lift a patient with limited rolling."],
+      [3, "A soft stretcher is often useful for:", ["Carrying a patient through tight spaces when appropriate", "Giving medications", "Protecting patient privacy online", "Testing for tuberculosis"], 0, "Soft stretchers can help move patients through tight spaces."],
+      [3, "A wheeled ambulance stretcher should be handled by:", ["Enough trained rescuers with the wheels/locks controlled", "One rescuer whenever possible", "The patient alone", "Bystanders only"], 0, "Wheeled stretchers require control, locks, and enough trained help."],
+      [3, "When loading or unloading a stretcher, the EMT should:", ["Confirm it is locked/secured according to device procedure", "Assume it locked itself", "Stand away from the patient", "Release all straps first"], 0, "Checking locks and securement prevents drops and injuries."],
+      [3, "If spinal injury is suspected, the EMT should generally:", ["Move the patient as a unit while maintaining spinal precautions", "Twist the patient's head first", "Sit the patient in any chair", "Ignore alignment"], 0, "Spinal precautions require moving the patient as a unit."],
+      [3, "A log roll is most useful when:", ["A team must roll a patient as a unit", "One rescuer wants to drag a patient by the arm", "The patient refuses consent", "The crew is doing QI"], 0, "A log roll coordinates movement of the body as a unit."],
+      [3, "Which action helps prevent dropping a patient during a lift?", ["One rescuer gives clear commands", "Every rescuer counts separately", "No one speaks", "The newest EMT lifts early"], 0, "One leader giving commands keeps the team synchronized."],
+      [3, "When pushing a wheeled stretcher, the EMT should usually:", ["Use controlled body mechanics and avoid overreaching", "Run while turning sharply", "Push with arms locked far away", "Let it roll unattended"], 0, "Controlled pushing and avoiding overreach reduce injury risk."],
+      [3, "Which is an urgent move scenario?", ["Patient blocks access to life-saving care and needs rapid repositioning", "Stable patient with no time pressure", "No patient present", "Routine discharge paperwork"], 0, "Urgent moves are used when rapid movement is needed for care or transport without immediate scene danger."],
+      [3, "Which is a non-urgent move scenario?", ["A stable patient can be positioned carefully before transfer", "A room is on fire", "An explosion risk is present", "A weapon is still visible"], 0, "Non-urgent moves allow careful planning when no immediate threat exists."],
+      [3, "A bariatric patient move should include:", ["Additional personnel and appropriate equipment", "Trying a risky lift with two people", "No planning", "Skipping straps"], 0, "Bariatric moves require enough help and suitable equipment."],
+      [3, "Which statement about manual lifts is safest?", ["Use manual lifts only when appropriate help and conditions make them safe", "Manual lifts are always safer than devices", "Manual lifts never need communication", "Manual lifts work for every patient"], 0, "Manual lifts require appropriate help, planning, and safe conditions."],
+
+      [4, "The four common elements of negligence are:", ["Duty, breach, causation, and damages", "Consent, HIPAA, DNR, and ethics", "PPE, BSI, stress, and burnout", "Lift, carry, drag, and roll"], 0, "Negligence is commonly analyzed using duty, breach, causation, and damages."],
+      [4, "Breach of duty means the EMT:", ["Failed to meet the expected standard of care", "Received consent", "Transferred care properly", "Protected confidentiality"], 0, "Breach means the provider did not meet the expected standard."],
+      [4, "Damages in a negligence claim refer to:", ["Actual harm or injury", "The patient's signature", "A written protocol", "A lifting device"], 0, "Damages are the harm or injury claimed."],
+      [4, "Proximate cause means:", ["The EMT's breach caused or contributed to the patient's harm", "The patient gave consent", "The patient had insurance", "The EMT used gloves"], 0, "Causation links the breach to the harm."],
+      [4, "A duty to act most clearly exists when the EMT:", ["Is dispatched/on duty and accepts responsibility for the patient", "Is watching a medical show at home", "Is off duty with no relationship to the patient", "Reads about EMS online"], 0, "Duty to act exists when the EMT has an assigned or established responsibility."],
+      [4, "Which patient can generally refuse care?", ["A competent adult who understands the risks", "Every unconscious patient", "Every minor with no guardian in any situation", "A confused patient who cannot explain the decision"], 0, "Competent adults who understand risks can generally refuse care."],
+      [4, "Decision-making capacity means the patient can:", ["Understand, appreciate, reason about, and communicate a choice", "Pay the ambulance bill", "Walk without help", "Name every medication"], 0, "Capacity involves understanding, reasoning, and communicating a decision."],
+      [4, "A refusal form should usually document:", ["Assessment, risks explained, patient capacity, signatures/witnesses when possible", "Only the EMT's opinion", "Only the weather", "No patient interaction"], 0, "Refusal documentation should show assessment, risk explanation, capacity, and signatures when possible."],
+      [4, "Emancipated minors are important because they may:", ["Have legal authority to consent for themselves in some situations", "Never receive EMS care", "Always require police consent", "Automatically have a DNR"], 0, "Emancipated minors may legally consent for themselves depending on state law."],
+      [4, "Involuntary consent may apply when:", ["Law enforcement or mental-health law authorizes care/transport for a dangerous patient", "A competent adult calmly refuses care", "A patient asks for help", "A parent signs a form"], 0, "Involuntary consent can apply under specific legal authority for certain dangerous or impaired patients."],
+      [4, "A living will is a type of:", ["Advance directive", "PPE", "EMS agency", "Power grip"], 0, "A living will is an advance directive that states health-care wishes."],
+      [4, "A durable power of attorney for health care names:", ["A person to make health-care decisions if the patient cannot", "A stretcher operator", "The EMS dispatcher", "The medical examiner"], 0, "Health-care power of attorney designates a decision-maker."],
+      [4, "A medical identification device may tell the EMT about:", ["Important conditions, allergies, or treatment instructions", "The best route to the hospital only", "The stretcher weight", "The EMT's certification"], 0, "Medical IDs can reveal conditions, allergies, and special instructions."],
+      [4, "Organ donor status means the EMT should:", ["Continue appropriate patient care and follow local policy", "Stop all care immediately", "Ignore the patient", "Remove evidence"], 0, "Organ donor status does not replace patient care; follow local policy."],
+      [4, "Mandatory reporting may be required for:", ["Suspected abuse, neglect, certain injuries, or crimes depending on law", "Every routine headache", "Every patient name to social media", "Every refusal to the news"], 0, "Laws may require reporting abuse, neglect, certain injuries, or crimes."],
+      [4, "A legal exception to confidentiality may allow sharing information with:", ["Receiving medical staff involved in patient care", "Curious neighbors", "Friends of the EMT", "Social media followers"], 0, "Information may be shared for continuity of care with appropriate personnel."],
+      [4, "The minimum necessary idea means:", ["Share only the patient information needed for the purpose", "Share every detail with everyone", "Never tell the receiving hospital anything", "Post only initials online"], 0, "Privacy rules favor sharing only the information needed."],
+      [4, "Which is an ethical principle related to respecting a patient's choices?", ["Autonomy", "Battery", "Vector transmission", "Power lift"], 0, "Autonomy is respect for the patient's decision-making."],
+      [4, "Which ethical principle means doing good for the patient?", ["Beneficence", "Libel", "False imprisonment", "Credentialing"], 0, "Beneficence means acting for the patient's benefit."],
+      [4, "Which ethical principle means avoiding harm?", ["Nonmaleficence", "Slander", "Standard precautions", "Direct carry"], 0, "Nonmaleficence means avoiding unnecessary harm."]
+    ].map(([chapter, q, options, answer, why], id) => ({ id, chapter, q, options, answer, why }));
+
+    const chapters = [
+      ["Chapter 1", "Introduction to EMS", "EMS components, provider levels, medical direction, scope, certification, QI, evidence, public health.", "Know who controls care, what EMTs can do, and how the system improves."],
+      ["Chapter 2", "Well-Being of the EMT", "Scene safety, PPE, infection routes, OSHA/Ryan White, TB/TST, stress, grief, fatigue, hazards.", "Protect yourself first so you can keep thinking clearly and protect the patient."],
+      ["Chapter 3", "Lifting and Moving Patients", "Body mechanics, power lift/grip, emergency/urgent/non-urgent moves, drags, stair chair, scoop, soft stretcher, bariatric moves.", "Back straight, legs strong, load close, no twisting, enough help."],
+      ["Chapter 4", "Medical, Legal, and Ethical Issues", "Consent, refusal, capacity, negligence, DNR/advance directives, confidentiality, defamation, reporting, crime scenes, ethics.", "Permission, privacy, documentation, and proper transfer protect the patient and EMT."]
+    ];
+
+    const modes = [
+      ["flash", "Flashcard Flip", "5 minutes", "Warm up recall before you peek at definitions."],
+      ["match", "Match Lab", "Fast drill", "Lock terms to meanings with quick pair rounds."],
+      ["scenes", "Scene Calls", "Real life", "Practice choosing the EMT action that fits the call."],
+      ["dispatch", "Dispatch Dash", "New game", "Read a call card and choose the right EMT concept fast."],
+      ["quiz", "Exam Sprint", "Full test", "Run the expanded bank or drill a single chapter."]
+    ];
+
+    const scenarios = [
+      { title: "Smoke in the hallway", text: "You arrive for a shortness-of-breath call, but the hallway has smoke and alarms are sounding.", options: ["Enter fast and grab the patient", "Wait until the scene is made safe", "Send one EMT in with no gear"], answer: 1, why: "Scene safety comes before patient contact." },
+      { title: "Radio to the physician", text: "A protocol does not clearly cover your patient's situation, so you contact a physician by phone.", options: ["Online medical direction", "Offline medical direction", "Quality improvement"], answer: 0, why: "Direct real-time physician contact is online medical direction." },
+      { title: "Unconscious patient", text: "A patient is unconscious after a fall and cannot answer questions. They need immediate care.", options: ["Refusal of care", "Implied consent", "Battery"], answer: 1, why: "Emergency care can proceed under implied consent when the patient cannot respond." },
+      { title: "Bed to stretcher", text: "A stable patient needs to be moved from bed to stretcher with multiple rescuers.", options: ["Direct carry", "Emergency move", "False imprisonment"], answer: 0, why: "A direct carry is commonly used from bed to stretcher." },
+      { title: "No permission", text: "A patient says no, but an EMT touches and treats them anyway without legal reason.", options: ["Assault", "Battery", "CISM"], answer: 1, why: "Actual unwanted touching or treatment is battery." },
+      { title: "Transfer problem", text: "An EMT leaves a patient in the emergency department hallway without giving report to qualified staff.", options: ["Abandonment", "HIPAA", "Good Samaritan law"], answer: 0, why: "Ending care without proper transfer can be abandonment." },
+      { title: "Protocol card", text: "Your service has a written rule for giving oxygen to certain patients.", options: ["Offline medical direction", "Online medical direction", "Implied consent"], answer: 0, why: "Written protocols are offline medical direction." },
+      { title: "Quality review", text: "After a difficult call, the agency reviews reports and patient outcomes to improve care.", options: ["Quality improvement", "Assault", "Public refusal"], answer: 0, why: "QI uses review to improve future EMS performance." },
+      { title: "Glove change", text: "You finish helping one patient and are assigned to another patient at the same incident.", options: ["Change gloves and perform hand hygiene", "Keep the same gloves", "Remove all PPE forever"], answer: 0, why: "Changing gloves helps prevent cross-contamination." },
+      { title: "Possible TB", text: "A patient has a persistent cough and the dispatch notes possible tuberculosis exposure.", options: ["Use appropriate respiratory protection", "Use no PPE", "Only wear work boots"], answer: 0, why: "Airborne concerns call for respiratory protection such as an N95 when indicated." },
+      { title: "Bad crash, heavy traffic", text: "Your patient is across three active lanes of traffic.", options: ["Wait for traffic control and safe access", "Run across quickly", "Send only the newest EMT"], answer: 0, why: "Traffic is a scene hazard; make the scene safe first." },
+      { title: "Exhausted partner", text: "Your partner has been irritable, exhausted, and detached after several hard calls.", options: ["Recognize possible burnout/stress and support them", "Mock them", "Ignore it forever"], answer: 0, why: "Burnout and stress reactions matter in EMT well-being." },
+      { title: "Stairs at home", text: "A stable patient can sit upright but must be moved down a narrow staircase.", options: ["Use a stair chair if appropriate", "Use only a backboard for every stair patient", "Carry by one arm"], answer: 0, why: "A stair chair is commonly used for seated stair movement." },
+      { title: "Immediate fire threat", text: "A patient is lying near a spreading vehicle fire.", options: ["Emergency move", "Non-urgent move", "Wait for a perfect lift plan"], answer: 0, why: "Immediate danger calls for an emergency move." },
+      { title: "Stable bed transfer", text: "A stable patient needs careful movement from bed to stretcher.", options: ["Non-urgent move/direct carry as appropriate", "Emergency drag", "False imprisonment"], answer: 0, why: "When there is no immediate threat, use planned non-urgent movement." },
+      { title: "Heavy lift", text: "The patient and equipment are beyond what your crew can safely lift.", options: ["Request more help or equipment", "Lift anyway", "Twist while lifting"], answer: 0, why: "Requesting help prevents injury." },
+      { title: "Long reach", text: "A partner reaches far across a bed while lifting the patient.", options: ["Reposition and keep the load close", "Keep reaching farther", "Lift with the back"], answer: 0, why: "Keep loads close and avoid unsafe reaching." },
+      { title: "Minor patient", text: "A conscious child needs non-life-threatening care and a parent is present.", options: ["Seek parent/guardian consent", "Ignore the parent", "Assume DNR"], answer: 0, why: "Minors usually require parent or guardian consent unless an emergency exception applies." },
+      { title: "Unclear refusal", text: "A patient refuses transport but seems confused and cannot explain the situation.", options: ["Assess decision-making capacity and involve medical direction", "Treat as a routine competent refusal", "Leave immediately"], answer: 0, why: "Refusal requires competence/capacity." },
+      { title: "Privacy slip", text: "An EMT posts a photo from a call with patient details visible.", options: ["Breach of confidentiality/HIPAA concern", "Quality improvement", "Good Samaritan protection"], answer: 0, why: "Patient-identifying information must be kept private." },
+      { title: "Threat without touch", text: "An EMT says, 'If you do not cooperate, I will force treatment,' but does not touch the patient.", options: ["Assault", "Battery", "CISM"], answer: 0, why: "Assault is the threat of unwanted touching or harm." },
+      { title: "Written rumor", text: "A provider writes a false harmful statement about a patient online.", options: ["Libel", "Slander", "Consent"], answer: 0, why: "Libel is written defamation." },
+      { title: "Spoken rumor", text: "A provider verbally spreads a false harmful statement about a patient.", options: ["Slander", "Libel", "DNR"], answer: 0, why: "Slander is spoken defamation." },
+      { title: "Crime scene care", text: "You arrive to a shooting scene after police secure it. The patient is alive near possible evidence.", options: ["Treat the patient while minimizing disturbance of evidence", "Collect evidence first", "Avoid all care"], answer: 0, why: "Patient care comes first, while minimizing scene disturbance." },
+      { title: "DNR confusion", text: "A patient has a valid DNR order but still needs comfort care and assessment.", options: ["Provide appropriate non-resuscitation care", "Refuse all care", "Ignore the DNR"], answer: 0, why: "DNR limits resuscitation under conditions; it does not mean no care." },
+      { title: "Good faith helper", text: "An off-duty trained responder helps within training without reckless behavior.", options: ["Good Samaritan laws may offer protection", "Automatic negligence", "False imprisonment"], answer: 0, why: "Good Samaritan laws often protect good-faith care within training." },
+      { title: "Crew command", text: "Four EMTs are lifting a patient-carrying device.", options: ["Use clear commands and lift together", "Each person moves when ready", "Stay silent"], answer: 0, why: "Coordinated communication helps prevent lifting injuries." },
+      { title: "Public health moment", text: "After several preventable injuries, EMS teaches community fall-prevention tips.", options: ["Public health role", "Battery", "Urgent move"], answer: 0, why: "EMS can help protect community health through prevention education." },
+      { title: "Research changes care", text: "New evidence shows one care approach improves outcomes, and protocols are updated.", options: ["Evidence-based EMS practice", "Abandonment", "False imprisonment"], answer: 0, why: "Research can shape EMT practice and protocols." }
+    ];
+
+    const dispatchCases = [
+      { chapter: 1, title: "Unit 4, call medical control", text: "Your written protocol does not cover this exact patient situation. The crew contacts a physician by radio.", options: ["Online medical direction", "Offline medical direction", "Quality improvement"], answer: 0, why: "Live physician contact is online medical direction." },
+      { chapter: 1, title: "New policy after chart review", text: "Several reports show a pattern. The agency updates training to prevent repeat problems.", options: ["Quality improvement", "Battery", "Consent"], answer: 0, why: "QI uses review to improve care." },
+      { chapter: 1, title: "Can I do that skill?", text: "An EMT wants to perform a procedure not allowed by state rules or training.", options: ["Scope of practice", "Public health", "Stress response"], answer: 0, why: "Scope defines what the EMT may legally do." },
+      { chapter: 1, title: "Community booth", text: "EMS teaches bicycle helmet safety at a local school.", options: ["Public health", "Negligence", "Urgent move"], answer: 0, why: "Prevention education is a public health role." },
+      { chapter: 2, title: "Dispatch notes violence", text: "The caller reports a fight still happening inside the house.", options: ["Stage until scene is safe", "Enter alone", "Start paperwork"], answer: 0, why: "Scene safety comes first." },
+      { chapter: 2, title: "Blood on equipment", text: "After a call, the stretcher has visible blood contamination.", options: ["Use PPE and clean/disinfect properly", "Ignore it", "Use bare hands"], answer: 0, why: "PPE and cleaning reduce exposure risk." },
+      { chapter: 2, title: "Hard call hangover", text: "A responder has nightmares and intrusive thoughts after a pediatric arrest.", options: ["Stress reaction support/CISM resources", "Discipline only", "Pretend it is nothing"], answer: 0, why: "Stress reactions need support." },
+      { chapter: 2, title: "Airborne concern", text: "A patient has symptoms concerning for airborne infection.", options: ["Use appropriate respirator protection", "Only wear sunglasses", "Skip PPE"], answer: 0, why: "Respirators protect against airborne exposure when indicated." },
+      { chapter: 3, title: "Down the stairs", text: "A seated stable patient must be carried down stairs.", options: ["Stair chair", "DNR", "HIPAA"], answer: 0, why: "Stair chairs are made for stair movement." },
+      { chapter: 3, title: "Fire at the scene", text: "A patient must be moved immediately away from danger.", options: ["Emergency move", "Non-urgent move", "Informed consent only"], answer: 0, why: "Immediate danger calls for emergency movement." },
+      { chapter: 3, title: "Bed to stretcher", text: "A stable patient is moved from bed to stretcher by multiple rescuers.", options: ["Direct carry", "False imprisonment", "CISM"], answer: 0, why: "Direct carry can move a patient from bed to stretcher." },
+      { chapter: 3, title: "Lift command", text: "The team counts aloud and lifts together with backs straight.", options: ["Good body mechanics", "Abandonment", "Assault"], answer: 0, why: "Coordinated lifting and posture are body mechanics." },
+      { chapter: 4, title: "Yes, help me", text: "A conscious adult says, 'Yes, you can treat me.'", options: ["Expressed consent", "Implied consent", "False imprisonment"], answer: 0, why: "Words or clear actions give expressed consent." },
+      { chapter: 4, title: "Patient cannot answer", text: "An unconscious patient needs emergency care.", options: ["Implied consent", "Refusal", "Libel"], answer: 0, why: "Implied consent applies when emergency care is needed and the patient cannot respond." },
+      { chapter: 4, title: "Unwanted touch", text: "An EMT treats a competent refusing patient without legal reason.", options: ["Battery", "Online medical direction", "Public health"], answer: 0, why: "Actual unwanted touching/treatment can be battery." },
+      { chapter: 4, title: "Handoff skipped", text: "A crew leaves without transferring care or giving report.", options: ["Abandonment", "PPE", "Power grip"], answer: 0, why: "Ending care without proper transfer can be abandonment." }
+    ];
+
+    const state = {
+      xp: Number(localStorage.getItem("ems-xp") || 0),
+      streak: Number(localStorage.getItem("ems-streak") || 0),
+      mastered: new Set(JSON.parse(localStorage.getItem("ems-mastered") || "[]")),
+      shaky: new Set(JSON.parse(localStorage.getItem("ems-shaky") || "[]")),
+      card: 0,
+      flashChapter: 0,
+      matchChapter: 0,
+      sceneChapter: 0,
+      dispatchChapter: 0,
+      quizChapter: 0,
+      quizIndex: 0,
+      quizAnswered: {},
+      quizLocked: false,
+      quizSeconds: 0,
+      dispatchIndex: 0,
+      dispatchAnswered: false,
+      selectedTerm: null,
+      matchPairs: [],
+      round: {},
+      orders: {},
+      optionOrders: {},
+      grades: JSON.parse(localStorage.getItem("ems-grades") || "{}")
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const shuffle = (items) => [...items].sort(() => Math.random() - .5);
+    const chapterName = (n) => chapters[n - 1][1];
+    let toastTimer;
+    let quizTimerId;
+
+    function activeBank(chapter) {
+      return chapter ? quiz.filter(item => item.chapter === chapter) : quiz;
+    }
+
+    function activeFlashBank(chapter) {
+      return chapter ? flashDeck.filter(item => item.chapter === chapter) : flashDeck;
+    }
+
+    function modeBank(mode, chapter) {
+      return mode === "flash" ? activeFlashBank(chapter) : activeBank(chapter);
+    }
+
+    function orderKey(mode, chapter) {
+      return `${mode}-${chapter || 0}`;
+    }
+
+    function resetOrder(mode) {
+      Object.keys(state.orders).filter(key => key.startsWith(`${mode}-`)).forEach(key => delete state.orders[key]);
+      Object.keys(state.optionOrders).filter(key => key.startsWith(`${mode}-`)).forEach(key => delete state.optionOrders[key]);
+    }
+
+    function orderedBank(mode, chapter) {
+      const source = modeBank(mode, chapter);
+      const key = orderKey(mode, chapter);
+      if (!state.orders[key] || state.orders[key].length !== source.length) {
+        state.orders[key] = shuffle(source.map(item => item.id));
+      }
+      return state.orders[key].map(id => source.find(item => item.id === id)).filter(Boolean);
+    }
+
+    function activeQuiz() {
+      return orderedBank("quiz", state.quizChapter);
+    }
+
+    function shuffledOptions(mode, item) {
+      const key = `${mode}-${item.id}`;
+      if (!state.optionOrders[key]) {
+        state.optionOrders[key] = shuffle(item.options.map((_, index) => index));
+      }
+      return state.optionOrders[key];
+    }
+
+    function bankLabel(chapter) {
+      return chapter ? `${activeBank(chapter).length}` : `${quiz.length}`;
+    }
+
+    function flashBankLabel(chapter) {
+      return chapter ? `${activeFlashBank(chapter).length}` : `${flashDeck.length}`;
+    }
+
+    function filterOptions(activeChapter, attr, labelFor = bankLabel) {
+      return [[0, `All ${labelFor(0)}`], [1, `Ch 1 (${labelFor(1)})`], [2, `Ch 2 (${labelFor(2)})`], [3, `Ch 3 (${labelFor(3)})`], [4, `Ch 4 (${labelFor(4)})`]].map(([chapter, label]) => `
+        <button class="btn ${activeChapter === chapter ? "" : "secondary"}" ${attr}="${chapter}">${label}</button>
+      `).join("");
+    }
+
+    function ensureGrade(mode) {
+      if (!state.grades[mode]) state.grades[mode] = { correct: 0, attempts: 0 };
+      return state.grades[mode];
+    }
+
+    function gradeLabel(correct, attempts) {
+      if (!attempts) return "--";
+      const pct = Math.round((correct / attempts) * 100);
+      if (pct >= 90) return `A ${pct}%`;
+      if (pct >= 80) return `B ${pct}%`;
+      if (pct >= 70) return `C ${pct}%`;
+      if (pct >= 60) return `D ${pct}%`;
+      return `Keep Going ${pct}%`;
+    }
+
+    function round(mode) {
+      if (!state.round[mode]) state.round[mode] = { correct: 0, attempts: 0, finished: false };
+      return state.round[mode];
+    }
+
+    function resetRound(mode) {
+      state.round[mode] = { correct: 0, attempts: 0, finished: false };
+      const panel = $(`${mode}Result`);
+      if (panel) panel.classList.remove("show");
+      renderGrades();
+    }
+
+    function recordRound(mode, correct) {
+      const r = round(mode);
+      r.attempts += 1;
+      if (correct) r.correct += 1;
+      trackGrade(mode, correct);
+      return r;
+    }
+
+    function scoreText(correct, attempts) {
+      return `${gradeLabel(correct, attempts)} • ${correct}/${attempts}`;
+    }
+
+    function finishRound(mode, total, message = "Round complete.") {
+      const r = round(mode);
+      r.finished = true;
+      const panel = $(`${mode}Result`);
+      if (!panel) return;
+      panel.innerHTML = `
+        <h3>${message}</h3>
+        <p>Your round grade: ${scoreText(r.correct, r.attempts)}. Completed ${total || r.attempts} item${(total || r.attempts) === 1 ? "" : "s"}.</p>
+        <button class="btn" data-restart-mode="${mode}">Restart This Tab</button>
+      `;
+      panel.classList.add("show");
+      showToast(`${message} ${scoreText(r.correct, r.attempts)}`);
+    }
+
+    function save() {
+      localStorage.setItem("ems-xp", state.xp);
+      localStorage.setItem("ems-streak", state.streak);
+      localStorage.setItem("ems-mastered", JSON.stringify([...state.mastered]));
+      localStorage.setItem("ems-shaky", JSON.stringify([...state.shaky]));
+      localStorage.setItem("ems-grades", JSON.stringify(state.grades));
+    }
+
+    function trackGrade(mode, correct) {
+      const grade = ensureGrade(mode);
+      grade.attempts += 1;
+      if (correct) grade.correct += 1;
+      save();
+      renderGrades();
+    }
+
+    function award(points, correct = true) {
+      state.xp += points;
+      state.streak = correct ? state.streak + 1 : 0;
+      save();
+      renderStats();
+      if (points > 0) showToast(`+${points} XP. Streak ${state.streak}.`);
+      else showToast(correct ? "Nice recovery." : "Reset and retry. That is how it sticks.");
+    }
+
+    function renderGrades() {
+      [
+        ["flash", "gradeFlash", "gradeFlashDetail"],
+        ["match", "gradeMatch", "gradeMatchDetail"],
+        ["scenes", "gradeScenes", "gradeScenesDetail"],
+        ["dispatch", "gradeDispatch", "gradeDispatchDetail"],
+        ["quiz", "gradeQuiz", "gradeQuizDetail"]
+      ].forEach(([mode, labelId, detailId]) => {
+        if (!$(labelId) || !$(detailId)) return;
+        const current = round(mode);
+        $(labelId).textContent = gradeLabel(current.correct, current.attempts);
+        $(detailId).textContent = `${current.correct}/${current.attempts}`;
+      });
+    }
+
+    function renderStats() {
+      const qMastered = [...state.mastered].filter(id => String(id).startsWith("q-")).length;
+      const mastery = Math.round((qMastered / quiz.length) * 100);
+      $("score").textContent = state.xp;
+      $("streak").textContent = state.streak;
+      $("mastery").textContent = mastery + "%";
+      $("bar").style.width = mastery + "%";
+      const hooks = [
+        "Scene safety first. You cannot help anyone if the scene takes you out.",
+        "Consent is permission. Refusal is allowed when the adult patient is competent.",
+        "Assault is the threat. Battery is the touch.",
+        "Offline is written ahead. Online is live physician contact.",
+        "Move smart: back straight, legs doing work, load close."
+      ];
+      $("hook").textContent = hooks[Math.min(hooks.length - 1, Math.floor(state.streak / 3))];
+      $("score").closest(".metric").classList.remove("pop");
+      requestAnimationFrame(() => $("score").closest(".metric").classList.add("pop"));
+    }
+
+    function showScreen(id) {
+      document.querySelectorAll(".screen").forEach(s => s.classList.toggle("active", s.id === id));
+      document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.screen === id));
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showToast(message) {
+      $("toast").textContent = message;
+      $("toast").classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => $("toast").classList.remove("show"), 1800);
+    }
+
+    function renderMap() {
+      $("modeGrid").innerHTML = modes.map(([id, title, time, text], index) => `
+        <button class="mode-card" data-jump="${id}" data-number="0${index + 1}">
+          <span class="tag">${time}</span>
+          <strong>${title}</strong>
+          <span>${text}</span>
+        </button>`).join("");
+      $("chapterGrid").innerHTML = chapters.map(([label, title, text, hook], i) => `
+        <article class="chapter">
+          <span class="tag">${label}</span>
+          <b>${title}</b>
+          <p>${text}</p>
+        </article>`).join("");
+      $("quickHooks").innerHTML = chapters.map(([label, title, text, hook]) => `
+        <article class="boss-card mastered">
+          <h3>${label}: ${title}</h3>
+          <p>${hook}</p>
+        </article>`).join("");
+    }
+
+    function renderCard() {
+      const list = orderedBank("flash", state.flashChapter);
+      if (state.card >= list.length) state.card = 0;
+      const item = list[state.card];
+      const cueText = flashCue(item);
+      const answerText = flashAnswerText(item);
+      $("flashcard").classList.remove("flipped");
+      $("cardChapter").textContent = `Chapter ${item.chapter}: ${chapterName(item.chapter)}`;
+      $("cardTerm").textContent = cueText;
+      $("cardDefinition").textContent = answerText;
+      fitFlashText(cueText, answerText);
+      $("cardCounter").textContent = `Card ${state.card + 1} of ${list.length}`;
+      resetFlashDrills();
+    }
+
+    function escapeHtml(text) {
+      return String(text).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#039;" }[char]));
+    }
+
+    function normalize(text) {
+      return String(text).toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+    }
+
+    function answerAliases(text) {
+      const main = String(text).trim();
+      const aliases = new Set([main]);
+      main.split(/\s*(?:\/|;|\bor\b)\s*/i).filter(Boolean).forEach(part => aliases.add(part.trim()));
+      if (/^911 system$/i.test(main)) aliases.add("911");
+      return [...aliases].map(normalize).filter(Boolean);
+    }
+
+    function currentFlashItem() {
+      return orderedBank("flash", state.flashChapter)[state.card];
+    }
+
+    function concept(item) {
+      return item.options[item.answer];
+    }
+
+    function flashCue(item) {
+      return item.why.replace(/\.$/, "") + ".";
+    }
+
+    function flashAnswerText(item) {
+      return `${concept(item)} — ${item.why}`;
+    }
+
+    function escapeRegExp(text) {
+      return String(text).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function matchMeaning(item) {
+      const term = concept(item);
+      let meaning = item.why
+        .replace(new RegExp(`^${escapeRegExp(term)}\\s+(is|are|means|refers to|involves|helps|limits|protects)\\s+`, "i"), "")
+        .replace(new RegExp(`\\b${escapeRegExp(term)}\\b`, "ig"), "this concept")
+        .replace(/\s+/g, " ")
+        .trim();
+      meaning = meaning.charAt(0).toUpperCase() + meaning.slice(1);
+      if (!meaning || normalize(meaning) === normalize(term) || normalize(meaning).includes(normalize(term))) {
+        meaning = `Clue from the material: ${cleanQuestion(item.q)}.`;
+      }
+      return meaning.replace(/\.$/, "") + ".";
+    }
+
+    function matchTerm(item) {
+      const q = cleanQuestion(item.q);
+      const subjectPatterns = [
+        /^(.+?) is best described as$/i,
+        /^(.+?) is designed to$/i,
+        /^(.+?) is most associated with$/i,
+        /^(.+?) is mainly concerned with$/i,
+        /^(.+?) is mainly used to$/i,
+        /^(.+?) means$/i,
+        /^(.+?) refers to$/i,
+        /^A (.+?) is$/i,
+        /^The (.+?) is$/i
+      ];
+      for (const pattern of subjectPatterns) {
+        const found = q.match(pattern);
+        if (found) return found[1].replace(/^A |^The /i, "").trim();
+      }
+      return concept(item);
+    }
+
+    function cleanQuestion(text) {
+      return String(text).replace(/\s+/g, " ").replace(/:$/, "").trim();
+    }
+
+    function sceneStem(item) {
+      const raw = String(item.q).trim();
+      const q = cleanQuestion(raw);
+      const lower = q.toLowerCase();
+      const noQuestion = q.replace(/\?$/, "");
+
+      if (raw.endsWith(":")) return `${raw.replace(/:$/, "")}...`;
+      if (/^what is the main purpose of (.+)$/i.test(noQuestion)) return noQuestion.replace(/^what is the main purpose of (.+)$/i, "The main purpose of $1 is...");
+      if (/^what should an emt do before entering (.+)$/i.test(noQuestion)) return noQuestion.replace(/^what should an emt do before entering (.+)$/i, "Before entering $1, the EMT should...");
+      if (/^what should you do if (.+)$/i.test(noQuestion)) return noQuestion.replace(/^what should you do if (.+)$/i, "If $1, you should...");
+      if (/^who is responsible for (.+)$/i.test(noQuestion)) return noQuestion.replace(/^who is responsible for (.+)$/i, "The person responsible for $1 is...");
+      if (/^why do (.+)$/i.test(noQuestion)) return noQuestion.replace(/^why do (.+)$/i, "The reason $1 is...");
+      if (/^which level of ems provider (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which level of ems provider (.+)$/i, "The EMS provider level that $1 is...");
+      if (/^which responsibility belongs to (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which responsibility belongs to (.+)$/i, "A responsibility that belongs to $1 is...");
+      if (/^which task is outside (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which task is outside (.+)$/i, "The task outside $1 is...");
+      if (/^which action best shows (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which action best shows (.+)$/i, "The action that best shows $1 is...");
+      if (/^which action (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which action (.+)$/i, "The action that $1 is...");
+      if (/^which is part of (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which is part of (.+)$/i, "A part of $1 is...");
+      if (/^which is an example of (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which is an example of (.+)$/i, "An example of $1 is...");
+      if (/^which is a common (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which is a common (.+)$/i, "A common $1 is...");
+      if (/^which is a (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which is a (.+)$/i, "A $1 is...");
+      if (/^which is the best (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which is the best (.+)$/i, "The best $1 is...");
+      if (/^which agency setting can provide (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which agency setting can provide (.+)$/i, "An agency setting that can provide $1 is...");
+      if (/^which habit best supports (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which habit best supports (.+)$/i, "The habit that best supports $1 is...");
+      if (/^which finding may suggest (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which finding may suggest (.+)$/i, "A finding that may suggest $1 is...");
+      if (/^which scene clue suggests (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which scene clue suggests (.+)$/i, "A scene clue that suggests $1 is...");
+      if (/^which patient situation most strongly suggests (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which patient situation most strongly suggests (.+)$/i, "The patient situation most strongly suggesting $1 is...");
+      if (/^which patient is the best candidate for (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which patient is the best candidate for (.+)$/i, "The best patient candidate for $1 is...");
+      if (/^which patient can generally refuse (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which patient can generally refuse (.+)$/i, "The patient who can generally refuse $1 is...");
+      if (/^which device is commonly used for (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which device is commonly used for (.+)$/i, "The device commonly used for $1 is...");
+      if (/^which statement best (.+)$/i.test(noQuestion)) return noQuestion.replace(/^which statement best (.+)$/i, "The statement that best $1 is...");
+      if (/^which (.+) is safest$/i.test(noQuestion)) return noQuestion.replace(/^which (.+) is safest$/i, "The safest $1 is...");
+      if (/^which (.+) is most appropriate$/i.test(noQuestion)) return noQuestion.replace(/^which (.+) is most appropriate$/i, "The most appropriate $1 is...");
+      if (lower.startsWith("when ")) return `${q}...`;
+      return `${q}...`;
+    }
+
+    function sceneContext(item) {
+      const term = concept(item);
+      const lower = `${item.q} ${term} ${item.why}`.toLowerCase();
+      if (item.chapter === 1) {
+        if (/scope|standard|certification|licensure|credential|registry|nremt|level|emr|aemt|paramedic/.test(lower)) return "During orientation, a new EMT is comparing provider levels, legal permission to practice, and expected care standards.";
+        if (/online|offline|protocol|standing|physician|director|direction/.test(lower)) return "Your crew reaches a call situation where it matters whether orders are written ahead of time or coming from a physician live.";
+        if (/quality|review|evidence|research|data|public health|prevention|advocacy/.test(lower)) return "After several calls, your agency reviews patterns, updates training, and looks for ways to protect the community.";
+        if (/911|activated|call for help|components|system|public|communications|transportation|hospital|agency|setting/.test(lower)) return "At a community EMS night, your instructor asks how people access help and what pieces make the EMS system work.";
+        return "At the station, a new EMT is learning how the EMS system is organized and what role each person plays.";
+      }
+      if (item.chapter === 2) {
+        if (/tuberculosis|tst|airborne|respirator|n95|hepa/.test(lower)) return "Dispatch notes a persistent cough and possible airborne exposure, so the crew pauses for respiratory protection.";
+        if (/ppe|precaution|pathogen|communicable|infection|glove|exposure|blood|body-fluid|hepatitis|vector|direct contact|indirect|disinfect|clean|hand|gown|splash/.test(lower)) return "During patient contact or cleanup, you recognize a possible blood, body-fluid, or infection exposure risk.";
+        if (/stress|burnout|cism|death|dying|grief|fatigue|mental|cumulative|acute|delayed|support/.test(lower)) return "After a difficult call or long shift, a responder or family member is showing signs of stress, grief, or fatigue.";
+        if (/scene|traffic|fire|violence|hazard|hazmat|terror|rescue|safe|uphill|upwind/.test(lower)) return "You arrive to a call and notice a possible danger before your crew can safely reach the patient.";
+        return "On scene, your crew is balancing responder safety, infection control, and patient care.";
+      }
+      if (item.chapter === 3) {
+        if (/stair/.test(lower)) return "A stable patient must be moved on stairs and can sit upright, so the crew prepares the right device before moving.";
+        if (/emergency move|fire|immediate danger|blanket drag|clothes drag/.test(lower)) return "The patient or crew is in immediate danger and there is no time for a careful transfer.";
+        if (/scoop|soft|wheeled|backboard|log roll|spinal/.test(lower)) return "Your crew is using a movement device while trying to protect the patient and avoid unnecessary motion.";
+        if (/urgent|non-urgent|stable|bed|stretcher|direct|extremity/.test(lower)) return "Your crew needs to move a patient and must decide whether the situation calls for a fast move or a careful planned transfer.";
+        if (/lift|body|mechanics|grip|twist|reach|heavy|bariatric|manual|shoulder|lock|command|push|pull/.test(lower)) return "Your crew is preparing to lift, carry, push, or pull a patient and wants to avoid injury.";
+        return "During patient movement, your team needs the safest plan for the patient, crew, and equipment.";
+      }
+      if (/consent|refus|competent|minor|capacity|emancipated|involuntary/.test(lower)) return "A patient-care decision depends on permission, refusal, age, or decision-making ability.";
+      if (/abandonment|duty|negligence|transfer|harm|standard|breach|causation|damages|proximate/.test(lower)) return "Your crew is responsible for continuing appropriate care, meeting the expected standard, and transferring care properly.";
+      if (/assault|battery|imprisonment|restrain|touch/.test(lower)) return "A patient does not want something done, and the crew must avoid unlawful threats, touching, restraint, or transport.";
+      if (/hipaa|confidentiality|privacy|libel|slander|minimum necessary/.test(lower)) return "Patient information or reputation could be harmed by what a provider says, writes, posts, or shares.";
+      if (/dnr|directive|samaritan|ethics|crime|organ|identification|living will|power of attorney|reporting|autonomy|beneficence|nonmaleficence/.test(lower)) return "The call involves patient wishes, good-faith care, ethics, reporting, medical identification, or a crime scene.";
+      return "During patient care, a legal or ethical decision comes up and the EMT must apply the correct principle.";
+    }
+
+    function scenePrompt(item) {
+      return `${sceneContext(item)} ${sceneStem(item)}`;
+    }
+
+    function dispatchPrompt(item) {
+      return `Radio cue: ${sceneContext(item)} Finish the line: ${sceneStem(item)}`;
+    }
+
+    function resetFlashDrills() {
+      $("termGuess").value = "";
+      $("termGuess").className = "";
+      $("termFeedback").textContent = "No blanks here. Just name the term.";
+      $("termFeedback").className = "feedback";
+    }
+
+    function checkTermGuess() {
+      const item = currentFlashItem();
+      const actual = normalize($("termGuess").value);
+      const termOk = answerAliases(concept(item)).includes(actual);
+      $("termGuess").className = termOk ? "correct" : "wrong";
+      $("termFeedback").textContent = termOk
+        ? `Correct: ${concept(item)}.`
+        : "Not quite. Try again, or hit Reveal when you want the answer.";
+      $("termFeedback").className = termOk ? "feedback good" : "feedback bad";
+      if (termOk) showToast("Term locked in.");
+    }
+
+    function revealFlashAnswers() {
+      const item = currentFlashItem();
+      $("termGuess").value = concept(item);
+      $("termGuess").className = "correct";
+      $("termFeedback").textContent = `Answer: ${concept(item)}.`;
+      $("termFeedback").className = "feedback good";
+      if (!$("flashcard").classList.contains("flipped")) $("flashcard").classList.add("flipped");
+    }
+
+    function fitFlashText(question, answer) {
+      const term = $("cardTerm");
+      const definition = $("cardDefinition");
+      term.classList.remove("fit-md", "fit-sm", "fit-xs");
+      definition.classList.remove("fit-sm", "fit-xs");
+      if (question.length > 105) term.classList.add("fit-xs");
+      else if (question.length > 78) term.classList.add("fit-sm");
+      else if (question.length > 48) term.classList.add("fit-md");
+      if (answer.length > 150) definition.classList.add("fit-xs");
+      else if (answer.length > 105) definition.classList.add("fit-sm");
+    }
+
+    function nextCard(step) {
+      const list = orderedBank("flash", state.flashChapter);
+      state.card = Math.max(0, Math.min(list.length - 1, state.card + step));
+      renderCard();
+    }
+
+    function markCard(kind) {
+      if (round("flash").finished) return;
+      const list = orderedBank("flash", state.flashChapter);
+      const id = `f-${list[state.card].id}`;
+      recordRound("flash", kind === "solid");
+      if (kind === "solid") {
+        state.mastered.add(id);
+        state.shaky.delete(id);
+        award(6, true);
+      } else {
+        state.shaky.add(id);
+        state.mastered.delete(id);
+        award(2, false);
+      }
+      save();
+      if (state.card >= list.length - 1) {
+        finishRound("flash", list.length, "Flashcard round complete.");
+      } else {
+        nextCard(1);
+      }
+      renderBoss();
+    }
+
+    function renderMatch() {
+      resetRound("match");
+      state.selectedTerm = null;
+      const source = orderedBank("match", state.matchChapter);
+      state.matchPairs = source;
+      const terms = shuffle(state.matchPairs);
+      const defs = shuffle(state.matchPairs);
+      $("termStack").innerHTML = terms.map(c => `<button class="pill-card" data-term="${c.id}">${matchTerm(c)}</button>`).join("");
+      $("defStack").innerHTML = defs.map(c => `<button class="pill-card" data-def="${c.id}">${matchMeaning(c)}</button>`).join("");
+      $("matchFeedback").textContent = `${state.matchChapter ? "Chapter " + state.matchChapter : "All chapters"}: match each concept to its meaning.`;
+      $("matchFeedback").className = "feedback";
+    }
+
+    function handleMatch(e) {
+      const term = e.target.closest("[data-term]");
+      const def = e.target.closest("[data-def]");
+      if (term && !term.classList.contains("done")) {
+        document.querySelectorAll("[data-term]").forEach(b => b.classList.remove("selected"));
+        term.classList.add("selected");
+        state.selectedTerm = term.dataset.term;
+        $("matchFeedback").textContent = "Now choose the matching definition.";
+      }
+      if (def && state.selectedTerm && !def.classList.contains("done")) {
+        const ok = def.dataset.def === state.selectedTerm;
+        if (ok) {
+          document.querySelector(`[data-term="${state.selectedTerm}"]`).classList.add("done");
+          def.classList.add("done");
+          $("matchFeedback").textContent = "Matched. That one is locked in.";
+          $("matchFeedback").className = "feedback good";
+          recordRound("match", true);
+          award(8, true);
+          state.mastered.add(`q-${state.selectedTerm}`);
+          state.selectedTerm = null;
+          if (document.querySelectorAll("[data-term].done").length === state.matchPairs.length) {
+            finishRound("match", state.matchPairs.length, "Match Lab complete.");
+          }
+        } else {
+          $("matchFeedback").textContent = "Not that one. Pause, picture the scene, then try the term again.";
+          $("matchFeedback").className = "feedback bad";
+          recordRound("match", false);
+          award(0, false);
+        }
+        save();
+        renderStats();
+      }
+    }
+
+    function renderScenes() {
+      resetRound("scenes");
+      const list = orderedBank("scenes", state.sceneChapter);
+      $("scenarioGrid").innerHTML = list.map((s, i) => `
+        <article class="scenario" data-scenario="${i}">
+          <span class="tag">Chapter ${s.chapter} • Call ${i + 1} / ${list.length}</span>
+          <h3>${chapterName(s.chapter)}</h3>
+          <p>${escapeHtml(sceneContext(s))}</p>
+          <p class="scene-stem">${escapeHtml(sceneStem(s))}</p>
+          ${shuffledOptions("scenes", s).map(j => `<button class="answer" data-scene-answer="${j}">${escapeHtml(s.options[j])}</button>`).join("")}
+          <p class="tiny" data-scene-feedback>Complete the call.</p>
+        </article>`).join("");
+    }
+
+    function handleScene(e) {
+      const btn = e.target.closest("[data-scene-answer]");
+      if (!btn || btn.disabled) return;
+      const box = btn.closest("[data-scenario]");
+      const s = orderedBank("scenes", state.sceneChapter)[Number(box.dataset.scenario)];
+      const chosen = Number(btn.dataset.sceneAnswer);
+      box.querySelectorAll(".answer").forEach((b) => {
+        const original = Number(b.dataset.sceneAnswer);
+        b.disabled = true;
+        b.classList.toggle("correct", original === s.answer);
+        b.classList.toggle("wrong", original === chosen && original !== s.answer);
+      });
+      box.querySelector("[data-scene-feedback]").textContent = s.why;
+      box.classList.add("pop");
+      recordRound("scenes", chosen === s.answer);
+      award(chosen === s.answer ? 10 : 0, chosen === s.answer);
+      if (round("scenes").attempts >= orderedBank("scenes", state.sceneChapter).length) {
+        finishRound("scenes", orderedBank("scenes", state.sceneChapter).length, "Scene Calls complete.");
+      }
+    }
+
+    function renderDispatch() {
+      $("dispatchResult").classList.remove("show");
+      const list = orderedBank("dispatch", state.dispatchChapter);
+      if (state.dispatchIndex >= list.length) state.dispatchIndex = 0;
+      const item = list[state.dispatchIndex];
+      state.dispatchAnswered = false;
+      $("dispatchChapter").textContent = `Chapter ${item.chapter}: ${chapterName(item.chapter)}`;
+      $("dispatchTitle").textContent = `Call ${state.dispatchIndex + 1} of ${list.length}`;
+      $("dispatchText").textContent = dispatchPrompt(item);
+      $("dispatchOptions").innerHTML = shuffledOptions("dispatch", item).map(i => `
+        <button class="answer" data-dispatch-answer="${i}">${item.options[i]}</button>
+      `).join("");
+      $("newDispatch").textContent = state.dispatchIndex >= list.length - 1 ? "Finish" : "Next Call";
+      $("dispatchFeedback").textContent = "Read the call, then make the move.";
+      $("dispatchFeedback").className = "feedback";
+    }
+
+    function nextDispatch() {
+      const list = orderedBank("dispatch", state.dispatchChapter);
+      if (round("dispatch").finished) {
+        restartDispatchRound();
+        return;
+      }
+      if (!state.dispatchAnswered) {
+        showToast("Answer this call before moving on.");
+        return;
+      }
+      if (state.dispatchIndex >= list.length - 1) {
+        finishRound("dispatch", list.length, "Dispatch Dash complete.");
+        $("newDispatch").textContent = "Restart";
+        return;
+      }
+      state.dispatchIndex += 1;
+      renderDispatch();
+    }
+
+    function answerDispatch(e) {
+      const btn = e.target.closest("[data-dispatch-answer]");
+      if (!btn || state.dispatchAnswered) return;
+      state.dispatchAnswered = true;
+      const item = orderedBank("dispatch", state.dispatchChapter)[state.dispatchIndex];
+      const chosen = Number(btn.dataset.dispatchAnswer);
+      const ok = chosen === item.answer;
+      $("dispatchOptions").querySelectorAll(".answer").forEach((b) => {
+        const original = Number(b.dataset.dispatchAnswer);
+        b.disabled = true;
+        b.classList.toggle("correct", original === item.answer);
+        b.classList.toggle("wrong", original === chosen && original !== item.answer);
+      });
+      $("dispatchFeedback").textContent = item.why;
+      $("dispatchFeedback").className = ok ? "feedback good" : "feedback bad";
+      recordRound("dispatch", ok);
+      award(ok ? 12 : 0, ok);
+    }
+
+    function restartDispatchRound() {
+      resetRound("dispatch");
+      resetOrder("dispatch");
+      state.dispatchIndex = 0;
+      state.dispatchAnswered = false;
+      renderDispatch();
+    }
+
+    function restartQuizRound() {
+      clearInterval(quizTimerId);
+      resetRound("quiz");
+      resetOrder("quiz");
+      state.quizLocked = false;
+      state.quizSeconds = 0;
+      state.quizIndex = 0;
+      state.quizAnswered = {};
+      $("quizTimer").textContent = "No timer";
+      $("quizResult").classList.remove("show");
+      renderQuiz();
+    }
+
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      return `${m}:${String(s).padStart(2, "0")}`;
+    }
+
+    function updateTimer() {
+      $("quizTimer").textContent = formatTime(state.quizSeconds);
+    }
+
+    function startQuizTimer() {
+      clearInterval(quizTimerId);
+      const minutes = Math.max(1, Number($("quizMinutes").value || 20));
+      state.quizSeconds = minutes * 60;
+      updateTimer();
+      quizTimerId = setInterval(() => {
+        state.quizSeconds -= 1;
+        updateTimer();
+        if (state.quizSeconds <= 0) {
+          clearInterval(quizTimerId);
+          lockQuiz("Time expired.");
+        }
+      }, 1000);
+      showToast(`${minutes}-minute timer started.`);
+    }
+
+    function quizScore() {
+      const list = activeQuiz();
+      const answered = list.filter(item => state.quizAnswered[item.id] !== undefined);
+      const correct = answered.filter(item => state.quizAnswered[item.id] === item.answer).length;
+      return { list, answered, correct };
+    }
+
+    function lockQuiz(reason) {
+      state.quizLocked = true;
+      const { answered, correct } = quizScore();
+      state.round.quiz = { correct, attempts: answered.length, finished: true };
+      renderGrades();
+      $("quizAnswers").querySelectorAll("button").forEach(btn => btn.disabled = true);
+      $("quizPrev").disabled = true;
+      $("quizNext").disabled = true;
+      $("quizResult").innerHTML = `
+        <h3>${reason}</h3>
+        <p>Your score from the questions you reached: ${scoreText(correct, answered.length)}. Answered ${answered.length} question${answered.length === 1 ? "" : "s"}.</p>
+        <button class="btn" data-restart-mode="quiz">Restart Test</button>
+      `;
+      $("quizResult").classList.add("show");
+      showToast(`${reason} ${correct}/${answered.length}.`);
+    }
+
+    function finishQuiz() {
+      clearInterval(quizTimerId);
+      const { list, correct } = quizScore();
+      state.quizLocked = true;
+      state.round.quiz = { correct, attempts: list.length, finished: true };
+      renderGrades();
+      $("quizAnswers").querySelectorAll("button").forEach(btn => btn.disabled = true);
+      $("quizPrev").disabled = true;
+      $("quizNext").disabled = true;
+      $("quizResult").innerHTML = `
+        <h3>Exam Sprint complete.</h3>
+        <p>Your grade: ${scoreText(correct, list.length)}.</p>
+        <button class="btn" data-restart-mode="quiz">Restart Test</button>
+      `;
+      $("quizResult").classList.add("show");
+    }
+
+    function renderQuiz() {
+      const list = activeQuiz();
+      if (state.quizIndex >= list.length) state.quizIndex = 0;
+      const item = list[state.quizIndex];
+      const chapterLabel = state.quizChapter ? `Chapter ${state.quizChapter}` : "All Chapters";
+      $("quizMeta").textContent = `${chapterLabel} • Question ${state.quizIndex + 1} / ${list.length}`;
+      $("quizQuestion").textContent = item.q;
+      const answered = state.quizAnswered[item.id];
+      $("quizAnswers").innerHTML = shuffledOptions("quiz", item).map((i, displayIndex) => {
+        const cls = answered === undefined ? "" : i === item.answer ? " correct" : i === answered ? " wrong" : "";
+        return `<button class="answer${cls}" data-quiz-answer="${i}" ${answered !== undefined || state.quizLocked ? "disabled" : ""}>${String.fromCharCode(65 + displayIndex)}. ${item.options[i]}</button>`;
+      }).join("");
+      $("quizFeedback").textContent = answered === undefined ? "Choose your answer." : item.why;
+      $("quizFeedback").className = answered === undefined ? "feedback" : (answered === item.answer ? "feedback good" : "feedback bad");
+      $("quizPrev").disabled = state.quizIndex === 0 || state.quizLocked;
+      $("quizNext").disabled = state.quizLocked;
+      $("quizNext").textContent = state.quizIndex === list.length - 1 ? "Boss Review" : "Next";
+    }
+
+    function renderQuizFilters() {
+      $("flashFilters").innerHTML = filterOptions(state.flashChapter, "data-flash-chapter", flashBankLabel);
+      $("matchFilters").innerHTML = filterOptions(state.matchChapter, "data-match-chapter");
+      $("sceneFilters").innerHTML = filterOptions(state.sceneChapter, "data-scene-chapter");
+      $("dispatchFilters").innerHTML = filterOptions(state.dispatchChapter, "data-dispatch-chapter");
+      $("quizFilters").innerHTML = filterOptions(state.quizChapter, "data-quiz-chapter");
+    }
+
+    function answerQuiz(e) {
+      const btn = e.target.closest("[data-quiz-answer]");
+      if (!btn || state.quizLocked) return;
+      const item = activeQuiz()[state.quizIndex];
+      if (state.quizAnswered[item.id] !== undefined) return;
+      const chosen = Number(btn.dataset.quizAnswer);
+      state.quizAnswered[item.id] = chosen;
+      const ok = chosen === item.answer;
+      recordRound("quiz", ok);
+      const matchedCard = cards.find(c => item.q.toLowerCase().includes(c.term.toLowerCase()) || c.definition.toLowerCase().includes(item.options[item.answer].toLowerCase()));
+      if (ok) state.mastered.add(`q-${item.id}`);
+      else state.shaky.add(`q-${item.id}`);
+      if (matchedCard) {
+        if (ok) state.mastered.add(matchedCard.id);
+        else state.shaky.add(matchedCard.id);
+      }
+      award(ok ? 10 : 0, ok);
+      renderQuiz();
+      renderBoss();
+    }
+
+    function renderBoss() {
+      const missedQuestions = quiz.filter(q => state.quizAnswered[q.id] !== undefined && state.quizAnswered[q.id] !== q.answer);
+      const shakyCards = [...state.shaky].slice(0, 8).map(id => {
+        if (String(id).startsWith("q-")) {
+          const item = quiz.find(q => q.id === Number(String(id).slice(2)));
+          return item ? { term: item.q, definition: item.why } : null;
+        }
+        if (String(id).startsWith("f-")) {
+          const item = flashDeck.find(c => c.id === Number(String(id).slice(2)));
+          return item ? { term: item.term, definition: item.definition } : null;
+        }
+        return cards.find(c => c.id === id);
+      }).filter(Boolean);
+      const items = [
+        ...shakyCards.map(c => ({ title: c.term, text: c.definition })),
+        ...missedQuestions.slice(0, 8).map(q => ({ title: q.options[q.answer], text: q.why }))
+      ];
+      $("quickHooks").innerHTML = (items.length ? items : chapters.map(([label, title, text, hook]) => ({ title: `${label}: ${title}`, text: hook }))).map(item => `
+        <article class="boss-card ${items.length ? "" : "mastered"}">
+          <h3>${item.title}</h3>
+          <p>${item.text}</p>
+        </article>`).join("");
+    }
+
+    document.querySelectorAll(".tab").forEach(tab => tab.addEventListener("click", () => showScreen(tab.dataset.screen)));
+    document.addEventListener("click", (e) => {
+      const jump = e.target.closest("[data-jump]");
+      if (jump) showScreen(jump.dataset.jump);
+    });
+    $("randomMode").addEventListener("click", () => showScreen(shuffle(["flash", "match", "scenes", "dispatch", "quiz"])[0]));
+    $("resetAll").addEventListener("click", () => {
+      localStorage.removeItem("ems-xp");
+      localStorage.removeItem("ems-streak");
+      localStorage.removeItem("ems-mastered");
+      localStorage.removeItem("ems-shaky");
+      localStorage.removeItem("ems-grades");
+      location.reload();
+    });
+    $("flashcard").addEventListener("click", (e) => {
+      if (e.target.closest("input, button")) return;
+      $("flashcard").classList.toggle("flipped");
+    });
+    $("flashcard").addEventListener("keydown", (e) => {
+      if ((e.key === "Enter" || e.key === " ") && !e.target.closest("input")) {
+        e.preventDefault();
+        $("flashcard").classList.toggle("flipped");
+      }
+    });
+    $("flipCard").addEventListener("click", () => $("flashcard").classList.toggle("flipped"));
+    $("prevCard").addEventListener("click", () => nextCard(-1));
+    $("nextCard").addEventListener("click", () => nextCard(1));
+    $("markShaky").addEventListener("click", () => markCard("shaky"));
+    $("markSolid").addEventListener("click", () => markCard("solid"));
+    $("checkTerm").addEventListener("click", checkTermGuess);
+    $("revealFlashAnswers").addEventListener("click", revealFlashAnswers);
+    $("termGuess").addEventListener("keydown", (e) => { if (e.key === "Enter") checkTermGuess(); });
+    $("restartFlash").addEventListener("click", () => { resetRound("flash"); resetOrder("flash"); state.card = 0; renderCard(); });
+    $("newMatch").addEventListener("click", () => { resetOrder("match"); renderMatch(); });
+    $("termStack").addEventListener("click", handleMatch);
+    $("defStack").addEventListener("click", handleMatch);
+    $("scenarioGrid").addEventListener("click", handleScene);
+    $("dispatchOptions").addEventListener("click", answerDispatch);
+    $("newDispatch").addEventListener("click", nextDispatch);
+    $("restartDispatch").addEventListener("click", restartDispatchRound);
+    $("resetScenes").addEventListener("click", () => { resetOrder("scenes"); renderScenes(); });
+    $("quizAnswers").addEventListener("click", answerQuiz);
+    $("quizPrev").addEventListener("click", () => { state.quizIndex = Math.max(0, state.quizIndex - 1); renderQuiz(); });
+    $("quizNext").addEventListener("click", () => {
+      const list = activeQuiz();
+      if (state.quizLocked) return;
+      if (state.quizIndex < list.length - 1) {
+        state.quizIndex += 1;
+        renderQuiz();
+      } else {
+        finishQuiz();
+      }
+    });
+    $("restartQuiz").addEventListener("click", restartQuizRound);
+    $("startTimer").addEventListener("click", startQuizTimer);
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-restart-mode]");
+      if (!btn) return;
+      const mode = btn.dataset.restartMode;
+      if (mode === "flash") { resetRound("flash"); resetOrder("flash"); state.card = 0; renderCard(); }
+      if (mode === "match") { resetOrder("match"); renderMatch(); }
+      if (mode === "scenes") { resetOrder("scenes"); renderScenes(); }
+      if (mode === "dispatch") restartDispatchRound();
+      if (mode === "quiz") restartQuizRound();
+    });
+    $("flashFilters").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-flash-chapter]");
+      if (!btn) return;
+      state.flashChapter = Number(btn.dataset.flashChapter);
+      state.card = 0;
+      resetRound("flash");
+      resetOrder("flash");
+      renderQuizFilters();
+      renderCard();
+      showToast(state.flashChapter ? `Flashcards: Chapter ${state.flashChapter} has ${flashBankLabel(state.flashChapter)} cards.` : `Flashcards: all ${flashBankLabel(0)} loaded.`);
+    });
+    $("matchFilters").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-match-chapter]");
+      if (!btn) return;
+      state.matchChapter = Number(btn.dataset.matchChapter);
+      resetOrder("match");
+      renderQuizFilters();
+      renderMatch();
+      showToast(state.matchChapter ? `Match Lab: Chapter ${state.matchChapter} has ${bankLabel(state.matchChapter)} pairs.` : `Match Lab: all ${bankLabel(0)} loaded.`);
+    });
+    $("sceneFilters").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-scene-chapter]");
+      if (!btn) return;
+      state.sceneChapter = Number(btn.dataset.sceneChapter);
+      resetOrder("scenes");
+      renderQuizFilters();
+      renderScenes();
+      showToast(state.sceneChapter ? `Scene Calls: Chapter ${state.sceneChapter} has ${bankLabel(state.sceneChapter)} calls.` : `Scene Calls: all ${bankLabel(0)} loaded.`);
+    });
+    $("dispatchFilters").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-dispatch-chapter]");
+      if (!btn) return;
+      state.dispatchChapter = Number(btn.dataset.dispatchChapter);
+      state.dispatchIndex = 0;
+      resetRound("dispatch");
+      resetOrder("dispatch");
+      renderQuizFilters();
+      renderDispatch();
+      showToast(state.dispatchChapter ? `Dispatch Dash: Chapter ${state.dispatchChapter} has ${bankLabel(state.dispatchChapter)} calls.` : `Dispatch Dash: all ${bankLabel(0)} loaded.`);
+    });
+    $("quizFilters").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-quiz-chapter]");
+      if (!btn) return;
+      state.quizChapter = Number(btn.dataset.quizChapter);
+      restartQuizRound();
+      renderQuizFilters();
+      showToast(state.quizChapter ? `Chapter ${state.quizChapter}: ${bankLabel(state.quizChapter)}-question drill loaded.` : `All ${bankLabel(0)} questions loaded.`);
+    });
+
+    renderStats();
+    renderMap();
+    renderCard();
+    renderMatch();
+    renderScenes();
+    renderDispatch();
+    renderQuizFilters();
+    renderGrades();
+    renderQuiz();
+  </script>
+</body>
+</html>
