@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EMS Rescue Quest | Chapters 1-4 Study Game</title>
+  <title>EMS Rescue Quest | Chapters 1-8 Study Game</title>
   <style>
     :root {
       --ink: #13202a;
@@ -1006,9 +1006,9 @@
     <header>
       <section class="hero">
         <div class="hero-copy">
-          <span class="tag">Chapters 1-4 Exam Prep</span>
+          <span class="tag">Chapters 1-8 Exam Prep</span>
           <h1>EMS Rescue Quest</h1>
-          <p>Train like an EMT: flip terms, match fast, make scene decisions, and drill the full expanded Chapter 1-4 bank.</p>
+          <p>Train like an EMT: flip terms, match fast, make scene decisions, and drill the full expanded Chapter 1-8 bank.</p>
           <div class="hero-actions">
             <button class="btn" data-jump="flash">Start With Flashcards</button>
             <button class="btn secondary" data-jump="quiz">Take Exam Sprint</button>
@@ -1349,6 +1349,110 @@
       definition
     }));
 
+    const moduleTwoCards = [
+      ["Medical terminology", "The language of medicine built from word parts such as prefixes, roots, combining forms, and suffixes.", 5],
+      ["Prefix", "A word part at the beginning of a medical term that modifies the meaning.", 5],
+      ["Root word", "The main word part that carries the core meaning of a medical term.", 5],
+      ["Suffix", "A word part at the end of a medical term that often describes a condition, procedure, or disease process.", 5],
+      ["Combining vowel", "A vowel, usually o, used to connect word parts and make pronunciation easier.", 5],
+      ["Combining form", "A root plus combining vowel used before another word part.", 5],
+      ["Anatomical position", "Standing upright, facing forward, arms at the sides, palms forward, used as the reference position.", 5],
+      ["Anterior", "Toward the front of the body.", 5],
+      ["Posterior", "Toward the back of the body.", 5],
+      ["Superior", "Closer to the head or upper part of the body.", 5],
+      ["Inferior", "Closer to the feet or lower part of the body.", 5],
+      ["Medial", "Toward the midline of the body.", 5],
+      ["Lateral", "Away from the midline of the body.", 5],
+      ["Proximal", "Closer to the point of attachment or trunk.", 5],
+      ["Distal", "Farther from the point of attachment or trunk.", 5],
+      ["Supine", "Lying face up.", 5],
+      ["Prone", "Lying face down.", 5],
+      ["Bilateral", "On both sides of the body.", 5],
+      ["Unilateral", "On one side of the body.", 5],
+      ["Tachy-", "Prefix meaning fast.", 5],
+      ["Brady-", "Prefix meaning slow.", 5],
+      ["Hyper-", "Prefix meaning above, excessive, or high.", 5],
+      ["Hypo-", "Prefix meaning below, deficient, or low.", 5],
+      ["-itis", "Suffix meaning inflammation.", 5],
+      ["Cyan/o", "Word root meaning blue.", 5],
+      ["Anatomy", "The study of body structures and how they are organized.", 6],
+      ["Physiology", "The study of how body structures function.", 6],
+      ["Homeostasis", "The body's effort to maintain a stable internal balance.", 6],
+      ["Cell", "The basic living unit of the body.", 6],
+      ["Tissue", "A group of similar cells working together.", 6],
+      ["Organ", "A structure made of tissues that performs a specific function.", 6],
+      ["Organ system", "A group of organs that work together for a major body function.", 6],
+      ["Skeletal system", "The bones and joints that support, protect, and help the body move.", 6],
+      ["Muscular system", "The muscles that create movement, posture, and heat.", 6],
+      ["Respiratory system", "The system that brings oxygen into the body and removes carbon dioxide.", 6],
+      ["Cardiovascular system", "The heart and blood vessels that circulate blood.", 6],
+      ["Nervous system", "The brain, spinal cord, and nerves that control rapid communication and response.", 6],
+      ["Endocrine system", "Glands that release hormones to regulate body functions.", 6],
+      ["Digestive system", "The organs that break down food, absorb nutrients, and eliminate waste.", 6],
+      ["Integumentary system", "The skin and related structures that protect the body and help regulate temperature.", 6],
+      ["Renal system", "The kidneys and urinary tract that help remove waste and regulate fluid balance.", 6],
+      ["Thoracic cavity", "The chest cavity containing the heart, lungs, and major vessels.", 6],
+      ["Abdominal cavity", "The body cavity containing many digestive organs.", 6],
+      ["Pelvic cavity", "The lower body cavity containing the bladder, reproductive organs, and rectum.", 6],
+      ["Diaphragm", "The major muscle that separates the chest and abdomen and helps breathing.", 6],
+      ["Ventilation", "Movement of air into and out of the lungs.", 6],
+      ["Respiration", "Exchange of oxygen and carbon dioxide.", 6],
+      ["Perfusion", "Delivery of blood to body tissues.", 6],
+      ["Metabolism", "The chemical processes that create and use energy in the body.", 6],
+      ["Pathophysiology", "The study of how disease or injury changes normal body function.", 7],
+      ["Etiology", "The cause or origin of a disease or condition.", 7],
+      ["Morbidity", "Illness, injury, or disability caused by a condition.", 7],
+      ["Mortality", "Death related to a disease, injury, or population.", 7],
+      ["Hypoxia", "Low oxygen available to body tissues.", 7],
+      ["Hypoperfusion", "Inadequate blood flow to body tissues.", 7],
+      ["Shock", "A state of inadequate tissue perfusion that can lead to organ failure.", 7],
+      ["Ischemia", "Reduced blood flow and oxygen delivery to tissue.", 7],
+      ["Infarction", "Tissue death caused by loss of blood supply.", 7],
+      ["Inflammation", "The body's response to injury or infection, often with heat, redness, swelling, pain, and loss of function.", 7],
+      ["Edema", "Swelling caused by fluid buildup in tissues.", 7],
+      ["Compensation", "Body responses that try to maintain function during illness or injury.", 7],
+      ["Decompensation", "Failure of compensatory responses, causing the patient to worsen.", 7],
+      ["Cardiac output", "The amount of blood pumped by the heart in one minute.", 7],
+      ["Stroke volume", "The amount of blood pumped by one ventricle with each heartbeat.", 7],
+      ["Blood pressure", "The force of blood against vessel walls.", 7],
+      ["Acidosis", "An abnormal state where body fluids are too acidic.", 7],
+      ["Alkalosis", "An abnormal state where body fluids are too alkaline.", 7],
+      ["Respiratory distress", "Increased work of breathing while the patient is still moving air.", 7],
+      ["Respiratory failure", "Inadequate breathing that cannot meet the body's oxygen and carbon dioxide needs.", 7],
+      ["Sepsis", "A life-threatening body-wide response to infection.", 7],
+      ["Neonate", "A newborn, usually from birth through 28 days.", 8],
+      ["Infant", "A child from about 1 month to 1 year of age.", 8],
+      ["Toddler", "A child from about 1 to 3 years of age.", 8],
+      ["Preschooler", "A child from about 3 to 6 years of age.", 8],
+      ["School-age child", "A child from about 6 to 12 years of age.", 8],
+      ["Adolescent", "A person from puberty into young adulthood.", 8],
+      ["Early adult", "An adult often in the late teens through about 40 years old.", 8],
+      ["Middle adult", "An adult often from about 41 to 60 years old.", 8],
+      ["Older adult", "An adult often older than 60 with higher risk from chronic illness and injury.", 8],
+      ["Fontanelle", "A soft spot between skull bones in an infant.", 8],
+      ["Stranger anxiety", "Fear or distress around unfamiliar people, common in later infancy.", 8],
+      ["Separation anxiety", "Distress when separated from a caregiver, common in infants and toddlers.", 8],
+      ["Moro reflex", "A newborn startle reflex with extension and pulling in of the arms.", 8],
+      ["Babinski reflex", "A normal infant reflex where the big toe extends when the sole is stroked.", 8],
+      ["SIDS", "Sudden infant death syndrome, unexpected death of an infant without an obvious cause after investigation.", 8],
+      ["Pediatric airway", "A child's airway is smaller and more easily obstructed than an adult airway.", 8],
+      ["Puberty", "The period when reproductive maturity and major body changes develop.", 8],
+      ["Polypharmacy", "Use of multiple medications, increasing interaction and side-effect risk.", 8],
+      ["Fall risk", "The chance of injury from falling, often higher in older adults.", 8],
+      ["End-of-life considerations", "Care choices focused on patient wishes, dignity, comfort, and legal directives.", 8]
+    ].map(([term, definition, chapter], index) => ({ id: cards.length + index, term, definition, chapter }));
+    cards.push(...moduleTwoCards);
+    flashDeck.push(...moduleTwoCards.map(({ id, term, definition, chapter }) => ({
+      id,
+      chapter,
+      q: definition,
+      options: [term],
+      answer: 0,
+      why: definition,
+      term,
+      definition
+    })));
+
     const quiz = [
       [1, "What is the main purpose of an EMS system?", ["Provide emergency care before and during transport", "Replace emergency departments", "Diagnose every illness in the field", "Only transport patients"], 0, "EMS starts emergency medical care and continues it during transport."],
       [1, "Which level of EMS provider has training beyond EMT and can perform more advanced skills?", ["EMR", "AEMT or paramedic", "Dispatcher", "Bystander"], 1, "AEMTs and paramedics have advanced training compared with EMTs."],
@@ -1519,11 +1623,126 @@
       [4, "Which ethical principle means avoiding harm?", ["Nonmaleficence", "Slander", "Standard precautions", "Direct carry"], 0, "Nonmaleficence means avoiding unnecessary harm."]
     ].map(([chapter, q, options, answer, why], id) => ({ id, chapter, q, options, answer, why }));
 
+    function addQuizItems(items) {
+      const start = quiz.length;
+      quiz.push(...items.map(([chapter, q, options, answer, why], offset) => ({ id: start + offset, chapter, q, options, answer, why })));
+    }
+
+    addQuizItems([
+      [5, "A prefix is found where in a medical term?", ["At the beginning", "At the end", "Only after a combining vowel", "Only in abbreviations"], 0, "A prefix comes before the root and changes the meaning."],
+      [5, "The root word usually provides the:", ["Core meaning", "Patient's age", "Legal consent", "Scene safety level"], 0, "The root is the main meaning-carrying part of the term."],
+      [5, "A suffix is usually located:", ["At the end of the word", "Before every root", "Only in the middle", "Only on abbreviations"], 0, "Suffixes are word endings."],
+      [5, "The combining vowel is most often used to:", ["Connect word parts for pronunciation", "Replace the entire root", "Show patient consent", "Mark a legal document"], 0, "Combining vowels help word parts flow together."],
+      [5, "The combining form cardi/o means:", ["Heart", "Lung", "Skin", "Kidney"], 0, "Cardi/o refers to the heart."],
+      [5, "The prefix tachy- means:", ["Fast", "Slow", "Below", "Blue"], 0, "Tachy- means fast, as in tachycardia."],
+      [5, "The prefix brady- means:", ["Slow", "Fast", "High", "Against"], 0, "Brady- means slow, as in bradycardia."],
+      [5, "The prefix hypo- means:", ["Low or below", "High or excessive", "Both sides", "Inflammation"], 0, "Hypo- means low, deficient, or below normal."],
+      [5, "The prefix hyper- means:", ["High or excessive", "Low or deficient", "Slow", "Blue"], 0, "Hyper- means high, above, or excessive."],
+      [5, "The suffix -itis means:", ["Inflammation", "Removal", "Blood condition", "Breathing"], 0, "-itis means inflammation."],
+      [5, "The suffix -ectomy means:", ["Surgical removal", "Inflammation", "Low oxygen", "Fast heart rate"], 0, "-ectomy means surgical removal."],
+      [5, "The word root cyan/o refers to:", ["Blue", "Red", "Bone", "Nerve"], 0, "Cyan/o means blue and is seen in cyanosis."],
+      [5, "In anatomical position, the patient is:", ["Standing upright with palms forward", "Lying face down", "Sitting curled forward", "Lying on the left side"], 0, "Anatomical position is the standard reference position."],
+      [5, "Anterior means toward the:", ["Front", "Back", "Midline", "Feet"], 0, "Anterior refers to the front of the body."],
+      [5, "Posterior means toward the:", ["Back", "Front", "Head", "Midline"], 0, "Posterior refers to the back of the body."],
+      [5, "Superior means closer to the:", ["Head", "Feet", "Outside", "Point of attachment"], 0, "Superior means above or toward the head."],
+      [5, "Inferior means closer to the:", ["Feet", "Head", "Midline", "Back"], 0, "Inferior means below or toward the feet."],
+      [5, "Medial means:", ["Toward the midline", "Away from the midline", "Face down", "Toward the back"], 0, "Medial is toward the body's midline."],
+      [5, "Lateral means:", ["Away from the midline", "Toward the midline", "Closer to the trunk", "Closer to the head"], 0, "Lateral is away from the midline."],
+      [5, "Proximal describes a point:", ["Closer to the trunk or attachment", "Farther from the trunk or attachment", "Toward the back", "Toward the feet only"], 0, "Proximal means closer to the attachment point."],
+      [5, "Distal describes a point:", ["Farther from the trunk or attachment", "Closer to the trunk or attachment", "Toward the front", "Toward the head"], 0, "Distal means farther from the attachment point."],
+      [5, "Supine means the patient is:", ["Lying face up", "Lying face down", "Standing with palms forward", "Sitting upright"], 0, "Supine is face up."],
+      [5, "Prone means the patient is:", ["Lying face down", "Lying face up", "On both sides", "Standing upright"], 0, "Prone is face down."],
+      [5, "Bilateral pain affects:", ["Both sides", "One side", "Only the head", "Only the lower body"], 0, "Bilateral means both sides."],
+      [5, "Unilateral weakness affects:", ["One side", "Both sides", "The whole body equally", "Only the back"], 0, "Unilateral means one side."],
+
+      [6, "Anatomy is the study of:", ["Body structure", "Legal consent", "Disease cause only", "Patient billing"], 0, "Anatomy focuses on structure."],
+      [6, "Physiology is the study of:", ["Body function", "Ambulance design", "Legal standards", "Only bones"], 0, "Physiology focuses on function."],
+      [6, "Homeostasis means the body is trying to:", ["Maintain internal balance", "Stop all metabolism", "Avoid oxygen use", "Increase every vital sign"], 0, "Homeostasis is stable internal balance."],
+      [6, "The simplest living unit of the body is the:", ["Cell", "Organ", "Organ system", "Cavity"], 0, "Cells are the basic living units."],
+      [6, "A group of similar cells working together is a:", ["Tissue", "Bone", "System", "Cavity"], 0, "Tissues are groups of similar cells."],
+      [6, "A structure made of tissues that performs a specific job is an:", ["Organ", "Cell", "Atom", "Prefix"], 0, "Organs are made from tissues."],
+      [6, "The body system that supports and protects the body with bones is the:", ["Skeletal system", "Endocrine system", "Digestive system", "Respiratory system"], 0, "The skeletal system includes bones and joints."],
+      [6, "The body system that produces movement through contraction is the:", ["Muscular system", "Renal system", "Endocrine system", "Integumentary system"], 0, "Muscles contract to produce movement."],
+      [6, "The respiratory system primarily:", ["Brings in oxygen and removes carbon dioxide", "Pumps blood", "Filters urine", "Makes bones"], 0, "Respiration supports oxygen and carbon dioxide exchange."],
+      [6, "The cardiovascular system primarily:", ["Circulates blood", "Digests food", "Creates skin", "Stores bile"], 0, "The heart and vessels move blood."],
+      [6, "The nervous system is most associated with:", ["Rapid control and communication", "Food breakdown only", "Bone production only", "Urine storage only"], 0, "The nervous system controls rapid signaling and response."],
+      [6, "The endocrine system uses:", ["Hormones", "Bones", "Stretcher straps", "Medical orders only"], 0, "Endocrine glands release hormones."],
+      [6, "The integumentary system includes the:", ["Skin", "Heart", "Kidneys", "Lungs"], 0, "The integumentary system includes skin and related structures."],
+      [6, "The thoracic cavity contains the:", ["Heart and lungs", "Bladder only", "Stomach only", "Femur only"], 0, "The thoracic cavity is the chest cavity."],
+      [6, "The abdominal cavity contains many:", ["Digestive organs", "Brain structures", "Arm bones only", "Lung lobes only"], 0, "Many digestive organs are in the abdomen."],
+      [6, "The diaphragm is important because it:", ["Helps breathing and separates chest from abdomen", "Filters blood into urine", "Produces insulin", "Forms the skull"], 0, "The diaphragm is a major breathing muscle and boundary between cavities."],
+      [6, "Ventilation means:", ["Moving air into and out of the lungs", "Blood reaching tissues", "Chemical energy use", "Bone growth"], 0, "Ventilation is air movement."],
+      [6, "Respiration means:", ["Gas exchange", "Patient refusal", "Legal permission", "Scene cleanup"], 0, "Respiration is oxygen and carbon dioxide exchange."],
+      [6, "Perfusion means:", ["Blood delivery to tissues", "Air movement only", "Bone movement only", "Food digestion only"], 0, "Perfusion is blood flow through tissues."],
+      [6, "Metabolism refers to:", ["Chemical processes that use and create energy", "Only legal documentation", "Patient consent", "Vehicle movement"], 0, "Metabolism is the body's chemical energy activity."],
+      [6, "The renal system is most associated with:", ["Fluid balance and waste removal", "Breathing air", "Pumping blood", "Hearing sound"], 0, "The kidneys help regulate fluid and remove waste."],
+      [6, "The digestive system primarily:", ["Breaks down food and absorbs nutrients", "Controls all movement", "Moves oxygen into blood", "Protects patient privacy"], 0, "Digestion breaks down food and absorbs nutrients."],
+      [6, "Negative feedback helps homeostasis by:", ["Reversing a change away from normal", "Making every change larger", "Stopping all organ function", "Preventing breathing"], 0, "Negative feedback brings the body back toward normal."],
+      [6, "An organ system is best described as:", ["Organs working together for a major function", "One cell alone", "A legal document", "A single medical word part"], 0, "Organ systems combine organs for body functions."],
+      [6, "A major EMT reason to learn anatomy and physiology is to:", ["Understand assessment findings and how illness affects the body", "Avoid taking vital signs", "Replace medical direction", "Diagnose every disease definitively"], 0, "A&P helps connect signs, symptoms, and patient care decisions."],
+
+      [7, "Pathophysiology is the study of:", ["How disease or injury changes body function", "Only medical spelling", "Only ambulance operations", "Only legal consent"], 0, "Pathophysiology explains abnormal function."],
+      [7, "Etiology means the:", ["Cause of a disease or condition", "Death rate", "Body position", "Patient age group"], 0, "Etiology is cause or origin."],
+      [7, "Morbidity refers to:", ["Illness or disability caused by a condition", "Death only", "A body direction", "A word prefix"], 0, "Morbidity is disease burden or illness."],
+      [7, "Mortality refers to:", ["Death", "Inflammation only", "Medical spelling", "A body cavity"], 0, "Mortality means death related to a condition or population."],
+      [7, "Hypoxia means:", ["Low oxygen at the tissue level", "Too much glucose only", "High blood pressure only", "A legal refusal"], 0, "Hypoxia is inadequate oxygen availability to tissues."],
+      [7, "Hypoperfusion means:", ["Inadequate blood flow to tissues", "Too much oxygen", "Normal breathing", "Inflammation of skin"], 0, "Hypoperfusion is poor tissue blood flow."],
+      [7, "Shock is dangerous because it causes:", ["Inadequate tissue perfusion", "Perfect homeostasis", "Only a rash", "Only a slow pulse"], 0, "Shock is perfusion failure."],
+      [7, "Ischemia means tissue has:", ["Reduced blood flow and oxygen delivery", "Excess blood flow", "No need for oxygen", "Only legal risk"], 0, "Ischemia is reduced perfusion and oxygen delivery."],
+      [7, "Infarction means:", ["Tissue death from loss of blood supply", "Normal tissue growth", "Inflammation only", "A fast heart rate"], 0, "Infarction follows prolonged loss of blood supply."],
+      [7, "Inflammation commonly causes:", ["Redness, heat, swelling, pain, and loss of function", "No local changes", "Only low blood sugar", "Only legal issues"], 0, "Inflammation has classic local signs."],
+      [7, "Edema is:", ["Swelling from fluid buildup", "Fast breathing", "Low oxygen", "A medical prefix"], 0, "Edema is tissue fluid accumulation."],
+      [7, "Compensation is best described as:", ["Body responses that try to maintain function", "Permanent cure", "No response to illness", "A legal document"], 0, "Compensation helps maintain perfusion or oxygenation temporarily."],
+      [7, "Decompensation occurs when:", ["Compensatory mechanisms fail", "The patient becomes perfectly stable", "The EMT writes a report", "A suffix is added"], 0, "Decompensation means the body can no longer keep up."],
+      [7, "Cardiac output depends mainly on:", ["Heart rate and stroke volume", "Age and consent", "Skin color and height", "Only respiratory rate"], 0, "Cardiac output equals heart rate times stroke volume."],
+      [7, "Stroke volume is:", ["Blood pumped with each heartbeat", "Breaths per minute", "Body temperature", "Urine output only"], 0, "Stroke volume is the amount pumped per beat."],
+      [7, "Blood pressure reflects:", ["Force of blood against vessel walls", "Air movement into lungs", "Medical word spelling", "Only oxygen level"], 0, "Blood pressure is vascular pressure."],
+      [7, "Acidosis means body fluids are too:", ["Acidic", "Alkaline", "Cold", "Diluted with oxygen"], 0, "Acidosis is excess acidity."],
+      [7, "Alkalosis means body fluids are too:", ["Alkaline", "Acidic", "Blue", "Low in blood"], 0, "Alkalosis is excess alkalinity."],
+      [7, "Respiratory distress means the patient:", ["Is working hard to breathe but is still moving air", "Has no breathing problem", "Has confirmed cardiac arrest", "Only needs legal paperwork"], 0, "Distress is increased breathing effort before failure."],
+      [7, "Respiratory failure means breathing is:", ["Inadequate for oxygen and carbon dioxide needs", "Always normal", "Only fast", "Only noisy"], 0, "Failure means ventilation or gas exchange is no longer enough."],
+      [7, "Sepsis is best described as:", ["A life-threatening body-wide response to infection", "A bone fracture", "A medical suffix", "A normal aging change"], 0, "Sepsis is systemic illness from infection."],
+      [7, "Poor perfusion can cause altered mental status because:", ["The brain needs oxygen and blood flow", "The brain does not need oxygen", "Only muscles use blood", "Mental status is unrelated to shock"], 0, "Brain function is sensitive to oxygen and perfusion problems."],
+      [7, "An early compensatory response to falling perfusion may include:", ["Increased heart rate", "Complete absence of pulse", "Permanent cure", "No vital sign changes ever"], 0, "Tachycardia can help maintain cardiac output early."],
+      [7, "A patient who becomes confused, pale, cool, and weak may be showing:", ["Worsening hypoperfusion", "Normal homeostasis", "Only medical terminology", "Only puberty"], 0, "Those findings can signal poor perfusion."],
+      [7, "The EMT studies pathophysiology to:", ["Predict how illness changes signs, symptoms, and priorities", "Avoid assessing patients", "Replace the physician", "Memorize only spelling"], 0, "Pathophysiology connects disease processes to assessment and care."],
+
+      [8, "A neonate is usually defined as:", ["Birth through 28 days", "1 to 3 years", "6 to 12 years", "Older than 60 years"], 0, "A neonate is a newborn."],
+      [8, "An infant is generally:", ["1 month to 1 year old", "3 to 6 years old", "12 to 18 years old", "Older than 60"], 0, "Infancy follows the newborn period through about 1 year."],
+      [8, "A toddler is generally:", ["1 to 3 years old", "Birth to 28 days", "6 to 12 years old", "41 to 60 years old"], 0, "Toddlers are roughly 1 to 3 years old."],
+      [8, "A preschooler is generally:", ["3 to 6 years old", "Birth to 1 month", "12 to 18 years old", "Older than 60"], 0, "Preschool age is roughly 3 to 6 years."],
+      [8, "A school-age child is generally:", ["6 to 12 years old", "1 to 3 years old", "Birth to 28 days", "41 to 60 years old"], 0, "School-age children are usually about 6 to 12."],
+      [8, "Adolescence is most associated with:", ["Puberty, identity, and increasing independence", "Fontanelles and newborn reflexes", "Only end-of-life care", "Only toddler vocabulary"], 0, "Adolescents go through puberty and increasing independence."],
+      [8, "A fontanelle is:", ["A soft spot on an infant skull", "A type of shock", "A kidney structure", "A legal directive"], 0, "Fontanelles are gaps between infant skull bones."],
+      [8, "Bulging fontanelles may suggest:", ["Increased pressure or illness concern", "Normal adult aging", "A legal refusal", "An ankle sprain only"], 0, "Bulging fontanelles can be a warning sign."],
+      [8, "The Moro reflex is a:", ["Newborn startle reflex", "Geriatric medication effect", "Type of consent", "Medical suffix"], 0, "The Moro reflex is a startle response in newborns."],
+      [8, "Stranger anxiety is most common in:", ["Infants", "Middle adults only", "Older adults only", "Newborns only"], 0, "Stranger anxiety commonly develops during infancy."],
+      [8, "Separation anxiety is commonly seen when:", ["An infant or toddler is away from a caregiver", "A stable adult signs consent", "A protocol is updated", "A stretcher is cleaned"], 0, "Young children may become distressed when separated from caregivers."],
+      [8, "A pediatric airway is risky because it is:", ["Smaller and easier to obstruct", "Larger than an adult airway", "Not affected by swelling", "Unrelated to positioning"], 0, "Small airways can obstruct quickly."],
+      [8, "Compared with adults, infants and children can lose heat:", ["More easily", "Never", "Only after age 12", "Only with fractures"], 0, "Children have greater heat-loss risk."],
+      [8, "When assessing a toddler, the EMT should usually:", ["Use a calm approach and involve the caregiver when possible", "Separate them from caregivers immediately for every call", "Use only technical language", "Ignore fear"], 0, "Caregiver presence and calm communication help pediatric assessment."],
+      [8, "Preschool children may interpret illness or injury as:", ["Something they caused or a punishment", "Always fully logical", "Only a legal problem", "Impossible to explain"], 0, "Preschoolers can use magical thinking."],
+      [8, "School-age children often respond well to:", ["Simple honest explanations", "No explanation at all", "Only baby talk", "Threats"], 0, "School-age children can understand clear explanations."],
+      [8, "Adolescents often value:", ["Privacy and respect", "Being treated like toddlers", "No involvement in decisions", "Only caregiver answers"], 0, "Adolescents usually want respect and privacy."],
+      [8, "Early adults are often focused on:", ["Independence, work, relationships, and family roles", "Newborn reflexes", "Fontanelles", "Toddler speech"], 0, "Early adulthood commonly centers on independence and major life roles."],
+      [8, "Middle adults are more likely to experience:", ["Chronic disease risk and major family/work responsibilities", "Newborn transition", "Only separation anxiety", "No stressors"], 0, "Middle adulthood can include chronic disease risks and high responsibility load."],
+      [8, "Older adults are at higher risk for:", ["Falls, medication interactions, and chronic illness", "Fontanelles", "Moro reflex", "Rapid puberty"], 0, "Aging increases fall, medication, and chronic disease concerns."],
+      [8, "Polypharmacy means:", ["Use of multiple medications", "No medications", "A child development stage", "A type of airway"], 0, "Polypharmacy increases interaction and side-effect risk."],
+      [8, "A normal aging change may include:", ["Reduced reserve and slower recovery", "Instant recovery from shock", "No medication effects", "No fall risk"], 0, "Older adults often have less physiologic reserve."],
+      [8, "SIDS is associated with:", ["Unexpected infant death without an obvious cause after investigation", "Adult cardiac output", "Medical word parts only", "A legal tort"], 0, "SIDS refers to sudden unexplained infant death after investigation."],
+      [8, "End-of-life care in EMS should prioritize:", ["Patient wishes, dignity, comfort, and applicable directives", "Ignoring directives", "Arguing with family", "Automatic transport against every wish"], 0, "End-of-life calls require respect for wishes, comfort, and law/policy."],
+      [8, "Life span development matters to EMTs because age changes:", ["Assessment, communication, anatomy, physiology, and risk", "Only spelling", "Only ambulance fuel use", "Only dispatch numbers"], 0, "Age changes how patients present and how EMTs should communicate."]
+    ]);
+
     const chapters = [
       ["Chapter 1", "Introduction to EMS", "EMS components, provider levels, medical direction, scope, certification, QI, evidence, public health.", "Know who controls care, what EMTs can do, and how the system improves."],
       ["Chapter 2", "Well-Being of the EMT", "Scene safety, PPE, infection routes, OSHA/Ryan White, TB/TST, stress, grief, fatigue, hazards.", "Protect yourself first so you can keep thinking clearly and protect the patient."],
       ["Chapter 3", "Lifting and Moving Patients", "Body mechanics, power lift/grip, emergency/urgent/non-urgent moves, drags, stair chair, scoop, soft stretcher, bariatric moves.", "Back straight, legs strong, load close, no twisting, enough help."],
-      ["Chapter 4", "Medical, Legal, and Ethical Issues", "Consent, refusal, capacity, negligence, DNR/advance directives, confidentiality, defamation, reporting, crime scenes, ethics.", "Permission, privacy, documentation, and proper transfer protect the patient and EMT."]
+      ["Chapter 4", "Medical, Legal, and Ethical Issues", "Consent, refusal, capacity, negligence, DNR/advance directives, confidentiality, defamation, reporting, crime scenes, ethics.", "Permission, privacy, documentation, and proper transfer protect the patient and EMT."],
+      ["Chapter 5", "Medical Terminology", "Prefixes, suffixes, roots, combining forms, abbreviations, anatomical position, body planes, and directional terms.", "Break the word apart first: prefix, root, suffix, then location or direction."],
+      ["Chapter 6", "Anatomy and Physiology", "Body organization, homeostasis, cells, tissues, organ systems, body cavities, oxygenation, perfusion, and metabolism.", "Structure is anatomy. Function is physiology. Homeostasis is the balance."],
+      ["Chapter 7", "Principles of Pathophysiology", "Disease processes, hypoxia, hypoperfusion, shock, compensation, inflammation, edema, respiratory failure, and perfusion failure.", "Pathophysiology explains what goes wrong and how the body tries to compensate."],
+      ["Chapter 8", "Life Span Development", "Newborns, infants, children, adolescents, adults, older adults, communication, physiology, development, and age-related risk.", "Age changes anatomy, physiology, communication, and what danger looks like."]
     ];
 
     const modes = [
@@ -1667,7 +1886,11 @@
     }
 
     function filterOptions(activeChapter, attr, labelFor = bankLabel) {
-      return [[0, `All ${labelFor(0)}`], [1, `Ch 1 (${labelFor(1)})`], [2, `Ch 2 (${labelFor(2)})`], [3, `Ch 3 (${labelFor(3)})`], [4, `Ch 4 (${labelFor(4)})`]].map(([chapter, label]) => `
+      const options = [[0, `All ${labelFor(0)}`], ...chapters.map((_, index) => {
+        const chapter = index + 1;
+        return [chapter, `Ch ${chapter} (${labelFor(chapter)})`];
+      })];
+      return options.map(([chapter, label]) => `
         <button class="btn ${activeChapter === chapter ? "" : "secondary"}" ${attr}="${chapter}">${label}</button>
       `).join("");
     }
@@ -1777,7 +2000,11 @@
         "Consent is permission. Refusal is allowed when the adult patient is competent.",
         "Assault is the threat. Battery is the touch.",
         "Offline is written ahead. Online is live physician contact.",
-        "Move smart: back straight, legs doing work, load close."
+        "Move smart: back straight, legs doing work, load close.",
+        "Medical terms break into prefix, root, suffix.",
+        "Anatomy is structure. Physiology is function.",
+        "Hypoxia is low oxygen. Hypoperfusion is poor blood flow.",
+        "Life span changes assessment and communication."
       ];
       $("hook").textContent = hooks[Math.min(hooks.length - 1, Math.floor(state.streak / 3))];
       $("score").closest(".metric").classList.remove("pop");
@@ -1967,6 +2194,29 @@
         if (/urgent|non-urgent|stable|bed|stretcher|direct|extremity/.test(lower)) return "Your crew needs to move a patient and must decide whether the situation calls for a fast move or a careful planned transfer.";
         if (/lift|body|mechanics|grip|twist|reach|heavy|bariatric|manual|shoulder|lock|command|push|pull/.test(lower)) return "Your crew is preparing to lift, carry, push, or pull a patient and wants to avoid injury.";
         return "During patient movement, your team needs the safest plan for the patient, crew, and equipment.";
+      }
+      if (item.chapter === 5) {
+        if (/prefix|suffix|root|combining|cardi|tachy|brady|hypo|hyper|itis|ectomy|cyan|medical term|terminology/.test(lower)) return "During a patient report, the EMT has to decode a medical word by breaking it into meaningful parts.";
+        if (/anatomical|anterior|posterior|superior|inferior|medial|lateral|proximal|distal|supine|prone|bilateral|unilateral|position|direction/.test(lower)) return "During assessment, the EMT describes injury location using standard anatomical position and directional terms.";
+        return "The crew is documenting clearly and needs the correct medical terminology instead of vague wording.";
+      }
+      if (item.chapter === 6) {
+        if (/anatomy|physiology|cell|tissue|organ|system|homeostasis|negative feedback/.test(lower)) return "At the station, a new EMT is connecting body structure, body function, and the body's need for internal balance.";
+        if (/respiratory|ventilation|respiration|oxygen|carbon dioxide|diaphragm|thoracic/.test(lower)) return "On a breathing call, the EMT connects air movement, gas exchange, and chest anatomy to the patient's symptoms.";
+        if (/cardiovascular|perfusion|blood|cardiac|renal|metabolism|digestive|endocrine|integumentary|abdominal|pelvic/.test(lower)) return "During assessment, the crew links organ systems, blood flow, and energy needs to what they see on scene.";
+        return "The EMT is using anatomy and physiology to understand why a patient's signs and symptoms matter.";
+      }
+      if (item.chapter === 7) {
+        if (/hypoxia|hypoperfusion|shock|ischemia|infarction|perfusion|cardiac output|stroke volume|blood pressure/.test(lower)) return "A patient is worsening because oxygen delivery, blood flow, or pumping ability is failing.";
+        if (/inflammation|edema|sepsis|infection|morbidity|mortality|etiology/.test(lower)) return "The call involves a disease process where cause, swelling, infection response, or risk of death matters.";
+        if (/compensation|decompensation|acidosis|alkalosis|respiratory distress|respiratory failure/.test(lower)) return "The EMT is watching whether the patient is compensating or starting to fail.";
+        return "The crew applies pathophysiology to predict how illness or injury changes patient priorities.";
+      }
+      if (item.chapter === 8) {
+        if (/neonate|infant|toddler|preschool|school-age|fontanelle|moro|stranger|separation|sids|pediatric|child/.test(lower)) return "The crew adjusts assessment, airway thinking, and communication for a pediatric patient.";
+        if (/adolescent|puberty|privacy|respect/.test(lower)) return "The patient is an adolescent, so privacy, respect, and development affect communication.";
+        if (/early adult|middle adult|older|geriatric|polypharmacy|fall|end-of-life|directive|aging|reserve/.test(lower)) return "The crew considers adult life stage, chronic illness, medications, fall risk, and patient wishes.";
+        return "The EMT changes communication and assessment priorities based on the patient's stage of life.";
       }
       if (/consent|refus|competent|minor|capacity|emancipated|involuntary/.test(lower)) return "A patient-care decision depends on permission, refusal, age, or decision-making ability.";
       if (/abandonment|duty|negligence|transfer|harm|standard|breach|causation|damages|proximate/.test(lower)) return "Your crew is responsible for continuing appropriate care, meeting the expected standard, and transferring care properly.";
