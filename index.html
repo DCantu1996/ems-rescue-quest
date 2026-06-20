@@ -1627,6 +1627,70 @@
       definition
     })));
 
+    const chapterTenPdfCards = [
+      ["Ventilation", "Movement of air into and out of the lungs, including inhalation, exhalation, or artificial breaths.", 10],
+      ["Inhalation", "The active part of normal breathing when chest volume increases and negative pressure pulls air into the lungs.", 10],
+      ["Exhalation", "The usually passive part of normal breathing when the chest relaxes and air moves out of the lungs.", 10],
+      ["Tidal volume", "The amount of air moved in one breath; normal adult tidal volume is about 5 to 7 mL/kg.", 10],
+      ["Minute volume", "The amount of air moved in one minute, calculated by multiplying respiratory rate by tidal volume.", 10],
+      ["Dead space", "Air that stays in passages and does not reach the alveoli for gas exchange.", 10],
+      ["Alveolar ventilation", "The amount of air that actually reaches the alveoli and can participate in gas exchange.", 10],
+      ["Diffusion", "Movement of molecules from an area of higher concentration to an area of lower concentration.", 10],
+      ["Pulmonary respiration", "Exchange of oxygen and carbon dioxide between alveoli and blood in the pulmonary capillaries.", 10],
+      ["Cellular respiration", "Exchange of oxygen and carbon dioxide between body cells and circulating blood.", 10],
+      ["Ventilation-perfusion match", "The needed pairing of air reaching alveoli and blood reaching pulmonary capillaries.", 10],
+      ["Respiratory distress", "Increased work of breathing or shortness of breath while the body is still trying to compensate.", 10],
+      ["Respiratory failure", "Breathing or gas exchange reduced to the point that body needs are not being met.", 10],
+      ["Respiratory arrest", "A complete stop in breathing that requires immediate artificial ventilation.", 10],
+      ["Hypoxia", "Not enough oxygen in the body's tissues.", 10],
+      ["Cyanosis", "Blue or gray skin or mucous membrane color caused by inadequate oxygenation.", 10],
+      ["Accessory muscle use", "Use of neck, chest, or abdominal muscles to help breathing when normal effort is not enough.", 10],
+      ["Retractions", "Visible pulling-in of soft tissue between ribs or around the neck during difficult breathing.", 10],
+      ["Nasal flaring", "Widening of the nostrils during breathing, often a pediatric sign of increased respiratory effort.", 10],
+      ["Thoraco-abdominal breathing", "Uneven chest and abdominal movement that can signal inadequate breathing, especially in children.", 10],
+      ["Positive pressure ventilation", "Forcing air or oxygen into the lungs from outside the body when breathing is absent or inadequate.", 10],
+      ["Artificial ventilation", "Ventilation provided by a rescuer or device for a patient who is not breathing adequately.", 10],
+      ["Gastric distention", "Air filling the stomach during positive pressure ventilation, increasing vomiting risk and limiting diaphragm movement.", 10],
+      ["Hyperventilation from bagging", "Ventilating too fast or with too much volume, which can lower carbon dioxide and reduce blood flow to the brain.", 10],
+      ["Pocket face mask", "A mask with a one-way valve used to provide rescue breaths while limiting direct contact with body fluids.", 10],
+      ["Bag-valve mask", "A handheld mask and self-refilling bag used to provide artificial ventilation with air or oxygen.", 10],
+      ["Two-rescuer BVM", "Preferred BVM method where one rescuer maintains a two-hand mask seal and another squeezes the bag.", 10],
+      ["One-rescuer BVM", "A backup BVM method used only when no better artificial ventilation option is available.", 10],
+      ["BVM chest-rise target", "Ventilate slowly and gently only until the chest begins to rise.", 10],
+      ["Stoma ventilation", "Ventilation through a neck opening, often with suction and a pediatric-sized mask seal around the stoma.", 10],
+      ["Automatic transport ventilator", "A portable device that can provide positive pressure ventilations with set rate and volume.", 10],
+      ["Oxygen therapy", "Administration of supplemental oxygen as a medication based on patient condition, hypoxia, and protocol.", 10],
+      ["Oxygen cylinder", "A pressurized container of medical oxygen that must be secured and monitored for remaining pressure.", 10],
+      ["Safe residual pressure", "The oxygen cylinder pressure level, commonly 200 psi, before the cylinder should be replaced.", 10],
+      ["Pressure regulator", "Device that reduces high oxygen cylinder pressure to a safe working pressure.", 10],
+      ["Flowmeter", "Device used to set and display oxygen flow in liters per minute.", 10],
+      ["Humidifier", "A device that adds moisture to dry oxygen, mainly useful for long transports or selected pediatric/COPD patients.", 10],
+      ["Nonrebreather mask", "A mask with reservoir bag that delivers high oxygen concentration to a breathing patient when used correctly.", 10],
+      ["Nasal cannula", "Two-prong oxygen device that delivers low-flow oxygen and is often better tolerated than a mask.", 10],
+      ["Partial rebreather mask", "A reservoir mask without a one-way valve to the bag, allowing some exhaled air to mix with oxygen.", 10],
+      ["Venturi mask", "A mask designed to deliver a specific oxygen concentration by mixing oxygen with inhaled air.", 10],
+      ["Tracheostomy mask", "A small mask placed over a stoma or tracheostomy tube to provide supplemental oxygen.", 10],
+      ["Blow-by oxygen", "Pediatric oxygen technique where oxygen is held near the child's face when a mask or cannula is not tolerated.", 10],
+      ["Hypoxic drive", "A breathing stimulus based on low oxygen levels in some advanced COPD patients; oxygen should not be withheld from distress.", 10],
+      ["Oxygen combustion hazard", "Oxygen supports combustion and makes fire burn faster, so flames, smoking, oil, and grease must be avoided.", 10],
+      ["Preoxygenation", "Providing extra oxygen before an advanced airway attempt so oxygen levels are better supported during the procedure.", 10],
+      ["BURP maneuver", "Gentle backward, upward, and rightward pressure on airway cartilage to improve vocal cord view during intubation assistance.", 10],
+      ["End-tidal CO2 confirmation", "Use of exhaled carbon dioxide detection to help confirm and monitor advanced airway placement.", 10],
+      ["Right mainstem intubation", "An endotracheal tube inserted too far, often ventilating the right lung while left breath sounds are absent.", 10],
+      ["Tube displacement", "Movement of an advanced airway out of correct position, which can stop oxygen delivery and become fatal if missed.", 10]
+    ].map(([term, definition, chapter], index) => ({ id: cards.length + index, term, definition, chapter }));
+    cards.push(...chapterTenPdfCards);
+    flashDeck.push(...chapterTenPdfCards.map(({ id, term, definition, chapter }) => ({
+      id,
+      chapter,
+      q: definition,
+      options: [term],
+      answer: 0,
+      why: definition,
+      term,
+      definition
+    })));
+
     const quiz = [
       [1, "What is the main purpose of an EMS system?", ["Provide emergency care before and during transport", "Replace emergency departments", "Diagnose every illness in the field", "Only transport patients"], 0, "EMS starts emergency medical care and continues it during transport."],
       [1, "Which level of EMS provider has training beyond EMT and can perform more advanced skills?", ["EMR", "AEMT or paramedic", "Dispatcher", "Bystander"], 1, "AEMTs and paramedics have advanced training compared with EMTs."],
@@ -2084,6 +2148,86 @@
       [9, "A bulb syringe is commonly used for:", ["Infants and small children", "Adult blood pressure", "Supraglottic placement confirmation", "Splinting"], 0, "Bulb suction can clear small pediatric airways."],
       [9, "Facial injuries threaten the airway because they can cause:", ["Swelling and bleeding that block the airway", "Improved ventilation", "No airway risk", "Only extremity pain"], 0, "Facial trauma may require frequent suctioning and airway attention."],
       [9, "Dentures during airway procedures should usually be:", ["Left in place unless they become dislodged or endanger the airway", "Always removed immediately", "Ignored even if loose", "Used as a suction device"], 0, "Dentures may help mask seal, but loose partials can become airway hazards."]
+    ]);
+
+    addQuizItems([
+      [10, "Normal inhalation is primarily caused by:", ["Chest expansion creating negative pressure", "A rescuer forcing air into the lungs", "Relaxation of every breathing muscle", "Carbon dioxide leaving the cells"], 0, "Normal inhalation pulls air in by creating negative pressure in the chest."],
+      [10, "Normal exhalation at rest is usually:", ["Passive because the respiratory muscles relax", "Always active and forceful", "Caused by suction from a BVM", "The same as cellular respiration"], 0, "Exhalation is usually passive unless disease or exertion increases work."],
+      [10, "A patient with asthma or COPD may show prolonged exhalation because:", ["Lower-airway narrowing makes it hard to move air out", "The tongue is blocking the upper airway", "Blood pressure is too high", "The patient has too much tidal volume"], 0, "Obstructive lung disease can make exhalation active and prolonged."],
+      [10, "Tidal volume is:", ["Air moved in one breath", "Air moved in one minute", "Air left in the stomach", "Oxygen pressure in a cylinder"], 0, "Tidal volume is per-breath volume."],
+      [10, "A normal adult tidal volume is approximately:", ["5 to 7 mL/kg", "1 mL/kg", "20 to 30 L/kg", "200 psi"], 0, "The chapter gives 5 to 7 mL/kg as normal adult tidal volume."],
+      [10, "Minute volume is calculated by:", ["Respiratory rate multiplied by tidal volume", "Systolic minus diastolic pressure", "Oxygen flow divided by cylinder size", "Pulse multiplied by SpO2"], 0, "Minute volume combines rate and depth."],
+      [10, "Dead space is important because it:", ["Does not participate in alveolar gas exchange", "Always reaches the alveoli", "Creates the oxygen cylinder pressure", "Is the same as tidal volume"], 0, "Air in dead space does not reach gas-exchange surfaces."],
+      [10, "A patient breathing very rapidly and shallowly may have poor alveolar ventilation because:", ["Not enough air reaches the alveoli each breath", "All air goes straight to the cells", "Too much oxygen is in the tank", "The pulse oximeter is always wrong"], 0, "Fast shallow breathing can move air mostly in dead space."],
+      [10, "Diffusion means molecules move:", ["From higher concentration to lower concentration", "Only by active muscle contraction", "From low pressure to high pressure only", "Only through bones"], 0, "Diffusion follows concentration gradients."],
+      [10, "Pulmonary respiration occurs between:", ["Alveoli and pulmonary capillary blood", "Body cells and systemic capillary blood", "The stomach and diaphragm", "The skin and air"], 0, "Pulmonary respiration is lung-level gas exchange."],
+      [10, "Cellular respiration occurs between:", ["Body cells and circulating blood", "Alveoli and outside air only", "The tongue and pharynx", "The oxygen cylinder and flowmeter"], 0, "Cellular respiration is tissue-level gas exchange."],
+      [10, "A good ventilation-perfusion match means:", ["Air reaches alveoli and blood reaches capillaries together", "The patient has no pulse", "The airway is blocked but circulation is normal", "Only oxygen tubing is attached"], 0, "Gas exchange needs both ventilation and blood flow."],
+      [10, "Which problem can interrupt ventilation mechanics?", ["Bronchoconstriction narrowing the air passages", "A perfectly patent airway", "Normal chest expansion", "Clear breath sounds"], 0, "Narrowed passages can limit air movement."],
+      [10, "Which problem can interrupt oxygen transport even if lungs work?", ["Severe blood loss or low hemoglobin", "A full oxygen cylinder", "A normal pulse pressure", "Warm dry skin"], 0, "Oxygen must be carried by blood and hemoglobin."],
+      [10, "Respiratory distress means the patient:", ["Has increased work of breathing but may still be compensating", "Has completely stopped breathing", "Always has no pulse", "Needs no reassessment"], 0, "Distress is increased work before full failure."],
+      [10, "Respiratory failure means:", ["Breathing or gas exchange is inadequate for body needs", "The patient is breathing normally", "The oxygen cylinder is empty", "The patient only has a legal issue"], 0, "Failure means compensation is no longer enough."],
+      [10, "Respiratory arrest means:", ["Breathing has completely stopped", "The patient is only short of breath", "Pulse oximetry is normal", "The patient has mild anxiety"], 0, "Arrest is absence of breathing."],
+      [10, "A patient in respiratory failure who is still conscious and breathing shallowly generally needs:", ["Ventilatory assistance", "Only paperwork", "No intervention until arrest", "A splint first"], 0, "Inadequate breathing should be assisted before it becomes arrest."],
+      [10, "Adequate breathing is suggested by:", ["Normal mental status, adequate rate/depth, air movement, and acceptable oxygenation", "Altered mental status and absent breath sounds", "Blue skin and gasping", "No chest movement"], 0, "Adequate breathing includes mental status, rate, depth, movement, and oxygenation."],
+      [10, "Which finding is a sign of inadequate breathing?", ["Altered mental status with shallow respirations", "Speaking full sentences with normal skin", "Normal chest rise and clear air movement", "Warm skin after exercise"], 0, "Altered mental status plus poor breathing is a danger sign."],
+      [10, "An SpO2 below about 95 percent in this chapter's breathing table should make the EMT:", ["Reassess oxygenation and overall breathing status", "Ignore it if the patient is cyanotic", "Stop assessing breathing", "Assume ventilation is perfect"], 0, "Low saturation should be interpreted with patient presentation."],
+      [10, "Normal adult respiratory rate is generally:", ["12 to 20 per minute", "30 to 60 per minute", "4 to 6 per minute", "80 to 90 per minute"], 0, "The adult range is 12 to 20."],
+      [10, "Normal child respiratory rate is generally:", ["18 to 30 per minute", "1 to 6 per minute", "60 to 100 per minute", "Only 12 per minute"], 0, "The child range is 18 to 30."],
+      [10, "Normal infant respiratory rate is generally:", ["30 to 60 per minute", "6 to 12 per minute", "12 to 20 per minute", "90 to 120 per minute"], 0, "The infant range is 30 to 60."],
+      [10, "A slowed heart rate in a child with respiratory distress is especially concerning because it may mean:", ["Severe hypoxia requiring immediate ventilatory support", "The child is definitely improving", "The airway is fully clear", "Oxygen is not needed"], 0, "Pediatric bradycardia with respiratory distress is a critical warning sign."],
+      [10, "Retractions in a breathing child are a sign of:", ["Increased work of breathing", "Normal relaxed breathing", "A legal refusal", "Normal oxygen cylinder function"], 0, "Retractions show the child is working to breathe."],
+      [10, "Nasal flaring in an infant commonly suggests:", ["Respiratory distress", "Normal blood pressure", "No breathing concern", "Only abdominal pain"], 0, "Nasal flaring is a pediatric breathing warning sign."],
+      [10, "Positive pressure ventilation differs from normal breathing because it:", ["Pushes air into the lungs from outside", "Creates normal negative chest pressure", "Only moves carbon dioxide into cells", "Requires no open airway"], 0, "Artificial ventilation uses positive pressure rather than normal negative pressure."],
+      [10, "A major risk of positive pressure ventilation is:", ["Decreased cardiac output or blood pressure if excessive pressure is used", "Guaranteed improved blood pressure", "No effect on circulation", "Automatic airway clearing"], 0, "Positive pressure can reduce venous return and blood pressure, especially if excessive."],
+      [10, "Gastric distention during ventilation can lead to:", ["Vomiting and reduced diaphragm movement", "Better tidal volume", "Improved lung capacity", "A normal airway"], 0, "Air in the stomach increases vomiting risk and limits the diaphragm."],
+      [10, "Hyperventilating a patient with a BVM can:", ["Blow off too much carbon dioxide and reduce cerebral blood flow", "Always improve brain perfusion", "Prevent all vomiting", "Replace oxygen therapy"], 0, "Overventilation can cause vasoconstriction and harm perfusion."],
+      [10, "The target volume for artificial ventilation is:", ["Enough to see the chest begin to rise", "As much air as the bag can deliver", "No visible chest movement", "Until the abdomen rises"], 0, "Use slow gentle breaths just until chest rise."],
+      [10, "Artificial ventilations should be delivered over about:", ["1 second", "10 seconds", "30 seconds", "One minute"], 0, "The chapter emphasizes slow, controlled ventilations over 1 second."],
+      [10, "Before ventilating a patient with vomitus in the airway, the EMT should:", ["Suction and clear the airway", "Forcefully ventilate through it", "Ignore the vomitus", "Apply a nasal cannula only"], 0, "Positive pressure can force vomit into the lungs."],
+      [10, "The most important signs of adequate artificial ventilation are:", ["Chest rise/fall and correct rate", "Abdominal swelling and mask leak", "No air movement", "Only skin temperature"], 0, "Watch chest movement and rate."],
+      [10, "For adult artificial ventilation, the usual rate is approximately:", ["10 to 12 breaths per minute", "30 to 60 breaths per minute", "2 breaths per minute", "80 breaths per minute"], 0, "Adults are ventilated about 10 to 12 per minute."],
+      [10, "For pediatric artificial ventilation, the usual rate is approximately:", ["12 to 20 breaths per minute", "4 to 6 breaths per minute", "25 to 40 breaths per minute", "Only 10 per minute"], 0, "Children and infants generally need 12 to 20 per minute."],
+      [10, "During BVM ventilation, adults are commonly ventilated once every:", ["5 to 6 seconds", "1 second", "20 seconds", "30 seconds"], 0, "Once every 5 to 6 seconds gives about 10 to 12 per minute."],
+      [10, "During BVM ventilation, children and infants are commonly ventilated once every:", ["3 to 5 seconds", "10 to 15 seconds", "20 seconds", "Only once per minute"], 0, "Once every 3 to 5 seconds gives the pediatric artificial ventilation range."],
+      [10, "The best BVM method when enough help is available is:", ["Two-rescuer BVM", "One-rescuer BVM", "No mask seal", "A nasal cannula"], 0, "Two-rescuer BVM improves mask seal and controlled ventilation."],
+      [10, "If the chest does not rise during BVM ventilation, first reassess:", ["Head position and mask seal", "The patient's insurance", "The stretcher height", "Only the oxygen tank color"], 0, "Poor position or seal commonly causes BVM failure."],
+      [10, "If repositioning and seal correction still fail during BVM ventilation, the EMT should suspect:", ["Airway obstruction or BVM system obstruction", "Perfect ventilation", "A normal finding", "Only low blood pressure"], 0, "Check the airway, suction if needed, and consider another method."],
+      [10, "One-rescuer BVM is considered:", ["A last-choice method when no better option is available", "The preferred method", "Better than two-rescuer BVM", "A device for oxygen therapy only"], 0, "One-rescuer BVM often has poor seal and is a backup option."],
+      [10, "A proper face mask size should extend roughly from:", ["Bridge of the nose to cleft of the chin", "Forehead to chest", "Ear to shoulder", "Nostril to elbow"], 0, "Mask size must cover nose and mouth without major leaks."],
+      [10, "A clear face mask is useful because the EMT can:", ["Observe vomit, secretions, and lip color", "Measure blood pressure", "See the oxygen cylinder pressure", "Prevent all aspiration"], 0, "Visibility helps monitor airway and cyanosis."],
+      [10, "Dentures should usually be left in place during mask ventilation because they may:", ["Improve face shape and mask seal", "Block all airway movement", "Replace the airway adjunct", "Measure oxygen concentration"], 0, "Dentures may help maintain facial structure for sealing."],
+      [10, "A bariatric patient who cannot be ventilated well supine may benefit from:", ["Ramp positioning with ear aligned to suprasternal notch", "More forceful bagging only", "No airway adjunct", "Leaving the head unsupported"], 0, "The ramp position can improve airway alignment in larger patients."],
+      [10, "For a stoma breather in respiratory arrest, the EMT should usually:", ["Suction the stoma and ventilate through it with an appropriate mask seal", "Ignore the stoma and only bag the mouth", "Place a nasal cannula in the mouth", "Use abdominal thrusts first"], 0, "Many stoma patients breathe through the neck opening."],
+      [10, "An automatic transport ventilator may be helpful when:", ["Prolonged ventilation is needed and settings can be matched to the patient", "The patient only needs a blood pressure", "The airway is full of vomit", "The patient is breathing normally"], 0, "ATVs can provide set rate and volume but still need a seal and monitoring."],
+      [10, "Oxygen is considered:", ["A medication that should be given based on need and assessment", "Harmless in every amount", "Only a lifting device", "A replacement for ventilation in apnea"], 0, "Oxygen has indications, benefits, and potential harms."],
+      [10, "A nonbreathing patient needs:", ["Ventilation with oxygen as a supplement", "Only a nonrebreather mask", "Only blow-by oxygen", "Only a nasal cannula"], 0, "Ventilate patients in respiratory arrest; oxygen alone does not move air."],
+      [10, "A full portable oxygen cylinder commonly contains about:", ["2,000 to 2,200 psi", "20 psi", "200 psi exactly", "15 L/min"], 0, "Full cylinders are stored under high pressure around 2,000 to 2,200 psi."],
+      [10, "The oxygen cylinder safe residual is commonly:", ["200 psi", "2 psi", "15 psi", "2,200 L/min"], 0, "Switch cylinders before dropping below the safe residual."],
+      [10, "The purpose of a pressure regulator is to:", ["Reduce cylinder pressure to a safe working pressure", "Increase dead space", "Measure pulse", "Humidify air"], 0, "Cylinder pressure is too high for direct patient delivery."],
+      [10, "A flowmeter controls:", ["Oxygen flow in liters per minute", "Blood pressure", "Tidal volume inside the lungs", "ETCO2 waveform"], 0, "The flowmeter sets oxygen delivery flow."],
+      [10, "Before placing a nonrebreather mask on the patient, the EMT should:", ["Inflate the reservoir bag", "Empty the reservoir bag", "Remove the valves", "Turn oxygen off"], 0, "The bag should be filled so the patient does not rebreathe or collapse it."],
+      [10, "A nonrebreather mask usually delivers:", ["High concentration oxygen at about 12 to 15 L/min", "Low oxygen at 1 L/min only", "Only room air", "Ventilations for apnea without squeezing a bag"], 0, "NRB is high-concentration oxygen for breathing patients."],
+      [10, "A nasal cannula usually delivers:", ["Low concentration oxygen at about 1 to 6 L/min", "100 percent oxygen at 25 L/min", "Positive pressure ventilation", "Airway suction"], 0, "Cannulas are low-flow, lower concentration devices."],
+      [10, "A nasal cannula can be useful when:", ["The patient needs some oxygen but cannot tolerate a mask", "The patient is not breathing at all", "The airway is full of vomit", "The patient needs intubation confirmation"], 0, "Cannulas are often tolerated better than masks."],
+      [10, "A partial rebreather differs from a nonrebreather because it:", ["Allows some exhaled air to mix with oxygen in the reservoir", "Has no reservoir at all", "Provides suction", "Is used only for apnea"], 0, "The lack of a one-way valve to the bag allows partial rebreathing."],
+      [10, "A Venturi mask is mainly used when the patient needs:", ["A specific oxygen concentration", "Chest compressions", "Airway suction", "No oxygen monitoring"], 0, "Venturi systems deliver controlled oxygen percentages."],
+      [10, "A tracheostomy mask is placed over:", ["A stoma or tracheostomy tube", "The nose and mouth only", "The oxygen cylinder", "The patient's eyes"], 0, "It is designed for oxygen delivery through a neck airway opening."],
+      [10, "Blow-by oxygen may be used for a child who:", ["Will not tolerate a mask or cannula", "Has no respiratory problem", "Needs immediate CPR only", "Is intubated"], 0, "Blow-by is less efficient but may be tolerated by scared children."],
+      [10, "Oxygen should not be withheld from a patient in distress because of:", ["Fear of hypoxic drive", "A normal oxygen tank color", "A mask being available", "The chapter title"], 0, "Treat based on distress, pulse oximetry, and protocol."],
+      [10, "Which is an oxygen safety rule?", ["Keep oxygen away from flames, smoking, oil, and grease", "Use petroleum products on regulators", "Let cylinders stand unsecured", "Drag cylinders by the valve"], 0, "Oxygen supports combustion and high-pressure cylinders are hazardous."],
+      [10, "For chest pain without shortness of breath or hypoxia, the chapter supports:", ["A selective oxygen approach based on assessment and protocol", "Automatic high-flow oxygen for everyone", "Withholding assessment", "Ventilation with BVM"], 0, "Oxygen should be guided by distress, saturation, condition, and protocols."],
+      [10, "Before an advanced airway attempt, the EMT's biggest help is usually:", ["Maintaining a patent airway and quality ventilations/preoxygenation", "Removing all monitoring", "Ventilating as fast as possible", "Leaving the patient alone"], 0, "Good basic airway and ventilation support improves advanced airway success."],
+      [10, "During hyperoxygenation before intubation, the EMT should avoid:", ["Forceful or excessive-rate ventilations", "Using oxygen with a BVM reservoir", "Normal-rate ventilations", "Monitoring the patient"], 0, "Too much force or rate causes gastric inflation and vomiting risk."],
+      [10, "The BURP maneuver is used to help:", ["Improve the view of the vocal cords during intubation", "Clear vomit from the airway", "Measure pulse oximetry", "Splint the neck"], 0, "BURP can bring the laryngeal structures into view for the advanced provider."],
+      [10, "Correct endotracheal tube placement is commonly confirmed with:", ["Lung and epigastric sounds plus end-tidal CO2 detection", "Only tank pressure", "Only skin temperature", "Only patient age"], 0, "Multiple confirmation methods reduce missed esophageal placement."],
+      [10, "Breath sounds on the right but not the left after intubation may mean:", ["The tube is too deep in the right mainstem bronchus", "The tube is perfectly centered", "No ventilation is happening", "The oxygen tank is empty"], 0, "A tube advanced too far commonly enters the right mainstem bronchus."],
+      [10, "If an intubated patient's BVM resistance suddenly increases, the EMT should:", ["Report it immediately because tube displacement or lung complication is possible", "Ignore it", "Ventilate faster", "Remove oxygen therapy"], 0, "Changing resistance can be an early warning of a serious problem."],
+      [10, "During defibrillation of an intubated patient, the unsupported bag should be removed because:", ["Its weight can displace the tube", "It improves the shock dose", "It measures ETCO2", "It prevents all burns"], 0, "The tube must be protected from accidental movement."],
+      [10, "A patient becoming more alert while intubated is important because they may:", ["Try to bite or pull out the tube", "No longer need monitoring", "Have no gag reflex", "Make tube displacement impossible"], 0, "Returning reflexes and awareness can threaten the advanced airway."],
+      [10, "Flow-restricted oxygen-powered ventilation devices are generally contraindicated in:", ["Infants and children unless a pediatric unit and training are available", "All adults", "All apneic patients", "Oxygen cylinder checks"], 0, "Pediatric patients require special caution and proper equipment."],
+      [10, "In pediatric ventilation, gastric distention is especially dangerous because it can:", ["Limit diaphragm movement and reduce tidal volume", "Increase lung capacity", "Improve oxygenation automatically", "Eliminate hypoxia"], 0, "Children rely heavily on diaphragm movement."],
+      [10, "The best pediatric ventilation volume is:", ["Only enough to make the chest rise", "A full adult bag squeeze every time", "Enough to inflate the abdomen", "No visible chest movement"], 0, "Avoid excessive pressure and volume in children."]
     ]);
 
     const chapters = [
@@ -2591,11 +2735,15 @@
         return "The crew is managing a basic airway problem and reassessing whether air can move.";
       }
       if (item.chapter === 10) {
-        if (/ventilation|artificial|bvm|bag|pocket mask|positive-pressure|chest rise|gastric/.test(lower)) return "A patient is not breathing adequately, and the EMT must support ventilation without over-bagging.";
-        if (/respiration|external|internal|gas exchange|alveoli|capillaries|oxygen|carbon dioxide/.test(lower)) return "The crew is connecting respiratory anatomy to the oxygen and carbon dioxide exchange problem.";
-        if (/tidal|minute volume|dead space|shallow|rate/.test(lower)) return "The patient's breathing pattern may not be moving enough useful air for gas exchange.";
-        if (/hypoxia|cyanosis/.test(lower)) return "The patient is showing possible signs of poor oxygen delivery, so oxygenation and ventilation have to be reassessed.";
-        return "The call focuses on whether the patient is moving air and exchanging gases effectively.";
+        if (/nonrebreather|nrb|nasal cannula|partial rebreather|venturi|tracheostomy mask|blow-by|oxygen therapy|oxygen cylinder|safe residual|pressure regulator|flowmeter|humidifier|combustion|hypoxic drive|chest pain/.test(lower)) return "A breathing patient may need supplemental oxygen, and the EMT must choose the right device, flow, safety step, or oxygen decision.";
+        if (/stoma|automatic transport ventilator|atv|advanced airway|preoxygenation|burp|end-tidal|etco2|right mainstem|tube displacement|intubat|defibrillation/.test(lower)) return "The crew is supporting a special ventilation situation or helping ALS protect an advanced airway.";
+        if (/pediatric|infant|child|bradycardia|retractions|nasal flaring|thoraco-abdominal|flow-restricted|diaphragm/.test(lower)) return "The patient is an infant or child, so small airway size, fast oxygen use, and ventilation volume matter more.";
+        if (/respiratory distress|respiratory failure|respiratory arrest|altered mental|adequate breathing|inadequate breathing|arrest|assist/.test(lower)) return "A short-of-breath patient may be moving from distress into failure, and the EMT must decide when to ventilate instead of only oxygenate.";
+        if (/ventilation|artificial|bvm|bag-valve|bag|pocket face|pocket mask|positive pressure|positive-pressure|chest rise|gastric|hyperventilat|mask seal|dentures|ramp/.test(lower)) return "A patient is not breathing adequately, and the EMT must create an airway seal, give slow breaths, and avoid over-bagging.";
+        if (/tidal|minute volume|dead space|alveolar ventilation|shallow|rate|5 to 7|respiratory rate/.test(lower)) return "The patient's rate and depth look busy, but the crew has to judge whether useful air is actually reaching the alveoli.";
+        if (/diffusion|respiration|pulmonary respiration|cellular respiration|gas exchange|alveoli|capillaries|ventilation-perfusion|hemoglobin|blood loss|oxygen transport|carbon dioxide/.test(lower)) return "The crew is connecting air movement, blood flow, hemoglobin, and gas exchange to the patient's symptoms.";
+        if (/hypoxia|cyanosis|spo2|oxygenation/.test(lower)) return "The patient is showing possible signs of poor oxygen delivery, so oxygenation and ventilation have to be reassessed together.";
+        return "The call focuses on whether the patient is moving enough air and exchanging gases effectively.";
       }
       if (item.chapter === 13) {
         if (/pulse|blood pressure|systolic|diastolic|pulse pressure|shock|perfusion/.test(lower)) return "The EMT is reading circulation clues from pulse quality, blood pressure, and perfusion signs.";
