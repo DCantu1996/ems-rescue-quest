@@ -1691,6 +1691,81 @@
       definition
     })));
 
+    const chapterThirteenPdfCards = [
+      ["Baseline vital signs", "The first set of vital sign measurements used for comparison with later readings.", 13],
+      ["Trending vital signs", "Repeating and comparing vital signs over time to detect improvement, deterioration, or response to care.", 13],
+      ["Vital signs", "Outward measurable signs of body function, including pulse, respirations, skin, pupils, and blood pressure.", 13],
+      ["Pulse", "The rhythmic beat felt as the heart pumps blood through arteries.", 13],
+      ["Pulse rate", "The number of pulse beats per minute.", 13],
+      ["Tachycardia", "A rapid adult resting pulse rate above 100 beats per minute.", 13],
+      ["Bradycardia", "A slow adult pulse rate below 60 beats per minute.", 13],
+      ["Pulse quality", "The rhythm and force of a pulse, described as regular or irregular and strong, weak, full, or thready.", 13],
+      ["Thready pulse", "A weak, thin pulse that may suggest shock or poor perfusion.", 13],
+      ["Radial pulse", "The pulse felt at the thumb side of the wrist.", 13],
+      ["Brachial pulse", "The pulse felt in the upper arm, commonly used for infants.", 13],
+      ["Carotid pulse", "The pulse felt along the large artery on either side of the neck.", 13],
+      ["Ventricular assist device", "A mechanical pump that may produce continuous blood flow, causing an awake patient to have no palpable pulse or measurable BP.", 13],
+      ["Respiration", "One complete act of breathing in and breathing out.", 13],
+      ["Respiratory rate", "The number of breaths taken in one minute.", 13],
+      ["Respiratory quality", "The character of breathing, such as normal, shallow, labored, or noisy.", 13],
+      ["Respiratory rhythm", "The regular or irregular spacing of breaths.", 13],
+      ["Shallow breathing", "Breathing with only slight chest or abdominal movement.", 13],
+      ["Labored breathing", "Breathing with increased work, accessory muscle use, nasal flaring, retractions, grunting, or gasping.", 13],
+      ["Noisy breathing", "Breathing sounds that suggest obstruction or airflow problems, such as snoring, wheezing, gurgling, or crowing.", 13],
+      ["Skin color", "A perfusion and oxygenation clue assessed at nail beds, lips, inner eyelids, palms, soles, or mucous membranes.", 13],
+      ["Pale skin", "Skin color often caused by vessel constriction from blood loss, shock, hypotension, or emotional distress.", 13],
+      ["Cyanotic skin", "Blue-gray skin color often linked to inadequate oxygen in blood cells and tissues.", 13],
+      ["Flushed skin", "Red skin color that may occur with heat exposure or emotional excitement.", 13],
+      ["Jaundiced skin", "Yellow skin color that may indicate liver abnormalities.", 13],
+      ["Mottled skin", "Blotchy skin sometimes seen in shock, especially in children and older adults.", 13],
+      ["Capillary refill", "A pediatric circulation check where normal color should return in 2 seconds or less after blanching.", 13],
+      ["Pupil size", "The size of the black center of the eye before light is applied.", 13],
+      ["Pupil equality", "Whether both pupils are the same size.", 13],
+      ["Pupil reactivity", "Whether pupils constrict when bright light is shined into them.", 13],
+      ["Dilated pupils", "Pupils that are larger than normal, possibly from fright, blood loss, drugs, or eye drops.", 13],
+      ["Constricted pupils", "Pupils that are smaller than normal, possibly from narcotics or eye drops.", 13],
+      ["Unequal pupils", "Pupils of different sizes, which can occur with stroke, head injury, eye injury, artificial eye, or eye drops.", 13],
+      ["Fixed pupils", "Pupils that do not react to light and may indicate drugs or lack of oxygen to the brain.", 13],
+      ["Blood pressure", "The force of blood against blood vessel walls.", 13],
+      ["Systolic blood pressure", "The pressure created when the left ventricle contracts and forces blood into arteries.", 13],
+      ["Diastolic blood pressure", "The pressure remaining in arteries when the left ventricle relaxes and refills.", 13],
+      ["Hypertension", "High blood pressure, often adult systolic 140 or greater or diastolic 90 or greater.", 13],
+      ["Hypotension", "Low blood pressure, often concerning when adult systolic pressure is below 90 mmHg.", 13],
+      ["Sphygmomanometer", "The blood pressure cuff and gauge used to measure blood pressure.", 13],
+      ["Brachial artery", "The major artery of the arm used when placing the stethoscope for blood pressure by auscultation.", 13],
+      ["Auscultated blood pressure", "Blood pressure measured by listening with a stethoscope for sounds as cuff pressure falls.", 13],
+      ["Palpated blood pressure", "Blood pressure measured by feeling pulse return during cuff deflation; it gives systolic pressure only.", 13],
+      ["Automated blood pressure monitor", "A machine that inflates a cuff and estimates blood pressure but can be wrong in the field.", 13],
+      ["Repeat vital signs interval", "Stable patients are reassessed at least every 15 minutes; unstable patients at least every 5 minutes.", 13],
+      ["Core temperature", "The body's internal temperature, estimated by practical field methods such as oral or axillary measurement.", 13],
+      ["Pulse oximeter", "An electronic device that estimates oxygen saturation using light through tissue.", 13],
+      ["Oxygen saturation", "The percentage of hemoglobin oxygen-carrying capacity being used, shown as SpO2.", 13],
+      ["Mild hypoxia by SpO2", "An oxygen saturation reading of 91 to 95 percent.", 13],
+      ["Moderate hypoxia by SpO2", "An oxygen saturation reading of 86 to 90 percent.", 13],
+      ["Severe hypoxia by SpO2", "An oxygen saturation reading of 85 percent or less.", 13],
+      ["CO-oximeter", "A specialized oximeter that can detect carbon monoxide as well as oxygen levels.", 13],
+      ["Pulse oximetry false high", "A misleadingly high SpO2 reading that can occur with carbon monoxide poisoning, anemia, or hypovolemia.", 13],
+      ["Pulse oximetry poor signal", "An unreliable reading that may occur with shock, hypothermia, movement, nail polish, dirty probe, or low battery.", 13],
+      ["Blood glucose meter", "A device that measures glucose concentration from a small blood sample on a test strip.", 13],
+      ["Normal blood glucose range", "Usually at least 70 to 100 mg/dL, depending on manufacturer instructions and local protocol.", 13],
+      ["Capnography", "Monitoring that displays exhaled carbon dioxide as a number and waveform.", 13],
+      ["Capnometry", "Monitoring that displays exhaled carbon dioxide as a number without a waveform.", 13],
+      ["End-tidal CO2", "The amount of carbon dioxide measured at the end of exhalation, normally about 35 to 45 mmHg.", 13],
+      ["Capnography collar", "The adapter placed between a BVM and mask or airway to sample exhaled carbon dioxide in a ventilated patient.", 13],
+      ["ROSC capnography clue", "A sudden substantial increase in ETCO2 during CPR can indicate return of spontaneous circulation.", 13]
+    ].map(([term, definition, chapter], index) => ({ id: cards.length + index, term, definition, chapter }));
+    cards.push(...chapterThirteenPdfCards);
+    flashDeck.push(...chapterThirteenPdfCards.map(({ id, term, definition, chapter }) => ({
+      id,
+      chapter,
+      q: definition,
+      options: [term],
+      answer: 0,
+      why: definition,
+      term,
+      definition
+    })));
+
     const quiz = [
       [1, "What is the main purpose of an EMS system?", ["Provide emergency care before and during transport", "Replace emergency departments", "Diagnose every illness in the field", "Only transport patients"], 0, "EMS starts emergency medical care and continues it during transport."],
       [1, "Which level of EMS provider has training beyond EMT and can perform more advanced skills?", ["EMR", "AEMT or paramedic", "Dispatcher", "Bystander"], 1, "AEMTs and paramedics have advanced training compared with EMTs."],
@@ -2230,6 +2305,112 @@
       [10, "The best pediatric ventilation volume is:", ["Only enough to make the chest rise", "A full adult bag squeeze every time", "Enough to inflate the abdomen", "No visible chest movement"], 0, "Avoid excessive pressure and volume in children."]
     ]);
 
+    addQuizItems([
+      [13, "Vital signs are gathered after:", ["The primary assessment and treatment of immediate life threats", "All documentation is complete", "Transport is over", "The patient is billed"], 0, "Immediate life threats are found and treated first; vital signs are part of the more thorough assessment."],
+      [13, "The first set of vital signs is called:", ["Baseline vital signs", "Final vital signs", "Discharge vitals", "Automatic vitals"], 0, "Baseline vitals are compared with later readings."],
+      [13, "Why should vital signs be repeated?", ["To identify trends in the patient's condition", "To avoid documenting the first set", "Because one set is always wrong", "Only to fill time"], 0, "Trends can show improvement, deterioration, or response to treatment."],
+      [13, "Mental status should be assessed:", ["Whenever vital signs are taken", "Only after hospital arrival", "Only if blood pressure is normal", "Never with vitals"], 0, "Mental status is not a vital sign, but it should be reassessed with vital signs."],
+      [13, "All vital signs should be recorded with:", ["The time obtained", "Only the EMT's initials", "The patient's address only", "No context"], 0, "Time-stamped vital signs allow trend comparison."],
+      [13, "Adult resting pulse is normally:", ["60 to 100 beats per minute", "12 to 20 beats per minute", "30 to 60 beats per minute", "140 to 180 beats per minute"], 0, "Normal adult pulse is 60 to 100."],
+      [13, "Tachycardia in an adult is:", ["A resting pulse above 100 beats per minute", "A pulse below 60", "No pulse", "A normal pupil response"], 0, "Tachycardia means rapid pulse."],
+      [13, "Bradycardia in an adult is:", ["A pulse below 60 beats per minute", "A pulse above 100", "A respiratory rate above 24", "A blood pressure above 140/90"], 0, "Bradycardia means slow pulse."],
+      [13, "A well-conditioned athlete may normally have a resting pulse of:", ["40 to 50 beats per minute", "150 to 180 beats per minute", "10 to 20 beats per minute", "200 beats per minute"], 0, "Athletic conditioning can produce a low resting pulse without illness."],
+      [13, "A typical adult whose pulse stays above 120 or below 50 during care should be:", ["Considered potentially seriously ill and transported promptly", "Ignored if awake", "Told to walk it off", "Considered normal"], 0, "Persistent extreme rates can signal serious problems."],
+      [13, "In infants and children, a low pulse is especially concerning because it may indicate:", ["Imminent cardiac arrest", "Normal excitement", "Accurate oxygen saturation", "A blood pressure cuff error only"], 0, "Pediatric bradycardia can be an ominous sign."],
+      [13, "Pulse quality includes:", ["Rhythm and force", "Color and temperature", "Systolic and diastolic pressure", "Size and reactivity"], 0, "Pulse quality describes regularity and strength."],
+      [13, "A rapid, regular, thready pulse may suggest:", ["Shock or later blood loss", "Normal athletic conditioning", "Only fever", "A normal newborn finding"], 0, "Weak rapid pulse can be a shock sign."],
+      [13, "An irregular pulse should be:", ["Reported and documented", "Ignored if the rate is normal", "Counted only for 5 seconds", "Used to skip transport"], 0, "Irregular rhythm may reflect abnormal cardiac activity."],
+      [13, "For patients 1 year and older, the initial pulse site is usually:", ["Radial pulse", "Brachial pulse", "Femoral pulse only", "Pedal pulse only"], 0, "The radial pulse is commonly checked first in patients older than 1 year."],
+      [13, "For infants 1 year old or younger, the preferred pulse site is:", ["Brachial pulse", "Radial pulse", "Temporal pulse", "Popliteal pulse"], 0, "Infants are commonly assessed with the brachial pulse."],
+      [13, "When checking a carotid pulse, avoid:", ["Pressing both sides at the same time", "Using gentle palpation", "Trying the other side if one is hard to find", "Documenting the finding"], 0, "Do not compress both carotids simultaneously."],
+      [13, "You should not use your thumb to count a pulse because:", ["It has its own pulse", "It cannot feel pressure", "It always causes cyanosis", "It makes the patient bradycardic"], 0, "Your thumb pulse can confuse the count."],
+      [13, "If pulse rate, rhythm, or force is abnormal, count for:", ["A full 60 seconds", "5 seconds only", "10 seconds and guess", "No longer than 15 seconds"], 0, "Abnormal pulses should be counted for a full minute."],
+      [13, "An awake, talking patient with no palpable pulse may have:", ["A ventricular assist device", "Certain cardiac arrest", "Normal radial pulses", "A false airway obstruction"], 0, "Some VADs create continuous flow without palpable pulse waves."],
+      [13, "Adult resting respiratory rate is normally:", ["12 to 20 breaths per minute", "60 to 100 breaths per minute", "80 to 140 breaths per minute", "90 to 160 breaths per minute"], 0, "Adult respiratory rate is 12 to 20."],
+      [13, "An adult respiratory rate above 24 is considered:", ["Serious", "Always normal", "Bradycardia", "A pupil finding"], 0, "The chapter flags adult respirations above 24 as serious."],
+      [13, "An adult respiratory rate below 10 is considered:", ["Serious", "Normal after exertion", "Tachycardia", "A BP reading"], 0, "Very slow breathing can require action."],
+      [13, "Newborn respiratory rate is normally:", ["30 to 60 breaths per minute", "12 to 20", "6 to 10", "100 to 170"], 0, "Newborn respirations are faster than adults."],
+      [13, "Respiratory quality describes breathing as:", ["Normal, shallow, labored, or noisy", "Pink, pale, flushed, or jaundiced", "Strong, weak, regular, or thready", "Dilated, constricted, equal, or unequal"], 0, "Quality describes the character of breathing."],
+      [13, "Accessory muscle use, nasal flaring, and retractions indicate:", ["Labored breathing", "Normal quiet breathing", "Pulse quality", "Blood pressure by palpation"], 0, "These are signs of increased work of breathing."],
+      [13, "Snoring respirations usually require:", ["Opening the airway", "Only checking blood pressure", "Ignoring the sound", "Applying glucose meter first"], 0, "Snoring suggests an obstructed airway."],
+      [13, "Gurgling respirations usually require:", ["Suctioning the airway", "Only taking temperature", "Giving oral glucose first", "Checking pupils only"], 0, "Gurgling suggests fluid in the airway."],
+      [13, "Wheezing may indicate:", ["A medical problem such as asthma", "A perfectly clear airway", "A normal pupil finding", "Only blood loss"], 0, "Wheezing can occur with lower airway narrowing."],
+      [13, "Crowing is best treated by:", ["Prompt transport because it may not respond to field treatment", "Waiting on scene for it to resolve", "Only taking a radial pulse", "Asking the patient to hold their breath"], 0, "Crowing is a harsh inspiratory sound needing prompt transport."],
+      [13, "To avoid changing the patient's breathing while counting respirations, the EMT should:", ["Keep a hand at the wrist after pulse and quietly watch chest/abdomen", "Tell the patient to breathe normally loudly", "Ask them to count with you", "Have them hold their breath first"], 0, "Patients may change breathing if they know it is being watched."],
+      [13, "In an unconscious patient, irregular respirations should be:", ["Reported and documented", "Ignored", "Called normal", "Used to skip airway assessment"], 0, "Irregular unconscious breathing can be important."],
+      [13, "For adult skin color assessment, useful sites include:", ["Nail beds, inside cheek, and inside lower eyelids", "Only the back of the shirt", "Only the hair", "Only the soles of shoes"], 0, "These sites reveal capillary color better."],
+      [13, "For infants and children, skin color is often checked at the:", ["Palms and soles", "Back of the jacket", "Hairline only", "Elbows only"], 0, "Palms and soles are useful pediatric skin color sites."],
+      [13, "Pale skin often suggests:", ["Blood loss, shock, hypotension, or vessel constriction", "Liver abnormalities only", "Normal heat exposure only", "Pinpoint pupils"], 0, "Pale skin can reflect poor peripheral circulation."],
+      [13, "Cyanotic skin suggests:", ["Not enough oxygen in blood cells and tissues", "Liver disease only", "Heat exposure only", "Normal perfusion"], 0, "Blue-gray color can signal inadequate oxygenation."],
+      [13, "Jaundiced skin may indicate:", ["Liver abnormality", "Only cold exposure", "Normal capillary refill", "A radial pulse"], 0, "Jaundice is a yellow skin tint often associated with liver problems."],
+      [13, "Mottled skin is:", ["Blotchy and may occur in shock", "Always normal", "The same as flushed skin", "A pulse site"], 0, "Mottling is a concerning skin pattern."],
+      [13, "Skin temperature is usually assessed with:", ["The back of the hand", "The thumb pulse", "The stethoscope bell only", "The blood glucose strip"], 0, "The back of the hand is sensitive to temperature."],
+      [13, "Cool, clammy skin may suggest:", ["Shock or anxiety", "Normal warmth", "A fixed pupil", "An accurate glucose meter"], 0, "Cool and moist skin is a perfusion/stress clue."],
+      [13, "Capillary refill is normally:", ["2 seconds or less", "10 seconds or more", "Only measurable in adults", "Unrelated to perfusion"], 0, "Normal pediatric capillary refill returns quickly."],
+      [13, "Capillary refill is less reliable when:", ["The infant or child has been exposed to cold", "The child is warm and calm", "The nail bed is visible", "The EMT uses light pressure"], 0, "Cold exposure can delay capillary refill independent of perfusion."],
+      [13, "When checking pupils, the EMT evaluates:", ["Size, equality, and reactivity", "Rate, rhythm, and force", "Systolic and diastolic pressure", "Color, temperature, and moisture"], 0, "Pupil assessment includes size, equality, and reaction to light."],
+      [13, "Normal pupils generally:", ["Are equal and constrict with light", "Are always unequal", "Never react", "Are always fully dilated"], 0, "Equal reactive pupils are normal."],
+      [13, "Unequal pupils may indicate:", ["Stroke, head injury, eye injury, artificial eye, or eye drops", "Normal blood pressure only", "No possible problem", "A pulse oximeter battery issue only"], 0, "Unequal pupils have several possible causes and should be documented."],
+      [13, "Fixed pupils may be associated with:", ["Drugs or lack of oxygen to the brain", "A normal response to bright light", "A BP cuff placed correctly", "Capillary refill"], 0, "Nonreactive pupils are abnormal."],
+      [13, "Systolic pressure is created when the:", ["Left ventricle contracts and forces blood into arteries", "Heart relaxes and refills", "Pupil constricts", "Patient exhales"], 0, "Systolic is the contraction pressure."],
+      [13, "Diastolic pressure is the pressure remaining when the:", ["Left ventricle relaxes and refills", "Patient inhales", "Pulse oximeter turns on", "Brachial pulse disappears"], 0, "Diastolic is the resting/refilling pressure."],
+      [13, "Blood pressure is reported as:", ["Systolic over diastolic", "Diastolic over systolic", "Pulse over respirations", "SpO2 over ETCO2"], 0, "The systolic number comes first."],
+      [13, "Normal adult blood pressure is generally no more than:", ["120/80", "90/40", "170/100", "50/30"], 0, "The chapter lists normal adult BP as no more than 120/80."],
+      [13, "Adult hypertension is often defined as systolic at least 140 or diastolic at least:", ["90", "40", "60", "20"], 0, "140/90 is a common hypertension threshold."],
+      [13, "Serious low adult blood pressure is generally systolic below:", ["90 mmHg", "120 mmHg", "140 mmHg", "200 mmHg"], 0, "Systolic below 90 is concerning for hypotension."],
+      [13, "For children ages 1 to 10, mean systolic pressure can be estimated by:", ["90 plus twice the age in years", "60 plus pulse rate", "Age times 10 only", "120 minus age"], 0, "The formula is 90 + (age x 2)."],
+      [13, "The BP cuff should cover about:", ["Two-thirds of the upper arm", "Only the wrist", "The whole forearm only", "The shoulder and chest"], 0, "Correct cuff size is crucial for accuracy."],
+      [13, "Avoid placing a BP cuff on an arm with:", ["A dialysis shunt, mastectomy side, injury, or IV site", "No visible injury and no shunt", "A sleeve rolled away safely", "The brachial artery available"], 0, "Certain arms should be avoided for accurate and safe BP measurement."],
+      [13, "For auscultated BP, the stethoscope is placed over the:", ["Brachial artery", "Carotid artery", "Radial pulse at the wrist", "Pupil"], 0, "Brachial sounds are used for auscultated BP."],
+      [13, "The stethoscope head should not be placed under the cuff because:", ["It can give false readings", "It improves accuracy too much", "It measures glucose", "It prevents all sounds"], 0, "Stethoscope position under the cuff can distort readings."],
+      [13, "When taking BP by auscultation, inflate the cuff:", ["30 mmHg past the point where pulse sounds disappear", "Only until the patient complains", "To exactly 90 every time", "Until the gauge stops working"], 0, "Inflate 30 mmHg beyond disappearance of sounds."],
+      [13, "During auscultated BP, the first tapping sound heard while deflating is:", ["Systolic pressure", "Diastolic pressure", "Pulse quality", "SpO2"], 0, "The first sound marks systolic pressure."],
+      [13, "During auscultated BP, diastolic pressure is usually where sounds:", ["Fade to muffled thuds or disappear", "First appear", "Are loudest only", "Match oxygen saturation"], 0, "Diastolic is found as sounds fade/disappear."],
+      [13, "Blood pressure readings should be reported in:", ["Even numbers", "Fractions only", "Odd numbers only", "Percentages"], 0, "Use even numbers; if between marks, use the higher number."],
+      [13, "If unsure of a BP reading, the EMT should:", ["Repeat it using the other arm or wait 1 minute", "Make one up", "Document a guess", "Never repeat it"], 0, "Never make up vital signs; repeat uncertain measurements."],
+      [13, "Blood pressure by palpation gives:", ["Systolic pressure only", "Diastolic pressure only", "Both exact numbers", "SpO2"], 0, "Palpation cannot determine diastolic pressure."],
+      [13, "BP by palpation is useful when:", ["Noise prevents auscultation", "The patient has no arm", "You need pupil size", "The pulse oximeter works"], 0, "Palpated BP can be used in noisy environments."],
+      [13, "If an automated BP monitor reading is very different from your auscultated reading, you should:", ["Recheck manually by auscultation or palpation", "Trust the machine without question", "Delete previous vitals", "Stop assessing"], 0, "Automated monitors can fail or be inaccurate."],
+      [13, "Stable patients need repeated vital signs at least every:", ["15 minutes", "5 seconds", "60 minutes", "2 hours"], 0, "Stable patients are reassessed at least every 15 minutes."],
+      [13, "Unstable patients need repeated vital signs at least every:", ["5 minutes", "15 minutes", "30 minutes", "1 hour"], 0, "Unstable patients are reassessed at least every 5 minutes."],
+      [13, "Vital signs should also be repeated after:", ["Every medical intervention", "Only the final report", "Only payment", "Only changing gloves"], 0, "Post-intervention vitals show whether care helped or the patient worsened."],
+      [13, "For children, it is helpful to take easy vital signs first because:", ["It reduces anxiety", "It prevents breathing forever", "It replaces the primary assessment", "It eliminates documentation"], 0, "Pulse and respirations may be easier before more stressful checks."],
+      [13, "A BP should generally be obtained on every patient older than:", ["3 years", "3 months", "13 years", "30 years"], 0, "The chapter recommends BP on patients more than 3 years old."],
+      [13, "In infants and very young children, circulatory status may be better judged by:", ["Appearance, respiratory distress, consciousness, and other signs", "Only an automatic BP reading", "Only a forehead strip", "Only adult cuff pressure"], 0, "BP can be difficult and less useful in very young children."],
+      [13, "Electronic thermometers are preferred over glass thermometers in EMS because they are:", ["Safer, quicker, and more hygienic", "Always less accurate", "Made of breakable glass", "Only for rectal use"], 0, "Glass thermometers can break and injure patients."],
+      [13, "Tympanic and forehead strip thermometers are considered:", ["Not accurate enough for EMT use", "The gold standard in EMS", "Always exact", "Required for every call"], 0, "The chapter warns about wide margins of error."],
+      [13, "A generally healthy normal temperature is roughly:", ["Greater than 96.8 F and less than 101.3 F", "Always exactly 98.6 F", "Below 90 F", "Above 104 F"], 0, "Normal varies by person, time, age, activity, and measurement site."],
+      [13, "Pulse oximetry measures:", ["Estimated oxygen saturation in blood", "Carbon dioxide waveform", "Blood glucose directly", "Systolic pressure"], 0, "Pulse oximetry estimates SpO2."],
+      [13, "A normal healthy SpO2 is typically:", ["96 to 100 percent", "70 to 80 percent", "35 to 45 percent", "12 to 20 percent"], 0, "Normal SpO2 is usually 96 to 100 percent."],
+      [13, "An SpO2 of 91 to 95 percent indicates:", ["Mild hypoxia", "Severe hypoxia", "Normal ETCO2", "No need to assess"], 0, "91 to 95 percent is mild hypoxia in the chapter."],
+      [13, "An SpO2 of 86 to 90 percent indicates:", ["Moderate/significant hypoxia", "Normal oxygenation", "Hyperglycemia", "A normal adult pulse"], 0, "86 to 90 percent is moderate hypoxia."],
+      [13, "An SpO2 of 85 percent or less indicates:", ["Severe hypoxia", "Normal oxygenation", "A normal glucose level", "Hypertension"], 0, "85 percent or less is severe hypoxia."],
+      [13, "Carbon monoxide poisoning can make pulse oximetry:", ["Falsely high", "Always read zero", "Perfectly accurate", "Measure ETCO2 instead"], 0, "Standard pulse oximeters may mistake CO-bound hemoglobin."],
+      [13, "Shock or hypothermia can make pulse oximetry inaccurate because:", ["Poor capillary blood flow limits the signal", "The device measures blood pressure", "The patient is always moving", "Oxygen becomes harmless"], 0, "Low peripheral perfusion can make readings unreliable."],
+      [13, "If the pulse oximeter heart rate does not match the palpated pulse rate:", ["The SpO2 reading is likely unreliable", "The reading is automatically perfect", "The palpated pulse should be ignored", "The patient has normal glucose"], 0, "The displayed pulse must match the patient's pulse for trust."],
+      [13, "When pulse oximeter signal is poor, the EMT can:", ["Reposition the sensor or try another finger", "Ignore the patient", "Use it as a BP cuff", "Stop reassessment"], 0, "Repositioning can improve signal."],
+      [13, "Pulse oximetry should be used to evaluate:", ["Response to oxygen, artificial ventilation, or inhaler therapy", "Legal consent only", "Only body temperature", "Patient age"], 0, "SpO2 can help trend response to interventions."],
+      [13, "The rule for monitors is:", ["Treat the patient, not the device", "Treat only the screen", "Ignore all clinical findings", "Never reassess"], 0, "Device data must fit the patient presentation."],
+      [13, "A blood glucose meter usually reports glucose in:", ["mg/dL", "mmHg", "beats per minute", "percent oxygen"], 0, "In the United States, glucose is usually shown as mg/dL."],
+      [13, "EMTs should use blood glucose meters only when allowed by:", ["Medical direction or local protocol", "A bystander", "A social media post", "The patient's insurance"], 0, "Local scope and medical direction control EMT use."],
+      [13, "Generally, EMTs should not use the patient's personal glucose meter because:", ["Storage, calibration, strips, and instructions may be unknown", "It always reads too low", "It cannot measure glucose", "It replaces primary assessment"], 0, "Accuracy depends on proper device maintenance and use."],
+      [13, "When using a glucose meter, the EMT should wipe away:", ["The first drop of blood", "The test strip", "The pulse oximeter reading", "The BP cuff"], 0, "The chapter's procedure wipes away the first drop before testing."],
+      [13, "Blood glucose monitoring should never come before:", ["A thorough primary assessment", "A bandage for the finger", "Reading the display", "Standard Precautions"], 0, "Assessment priorities still apply."],
+      [13, "Capnography measures:", ["Exhaled carbon dioxide", "Oxygen saturation only", "Blood glucose", "Skin color"], 0, "Capnography tracks exhaled CO2."],
+      [13, "Capnography is generally preferred over capnometry because it provides:", ["A number and waveform", "Only a number", "Only pulse rate", "Only glucose"], 0, "Capnography includes waveform data."],
+      [13, "Normal ETCO2 is about:", ["35 to 45 mmHg", "96 to 100 percent", "12 to 20 mmHg", "70 to 100 mg/dL"], 0, "Normal end-tidal CO2 is 35 to 45 mmHg."],
+      [13, "Capnography may be useful for patients who:", ["Have an advanced airway, are being ventilated, are in respiratory distress, or may deteriorate", "Only need a legal form", "Have no illness or injury", "Only need a temperature"], 0, "These are common capnography indications."],
+      [13, "For a breathing patient, capnography may be applied using:", ["A special nasal cannula", "A BP cuff only", "A glucose strip", "A thermometer"], 0, "A sampling nasal cannula can collect exhaled CO2."],
+      [13, "For a ventilated patient, capnography may use:", ["A collar adapter between BVM and mask or airway", "A forehead thermometer", "A radial pulse site", "A glucose lancet"], 0, "A collar adapter samples exhaled CO2 from ventilations."],
+      [13, "During CPR, a sudden substantial rise in ETCO2 may indicate:", ["Return of spontaneous circulation", "Nail polish interference", "High blood pressure only", "A broken BP cuff"], 0, "A sharp ETCO2 increase can be a clue to ROSC."],
+      [13, "If you cannot obtain vital signs because the patient is extremely unstable, the best action is to:", ["Treat immediate threats and begin transport while obtaining what you can", "Delay all care until every number is measured", "Make up values", "Cancel reassessment"], 0, "Immediate life threats and transport can take priority over a complete set."],
+      [13, "A very different automated BP reading should make you think:", ["The machine may be wrong and a manual recheck is needed", "All previous vitals were impossible", "No documentation is needed", "The monitor has replaced assessment"], 0, "Manual confirmation protects against device error."],
+      [13, "If a radial pulse is absent or extremely weak, the EMT should:", ["Move quickly to a central pulse and assess perfusion", "Spend several minutes only at the wrist", "Stop the assessment", "Assume the patient is fine"], 0, "Do not waste time searching endlessly for a weak radial pulse."],
+      [13, "A heart rate over 200 may produce a weak pulse because:", ["The heart may not fill well between beats", "The BP cuff is too large", "The pupils are unequal", "The patient is cold"], 0, "Very fast rates can reduce filling and stroke volume."],
+      [13, "A 92 percent SpO2 in a dizzy patient with adequate breathing suggests:", ["Mild hypoxia and possible low-concentration oxygen with reassessment", "Severe hypoxia requiring no action", "Normal oxygenation", "Automatic intubation"], 0, "91 to 95 percent is mild hypoxia; oxygen decisions use assessment and protocol."],
+      [13, "If a ventilated trauma patient's SpO2 remains 90 percent, the EMT should:", ["Reassess airway, seal, chest rise, oxygen source, and ventilation effectiveness", "Only document the number", "Stop ventilating", "Remove oxygen"], 0, "Low saturation despite BVM means ventilation and oxygen delivery need troubleshooting."]
+    ]);
+
     const chapters = [
       ["Chapter 1", "Introduction to EMS", "EMS components, provider levels, medical direction, scope, certification, QI, evidence, public health.", "Know who controls care, what EMTs can do, and how the system improves."],
       ["Chapter 2", "Well-Being of the EMT", "Scene safety, PPE, infection routes, OSHA/Ryan White, TB/TST, stress, grief, fatigue, hazards.", "Protect yourself first so you can keep thinking clearly and protect the patient."],
@@ -2746,11 +2927,16 @@
         return "The call focuses on whether the patient is moving enough air and exchanging gases effectively.";
       }
       if (item.chapter === 13) {
-        if (/pulse|blood pressure|systolic|diastolic|pulse pressure|shock|perfusion/.test(lower)) return "The EMT is reading circulation clues from pulse quality, blood pressure, and perfusion signs.";
-        if (/respiratory rate|breathing|skin|pupil|temperature/.test(lower)) return "The crew is gathering a full set of vital signs and looking for signs that match the complaint.";
-        if (/pulse oximetry|spo2|oximeter|saturation|poor perfusion|motion|cold/.test(lower)) return "A monitor gives an oxygen saturation estimate, but the EMT must decide whether the number fits the patient.";
-        if (/capnography|etco2|carbon dioxide|ventilation|waveform/.test(lower)) return "The EMT is using exhaled carbon dioxide trends to judge ventilation and perfusion.";
-        if (/trend|repeating|manual blood pressure|stethoscope|auscultation|palpation/.test(lower)) return "The crew repeats measurements to decide if the patient is improving or getting worse.";
+        if (/blood glucose|glucose meter|mg\/dl|finger stick|test strip|lancet|diabetes/.test(lower)) return "An altered or diabetic patient needs a glucose check, and the EMT must follow protocol without letting the meter replace the primary assessment.";
+        if (/capnography|capnometry|etco2|carbon dioxide|waveform|rosc|collar|advanced airway|ventilated/.test(lower)) return "A breathing or ventilated patient is being monitored with exhaled carbon dioxide, and the crew has to read the trend correctly.";
+        if (/pulse oximetry|pulse oximeter|spo2|oxygen saturation|co-oximeter|carbon monoxide|false high|poor signal|nail polish|hypotherm|shock|anemia|hypovolemia|sensor/.test(lower)) return "The monitor shows an oxygen saturation number, but the EMT has to decide if the signal is trustworthy and whether oxygen or ventilation is needed.";
+        if (/blood pressure|systolic|diastolic|hypertension|hypotension|sphygmomanometer|brachial artery|auscult|palpat|automated|bp cuff|monitor|dialysis|mastectomy|iv site/.test(lower)) return "The crew is getting a blood pressure in a noisy, cramped, or medically complicated situation and needs the accurate method.";
+        if (/pediatric|infant|child|capillary refill|brachial pulse|palms|soles|more than 3|younger than 3/.test(lower)) return "The patient is a child, so the EMT adjusts vital-sign technique, keeps the child calm, and weighs pediatric circulation clues.";
+        if (/pupil|dilate|constrict|reactiv|unequal|fixed|pinpoint|eye injury|head injury|stroke/.test(lower)) return "A patient has a head, eye, drug, or oxygenation concern, so pupil size, equality, and reaction become important clues.";
+        if (/skin|pale|cyanotic|flushed|jaundiced|mottled|temperature|cool|clammy|hot|cold|goose|core temperature|thermometer|fever|hypotherm|hypertherm/.test(lower)) return "The EMT is using skin findings and temperature clues to judge perfusion, oxygenation, heat, cold, or illness.";
+        if (/respiratory rate|respiration|respiratory quality|respiratory rhythm|shallow|labored|noisy|snoring|wheezing|gurgling|crowing|accessory|retractions|nasal flaring/.test(lower)) return "The crew is counting breaths without changing the patient's pattern and matching the respiratory quality to the right intervention.";
+        if (/pulse|tachycardia|bradycardia|radial|brachial|carotid|thready|irregular|ventricular assist|vad|heart rate|beats/.test(lower)) return "The EMT is checking pulse rate and quality, then deciding whether the finding fits age, conditioning, perfusion, or a serious problem.";
+        if (/baseline|trend|repeat|stable|unstable|15 minutes|5 minutes|record|document|time|intervention/.test(lower)) return "The call is changing over time, so the crew uses baseline and repeat vital signs to decide whether the patient is improving or deteriorating.";
         return "The call requires accurate vital signs and smart use of monitoring devices.";
       }
       if (item.chapter === 19) {
