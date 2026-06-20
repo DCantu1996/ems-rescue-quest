@@ -1576,6 +1576,57 @@
       definition
     })));
 
+    const chapterNinePdfCards = [
+      ["Upper airway", "The airway structures above the glottic opening, including the mouth, nose, pharynx, and laryngeal area.", 9],
+      ["Lower airway", "The airway below the glottic opening, including the trachea, bronchi, bronchioles, and alveoli.", 9],
+      ["Nasopharynx", "The part of the pharynx where the nasal passages empty.", 9],
+      ["Oropharynx", "The part of the pharynx where the oral cavity joins the throat.", 9],
+      ["Laryngopharynx", "The lower pharyngeal region around the entrance to the trachea.", 9],
+      ["Glottic opening", "The level of the vocal cords and boundary between the upper and lower airways.", 9],
+      ["Epiglottis", "A leaflike flap that helps protect the tracheal opening during swallowing and gagging.", 9],
+      ["Thyroid cartilage", "Shieldlike cartilage protecting the front of the larynx and forming the Adam's apple.", 9],
+      ["Cricoid ring", "A complete ring of cartilage forming the lower larynx and upper trachea.", 9],
+      ["Carina", "The point where the trachea divides into the right and left mainstem bronchi.", 9],
+      ["Bronchioles", "Small lower-airway passages that branch from the bronchi and lead toward alveoli.", 9],
+      ["Alveoli", "Tiny sacs at the end of the airway where oxygen and carbon dioxide diffuse across thin membranes.", 9],
+      ["Pediatric airway anatomy", "Children have smaller mouths and noses, larger tongues proportionally, narrower softer tracheas, and more easily obstructed airways.", 9],
+      ["Nasal breathing in infants", "Newborns and infants commonly breathe through the nose, so nasal blockage can seriously impair breathing.", 9],
+      ["Intact muscle tone", "Active support from airway muscles that helps keep the airway open.", 9],
+      ["Airway collapse from altered mental status", "Reduced muscle tone can let the tongue and epiglottis obstruct the glottic opening.", 9],
+      ["Hoarseness", "A voice change that can warn of upper-airway narrowing or swelling.", 9],
+      ["Sniffing position", "A head-elevated airway position that aligns the ear with the suprasternal notch to improve patency.", 9],
+      ["Pediatric sniffing position", "In small children, padding under the shoulders may be needed to align the ear with the suprasternal notch.", 9],
+      ["Nonsevere choking", "Partial airway obstruction with some air movement, such as coughing, speaking, wheezing, or gasping.", 9],
+      ["Severe choking", "Complete airway obstruction with no effective air movement, coughing, speaking, or breathing.", 9],
+      ["Infant choking care", "Severe choking in an infant is treated with alternating back slaps and chest thrusts.", 9],
+      ["Chest thrusts for choking", "Used instead of abdominal thrusts when arms cannot wrap around the patient, such as pregnancy or extreme obesity.", 9],
+      ["Supraglottic airway", "An advanced airway device that sits above the glottic opening and may be used when basic methods fail under local scope/protocol.", 9],
+      ["King airway", "A supraglottic airway device that requires correct sizing, lubrication, cuff inflation checks, ventilation check, ETCO2 confirmation, and securement.", 9],
+      ["i-gel airway", "A supraglottic airway that is selected by size, lubricated, inserted along the hard palate, ventilated through, confirmed, and secured.", 9],
+      ["Preoxygenation", "Ventilating with supplemental oxygen before a brief airway procedure when appropriate because oxygen levels may drop during the procedure.", 9],
+      ["Rigid suction tip", "A Yankauer or tonsil-tip suction device used with control in the mouth and pharynx, especially for larger fluid or material.", 9],
+      ["Flexible suction catheter", "A soft catheter used when a rigid tip cannot be used, such as through an airway tube or in the nasopharynx.", 9],
+      ["Suction unit minimum", "An effective suction unit should provide at least 30 L/min airflow at the tubing end and 300 mmHg vacuum when clamped.", 9],
+      ["Suction tubing", "Thick-walled, non-kinking, wide-bore tubing long enough to reach from unit to patient.", 9],
+      ["Suction time limit", "Try to limit suctioning to about 10 seconds at a time because prolonged suctioning can cause hypoxia and vagal response.", 9],
+      ["Suction on withdrawal", "Place the catheter where suction should begin, then apply suction while withdrawing.", 9],
+      ["Vagal response", "Slowing of the heart rate that can occur when suctioning or airway stimulation affects the vagus nerve.", 9],
+      ["Bulb syringe", "A suction device commonly used for infants and small children.", 9],
+      ["Facial injury airway risk", "Facial trauma can cause bleeding or swelling that blocks the airway and may require frequent suctioning.", 9],
+      ["Dental appliance airway risk", "Dentures usually stay in place if they help mask fit, but loose partials may need removal if they threaten the airway.", 9]
+    ].map(([term, definition, chapter], index) => ({ id: cards.length + index, term, definition, chapter }));
+    cards.push(...chapterNinePdfCards);
+    flashDeck.push(...chapterNinePdfCards.map(({ id, term, definition, chapter }) => ({
+      id,
+      chapter,
+      q: definition,
+      options: [term],
+      answer: 0,
+      why: definition,
+      term,
+      definition
+    })));
+
     const quiz = [
       [1, "What is the main purpose of an EMS system?", ["Provide emergency care before and during transport", "Replace emergency departments", "Diagnose every illness in the field", "Only transport patients"], 0, "EMS starts emergency medical care and continues it during transport."],
       [1, "Which level of EMS provider has training beyond EMT and can perform more advanced skills?", ["EMR", "AEMT or paramedic", "Dispatcher", "Bystander"], 1, "AEMTs and paramedics have advanced training compared with EMTs."],
@@ -1972,6 +2023,67 @@
       [19, "CPAP is used only for patients who:", ["Are breathing and can tolerate the mask", "Are not breathing at all", "Have no respiratory problem", "Need spinal immobilization"], 0, "CPAP supports spontaneous breathing; it does not replace ventilation in apnea."],
       [19, "A sudden drop in mental status during respiratory distress may indicate:", ["Worsening hypoxia or respiratory failure", "Improvement", "Only anxiety", "No need to intervene"], 0, "Altered mental status can signal failing oxygenation/ventilation."],
       [19, "In a severe respiratory emergency, the EMT should prioritize:", ["Airway, breathing support, oxygenation, and rapid reassessment", "Waiting for symptoms to disappear", "Only taking one blood pressure", "Avoiding transport decisions"], 0, "Respiratory emergencies require rapid ABC-focused care and reassessment."]
+    ]);
+
+    addQuizItems([
+      [9, "The glottic opening is important because it marks the boundary between the:", ["Upper and lower airway", "Right and left lungs", "Nose and mouth", "Alveoli and capillaries"], 0, "The vocal cord level defines the upper/lower airway boundary."],
+      [9, "The epiglottis helps protect the trachea by:", ["Covering the glottic opening during swallowing or gagging", "Pumping air into the lungs", "Producing mucus in the bronchi", "Measuring oxygen saturation"], 0, "The epiglottis is a protective flap over the tracheal entrance."],
+      [9, "The trachea divides into the right and left mainstem bronchi at the:", ["Carina", "Epiglottis", "Oropharynx", "Cricoid ring"], 0, "The carina is the tracheal split."],
+      [9, "The alveoli are where:", ["Oxygen and carbon dioxide diffuse across thin membranes", "The tongue blocks the airway", "Food is swallowed", "The pulse is measured"], 0, "Alveoli are the gas-exchange sacs."],
+      [9, "The nose helps prepare inhaled air by:", ["Warming and humidifying it", "Producing cardiac output", "Blocking all airflow", "Measuring ETCO2"], 0, "The nasal passages warm and humidify air."],
+      [9, "Which is a pediatric airway difference?", ["The tongue takes up proportionately more space", "The trachea is wider and more rigid", "The airway is harder to obstruct", "Children do not use the diaphragm"], 0, "Children have proportionately larger tongues and smaller airways."],
+      [9, "Why can nasal obstruction be especially important in infants?", ["Newborns and infants commonly breathe through the nose", "Infants only breathe through the mouth", "Infants have no airway reflexes", "Nasal blockage improves ventilation"], 0, "Infants are commonly nasal breathers."],
+      [9, "A small child's large occiput can cause airway trouble by:", ["Flexing the head toward the chest when supine", "Automatically opening the airway", "Preventing tongue obstruction", "Making the trachea rigid"], 0, "Head size can flex the airway; shoulder padding may help align the airway."],
+      [9, "The best pediatric positioning target is generally to align the:", ["Ear with the suprasternal notch", "Nose with the knee", "Chin with the umbilicus", "Ear with the shoulder strap"], 0, "Ear-to-suprasternal-notch alignment helps achieve sniffing position."],
+      [9, "Loss of airway muscle tone can cause obstruction mainly because:", ["The tongue and epiglottis can fall back over the airway", "The lungs stop producing oxygen", "The stomach fills with air", "The blood pressure cuff fails"], 0, "Altered mental status reduces airway muscle tone."],
+      [9, "A hoarse or raspy voice after burns or allergy exposure is concerning because it may indicate:", ["Developing upper-airway swelling", "Normal airway function", "A lower leg fracture", "Low blood sugar only"], 0, "Voice changes can signal swelling near the vocal cords."],
+      [9, "A patient sitting bolt upright in a sniffing position may be doing so to:", ["Maintain an airway through upper-airway swelling", "Lower blood pressure", "Protect a wrist", "Measure pulse pressure"], 0, "Position can be critical for patients with threatened airways."],
+      [9, "The two airway questions in the primary assessment are:", ["Is it open, and will it stay open?", "What is the BP, and what is the pulse?", "Where is pain, and what is the allergy?", "Who called, and who drove?"], 0, "Chapter 9 emphasizes immediate patency and ongoing stability."],
+      [9, "A patient who can speak clearly is showing:", ["Air movement through the airway", "Definite spinal clearance", "No need for reassessment", "No possible respiratory problem"], 0, "Speech indicates at least some air movement."],
+      [9, "Which finding is a sign of an inadequate airway?", ["Absent, minimal, or uneven chest movement", "Clear speech in full sentences", "Warm dry skin only", "Normal mental status only"], 0, "Poor chest movement can indicate inadequate airway or breathing."],
+      [9, "Retractions and nasal flaring are especially important airway/breathing warning signs in:", ["Children", "Only middle adults", "Only legal refusals", "Only cardiac arrest documentation"], 0, "Children may show retractions and nasal flaring with respiratory compromise."],
+      [9, "If a primary assessment finds no airway, the EMT should:", ["Stop and correct the airway problem immediately", "Finish all paperwork first", "Check insurance first", "Wait until transport starts"], 0, "Primary assessment life threats are corrected as found."],
+      [9, "For a patient with suspected head, neck, or spine injury, use the:", ["Jaw-thrust maneuver", "Head tilt-chin lift", "Abdominal thrust as airway opening", "Fowler position only"], 0, "Jaw thrust opens the airway while minimizing head and neck movement."],
+      [9, "The head tilt-chin lift should not be used when:", ["Head, neck, or spine injury is suspected", "No trauma is suspected", "The patient is medical and supine", "The airway is blocked by tongue only"], 0, "Use jaw thrust instead when trauma is suspected."],
+      [9, "The head tilt-chin lift opens the airway partly by:", ["Moving the jaw and tongue forward", "Closing the mouth tightly", "Pushing the tongue backward", "Compressing the soft tissue under the chin"], 0, "Jaw movement helps move the tongue away from the pharynx."],
+      [9, "During a jaw thrust, the EMT should avoid:", ["Tilting or rotating the head", "Keeping the head aligned", "Lifting the lower jaw", "Opening the mouth"], 0, "Jaw thrust is intended to avoid head/neck movement."],
+      [9, "If an airway has been opened but remains obstructed after ventilation attempts and repositioning, suspect:", ["Foreign-body airway obstruction", "Normal airway status", "Only fever", "Only dehydration"], 0, "Persistent obstruction suggests a foreign body."],
+      [9, "Nonsevere choking means the patient:", ["Can still move some air", "Has no air movement", "Is always unconscious", "Does not need monitoring"], 0, "Nonsevere choking is partial obstruction with some air exchange."],
+      [9, "A conscious adult with severe choking and no effective air movement needs:", ["Abdominal thrusts", "Encouragement to keep coughing only", "An OPA first", "A blood pressure first"], 0, "Severe choking in adults/children older than 1 year is treated with abdominal thrusts."],
+      [9, "If abdominal thrusts cannot be performed because of pregnancy or extreme obesity, use:", ["Chest thrusts", "Blind finger sweeps", "An NPA first", "Suction only"], 0, "Chest thrusts are used when arms cannot wrap around the abdomen."],
+      [9, "A conscious infant with severe choking should receive:", ["Back slaps and chest thrusts", "Abdominal thrusts", "A blind finger sweep", "An adult OPA"], 0, "Infants receive alternating back slaps and chest thrusts."],
+      [9, "An unconscious choking patient should be managed by:", ["Beginning CPR", "Standing them upright", "Waiting for ALS before acting", "Giving water"], 0, "Unconscious choking is managed with CPR procedures."],
+      [9, "The main purpose of OPA and NPA adjuncts is to:", ["Help keep the tongue and soft tissue from blocking air movement", "Deliver oxygen medication", "Measure ETCO2", "Stop all vomiting"], 0, "Basic adjuncts help maintain upper-airway patency."],
+      [9, "Before inserting any airway adjunct, the EMT should:", ["Open the airway manually and have suction ready", "Remove all PPE", "Ignore the tongue", "Stop assessing breathing"], 0, "Adjuncts are used with manual opening and suction readiness."],
+      [9, "If a patient begins to gag during OPA insertion, the EMT should:", ["Stop insertion and remove/avoid the adjunct", "Force it farther", "Ignore gagging", "Tape it in place"], 0, "Gagging means the OPA is not tolerated and may cause vomiting."],
+      [9, "An OPA is sized by measuring:", ["Corner of mouth to earlobe or center of mouth to jaw angle", "Nostril to shoulder", "Ear to sternum", "Wrist to elbow"], 0, "OPA sizing uses mouth-to-earlobe or mouth-to-angle-of-jaw references."],
+      [9, "An OPA that is too large may:", ["Direct air toward the stomach or cause problems in the pharynx", "Always work better", "Prevent all vomiting", "Measure oxygen"], 0, "Incorrect size can worsen airway management."],
+      [9, "In pediatric OPA insertion, the preferred approach is generally:", ["Insert straight in with tongue depressed, without rotation", "Rotate 180 degrees like every adult", "Force past resistance", "Use only adult sizes"], 0, "Children are commonly inserted straight with a tongue depressor or rigid tip assisting."],
+      [9, "An NPA may be useful when:", ["The patient has a reduced level of responsiveness but still has a gag reflex", "The patient has severe nasal trauma", "Cerebrospinal fluid is leaking from the nose", "The patient has epistaxis"], 0, "NPA may be tolerated when an OPA is not, but nasal/skull concerns matter."],
+      [9, "A relative concern for NPA use is:", ["Signs of basilar skull fracture", "Reduced responsiveness with gag reflex", "Clenched teeth", "Oral injury"], 0, "Severe facial trauma or CSF leakage raises concern for basilar skull fracture."],
+      [9, "An NPA should be lubricated with:", ["Water-based lubricant", "Petroleum jelly", "Motor oil", "No lubricant ever"], 0, "Water-based lubricant reduces tissue damage and infection risk."],
+      [9, "When inserting an NPA, advance it:", ["Along the floor of the nasopharynx, not upward", "Straight upward toward the forehead", "Forcefully through resistance", "Into the mouth"], 0, "The nasal airway travels posteriorly and inferiorly."],
+      [9, "If resistance is met while inserting an NPA, the EMT should:", ["Withdraw and try the other nostril", "Force harder", "Cut the tube shorter", "Ignore bleeding"], 0, "Never force an NPA."],
+      [9, "A supraglottic airway is generally considered when:", ["Basic positioning, manual maneuvers, and adjuncts fail or long airway maintenance is needed", "The patient has a strong gag reflex", "The patient only has a finger injury", "The airway is already stable and easy to maintain"], 0, "Supraglottic devices are not first-line for every airway problem."],
+      [9, "A supraglottic airway is not the best answer for glottic swelling from burns or anaphylaxis because:", ["It does not protect against swelling at the glottic opening the way intubation may", "It removes swelling instantly", "It is a suction catheter", "It treats bronchospasm"], 0, "Supraglottic devices sit above the glottis and may not solve glottic swelling."],
+      [9, "Before supraglottic insertion, the team should prepare:", ["Patient, team roles, device, suction, oxygen, and confirmation tools", "Only the stretcher wheels", "Only a blood pressure cuff", "Only billing information"], 0, "Airway insertion is a team procedure needing preparation and confirmation."],
+      [9, "Placement of a supraglottic airway should be confirmed with:", ["Chest rise and end-tidal carbon dioxide detection when available", "Patient shoe size", "Skin temperature only", "A pulse check only"], 0, "Ventilation and ETCO2 confirmation help verify placement."],
+      [9, "A patient with fluid or secretions in the airway needs suctioning:", ["Immediately", "Only after transport", "Only after paperwork", "Never"], 0, "Fluids in the airway threaten ventilation and aspiration."],
+      [9, "A gurgling sound means:", ["Immediate suctioning is needed", "The airway is clear", "Only a lower airway wheeze exists", "No intervention is needed"], 0, "Gurgling indicates fluid in the airway."],
+      [9, "A rigid Yankauer tip is especially useful for:", ["Suctioning the mouth and pharynx with control", "Passing through an NPA", "Measuring blood pressure", "Delivering CPAP"], 0, "Rigid tips provide control and larger bore suction in the mouth/pharynx."],
+      [9, "A flexible catheter is preferred when:", ["A rigid tip cannot be used, such as through an airway tube or nasopharynx", "Vomitus chunks need removal from the mouth", "The patient needs a splint", "The EMT is taking temperature"], 0, "Flexible catheters can pass through tubes or nasal passages."],
+      [9, "An effective suction unit should provide at least:", ["30 L/min airflow and 300 mmHg vacuum when clamped", "5 L/min and 50 mmHg", "100 L/min and no vacuum", "Only battery power"], 0, "Chapter 9 gives these as minimum suction performance features."],
+      [9, "Suction tubing should be:", ["Thick-walled, non-kinking, wide-bore, and long enough", "Thin and collapsible", "Shorter than the stretcher only", "Optional"], 0, "Tubing must not collapse or kink and must pass material."],
+      [9, "Try to limit routine suctioning to about:", ["10 seconds at a time", "60 seconds at a time", "5 minutes at a time", "As long as possible"], 0, "Long suctioning can cause hypoxia and vagal response."],
+      [9, "If a patient continues vomiting after 10 seconds of suctioning, the EMT should:", ["Continue suctioning as needed to protect the airway", "Stop and ventilate vomit into the lungs", "Ignore the airway", "Remove all PPE"], 0, "Foreign matter in the airway can be fatal; suction as efficiently as possible."],
+      [9, "Routine preoxygenation before suctioning is useful when:", ["Suctioning will interrupt oxygen delivery and the airway is not full of vomit or sudden material", "The mouth is full of vomit that would be forced into the lungs", "No oxygen is available", "The patient refuses all care"], 0, "Preoxygenate when appropriate, but suction immediately when material is already obstructing the airway."],
+      [9, "The general suction rule is to apply suction:", ["On the way out", "Before inserting the tip", "Only after transport", "Only with the catheter out of the mouth"], 0, "Place the tip where suction begins, then suction while withdrawing."],
+      [9, "When using a rigid suction tip, the EMT should:", ["Never lose sight of the tip", "Probe blindly into wounds", "Force it deep into the pharynx", "Use it to remove attached tissue"], 0, "Rigid tips can injure tissue; maintain visual control."],
+      [9, "If a suction catheter clogs, the EMT can often clear it by:", ["Suctioning clean or sterile water through the tubing", "Blowing into the tubing", "Ignoring the clog", "Shaking the patient"], 0, "Water can help clear partial tubing blockage."],
+      [9, "Infants are especially sensitive during suctioning because stimulation can cause:", ["Bradycardia from vagal response", "Instant improved pulse", "No change ever", "Hypertension only"], 0, "Pediatric suctioning should minimize hypopharynx stimulation and time."],
+      [9, "A bulb syringe is commonly used for:", ["Infants and small children", "Adult blood pressure", "Supraglottic placement confirmation", "Splinting"], 0, "Bulb suction can clear small pediatric airways."],
+      [9, "Facial injuries threaten the airway because they can cause:", ["Swelling and bleeding that block the airway", "Improved ventilation", "No airway risk", "Only extremity pain"], 0, "Facial trauma may require frequent suctioning and airway attention."],
+      [9, "Dentures during airway procedures should usually be:", ["Left in place unless they become dislodged or endanger the airway", "Always removed immediately", "Ignored even if loose", "Used as a suction device"], 0, "Dentures may help mask seal, but loose partials can become airway hazards."]
     ]);
 
     const chapters = [
@@ -2468,11 +2580,14 @@
         return "The EMT changes communication and assessment priorities based on the patient's stage of life.";
       }
       if (item.chapter === 9) {
-        if (/snoring|tongue|head tilt|chin lift|jaw-thrust|spinal|open airway|patent/.test(lower)) return "An altered patient has noisy breathing, and the EMT must choose the safest way to open or maintain the airway.";
-        if (/gurgling|suction|vomit|blood|fluid|secretions/.test(lower)) return "The patient has fluid in the airway, so the crew has to clear it without losing oxygenation.";
-        if (/opa|oropharyngeal|npa|nasopharyngeal|gag|adjunct/.test(lower)) return "The airway is at risk, and the EMT must choose the correct basic airway adjunct.";
-        if (/foreign|choking|obstruction|abdominal thrust|blind finger|stridor/.test(lower)) return "The call involves a suspected airway obstruction, and the EMT must act without pushing the blockage deeper.";
-        if (/stoma|recovery position/.test(lower)) return "A special airway situation changes how the crew positions or ventilates the patient.";
+        if (/upper airway|lower airway|glottic|epiglottis|trachea|carina|bronchi|bronchiole|alveoli|pharynx|larynx|cricoid|thyroid/.test(lower)) return "During airway assessment, the EMT has to connect a structure to its function and predict where airflow may be blocked.";
+        if (/pediatric|infant|child|nasal|occiput|shoulder|suprasternal|large tongue/.test(lower)) return "The patient is a child, so airway anatomy and positioning change how the EMT keeps air moving.";
+        if (/snoring|tongue|head tilt|chin lift|jaw-thrust|spinal|open airway|patent|muscle tone|altered mental|sniffing|hoarse|raspy/.test(lower)) return "An altered or swelling-airway patient has noisy breathing, and the EMT must choose the safest way to open or maintain the airway.";
+        if (/gurgling|suction|vomit|blood|fluid|secretions|yankauer|rigid|flexible|catheter|vagal|bulb|tubing|clog|hypoxia/.test(lower)) return "The patient has fluid or material in the airway, so the crew has to clear it quickly without losing oxygenation.";
+        if (/opa|oropharyngeal|npa|nasopharyngeal|gag|adjunct|basilar|skull|nostril|water-based/.test(lower)) return "The airway is at risk, and the EMT must choose, size, insert, or remove the correct basic airway adjunct.";
+        if (/foreign|choking|obstruction|abdominal thrust|chest thrust|back slap|blind finger|stridor|nonsevere|severe choking/.test(lower)) return "The call involves a suspected airway obstruction, and the EMT must decide whether air is moving and choose the correct choking intervention.";
+        if (/supraglottic|king|i-gel|advanced airway|preoxygenation|end-tidal|etco2|cuff/.test(lower)) return "Basic airway methods may not be enough, so the crew prepares for an advanced airway option under local protocol.";
+        if (/stoma|recovery position|facial injur|denture|dental/.test(lower)) return "A special airway situation changes how the crew positions, suctions, or protects the patient's airway.";
         return "The crew is managing a basic airway problem and reassessing whether air can move.";
       }
       if (item.chapter === 10) {
