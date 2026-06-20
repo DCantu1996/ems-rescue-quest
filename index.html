@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EMS Rescue Quest | Chapters 1-8 Study Game</title>
+  <title>EMS Rescue Quest | Exam Chapters Study Game</title>
   <style>
     :root {
       --ink: #13202a;
@@ -1006,9 +1006,9 @@
     <header>
       <section class="hero">
         <div class="hero-copy">
-          <span class="tag">Chapters 1-8 Exam Prep</span>
+          <span class="tag">Exam Chapters 1-10, 13, 19</span>
           <h1>EMS Rescue Quest</h1>
-          <p>Train like an EMT: flip terms, match fast, make scene decisions, and drill the full expanded Chapter 1-8 bank.</p>
+          <p>Train like an EMT: flip terms, match fast, make scene decisions, and drill the expanded exam bank.</p>
           <div class="hero-actions">
             <button class="btn" data-jump="flash">Start With Flashcards</button>
             <button class="btn secondary" data-jump="quiz">Take Exam Sprint</button>
@@ -1503,6 +1503,79 @@
       definition
     })));
 
+    const airwayAssessmentCards = [
+      ["Airway", "The passage that allows air to move from the mouth and nose to the lungs.", 9],
+      ["Patent airway", "An open airway that allows air to move adequately.", 9],
+      ["Airway obstruction", "Any blockage that prevents normal air movement through the airway.", 9],
+      ["Head tilt-chin lift", "A basic airway opening maneuver used when spinal injury is not suspected.", 9],
+      ["Jaw-thrust maneuver", "A basic airway opening maneuver used when spinal injury is suspected.", 9],
+      ["Suctioning", "Removing blood, vomitus, mucus, or other fluid from the airway.", 9],
+      ["Oropharyngeal airway", "An airway adjunct placed in the mouth to help keep the tongue from blocking the airway.", 9],
+      ["Nasopharyngeal airway", "An airway adjunct placed through the nose that may be better tolerated by responsive patients.", 9],
+      ["Gag reflex", "A protective reflex that can cause gagging or vomiting when the back of the throat is stimulated.", 9],
+      ["Foreign-body airway obstruction", "A blockage caused by an object lodged in the airway.", 9],
+      ["Stridor", "A high-pitched upper-airway sound suggesting narrowing or obstruction.", 9],
+      ["Snoring respirations", "A sound often caused by the tongue partially blocking the upper airway.", 9],
+      ["Gurgling respirations", "A sound suggesting fluid in the airway.", 9],
+      ["Recovery position", "A side-lying position that can help fluids drain from the mouth in appropriate nontrauma patients.", 9],
+      ["Stoma", "A surgical opening in the neck through which a patient may breathe.", 9],
+      ["Ventilation", "Movement of air into and out of the lungs.", 10],
+      ["Respiration", "Exchange of oxygen and carbon dioxide between the body and environment.", 10],
+      ["External respiration", "Gas exchange between alveoli and pulmonary capillaries.", 10],
+      ["Internal respiration", "Gas exchange between systemic capillaries and body cells.", 10],
+      ["Artificial ventilation", "Assisting or replacing inadequate breathing with positive-pressure breaths.", 10],
+      ["Bag-valve-mask", "A device used to provide positive-pressure ventilation to a patient with inadequate breathing.", 10],
+      ["Pocket mask", "A barrier device used to deliver rescue breaths with less direct exposure risk.", 10],
+      ["Tidal volume", "The amount of air moved in one normal breath.", 10],
+      ["Minute volume", "The amount of air moved in one minute; respiratory rate times tidal volume.", 10],
+      ["Dead space", "Air that remains in passages and does not participate in gas exchange.", 10],
+      ["Hypoxia", "Inadequate oxygen at the tissue level.", 10],
+      ["Cyanosis", "Bluish discoloration that can indicate poor oxygenation.", 10],
+      ["Positive-pressure ventilation", "Forcing air into the lungs by squeezing a bag or using another device.", 10],
+      ["Gastric inflation", "Air entering the stomach during ventilation, often from excessive volume or rate.", 10],
+      ["Pulse", "The pressure wave felt as the heart contracts and sends blood through arteries.", 13],
+      ["Respiratory rate", "The number of breaths a patient takes per minute.", 13],
+      ["Blood pressure", "The force of blood against artery walls.", 13],
+      ["Systolic pressure", "The higher blood pressure number, measured during heart contraction.", 13],
+      ["Diastolic pressure", "The lower blood pressure number, measured while the heart rests between beats.", 13],
+      ["Pulse pressure", "The difference between systolic and diastolic blood pressure.", 13],
+      ["Skin signs", "Skin color, temperature, and moisture used to assess perfusion and condition.", 13],
+      ["Pupils", "Eye findings assessed for size, equality, and reaction to light.", 13],
+      ["Pulse oximetry", "A noninvasive estimate of hemoglobin oxygen saturation shown as SpO2.", 13],
+      ["SpO2", "Peripheral oxygen saturation estimate from a pulse oximeter.", 13],
+      ["Capnography", "Continuous monitoring of exhaled carbon dioxide waveform and value.", 13],
+      ["End-tidal CO2", "Carbon dioxide measured at the end of exhalation, often shown as ETCO2.", 13],
+      ["Auscultation", "Listening with a stethoscope.", 13],
+      ["Palpation", "Assessing by touch.", 13],
+      ["Trending", "Comparing repeated vital signs over time to detect improvement or decline.", 13],
+      ["Respiratory distress", "Increased work of breathing while the patient is still compensating.", 19],
+      ["Respiratory failure", "Inadequate breathing or gas exchange that cannot meet body needs.", 19],
+      ["Asthma", "A lower-airway disease with bronchoconstriction, swelling, and mucus that can cause wheezing.", 19],
+      ["COPD", "Chronic obstructive pulmonary disease, often involving chronic bronchitis or emphysema.", 19],
+      ["Pneumonia", "Infection of lung tissue that can impair gas exchange.", 19],
+      ["Pulmonary edema", "Fluid buildup in the lungs that can cause severe shortness of breath.", 19],
+      ["Pulmonary embolism", "A blockage in pulmonary circulation, often from a clot.", 19],
+      ["Hyperventilation", "Breathing faster or deeper than the body's immediate carbon dioxide needs.", 19],
+      ["Hypoventilation", "Breathing too slowly or shallowly to remove carbon dioxide or maintain oxygenation.", 19],
+      ["Wheezing", "A high-pitched lower-airway sound often heard with narrowed bronchi.", 19],
+      ["Crackles", "Wet or popping lung sounds often associated with fluid in the alveoli.", 19],
+      ["Tripod position", "A posture used by some patients in respiratory distress to improve breathing mechanics.", 19],
+      ["Metered-dose inhaler", "A medication delivery device commonly used by patients with bronchospasm.", 19],
+      ["CPAP", "Continuous positive airway pressure used to support some breathing patients with severe respiratory distress.", 19],
+      ["Hypoxic drive", "A backup respiratory drive related to low oxygen levels, often discussed in some COPD patients.", 19]
+    ].map(([term, definition, chapter], index) => ({ id: cards.length + index, term, definition, chapter }));
+    cards.push(...airwayAssessmentCards);
+    flashDeck.push(...airwayAssessmentCards.map(({ id, term, definition, chapter }) => ({
+      id,
+      chapter,
+      q: definition,
+      options: [term],
+      answer: 0,
+      why: definition,
+      term,
+      definition
+    })));
+
     const quiz = [
       [1, "What is the main purpose of an EMS system?", ["Provide emergency care before and during transport", "Replace emergency departments", "Diagnose every illness in the field", "Only transport patients"], 0, "EMS starts emergency medical care and continues it during transport."],
       [1, "Which level of EMS provider has training beyond EMT and can perform more advanced skills?", ["EMR", "AEMT or paramedic", "Dispatcher", "Bystander"], 1, "AEMTs and paramedics have advanced training compared with EMTs."],
@@ -1835,6 +1908,72 @@
       [8, "Life span development matters to EMTs because age changes:", ["Assessment, communication, anatomy, physiology, and risk", "Only spelling", "Only ambulance fuel use", "Only dispatch numbers"], 0, "Age changes how patients present and how EMTs should communicate."]
     ]);
 
+    addQuizItems([
+      [9, "The first airway priority for an unresponsive patient is to:", ["Open and assess the airway", "Start documentation", "Apply a splint", "Ask for insurance"], 0, "Airway assessment comes before lower-priority care."],
+      [9, "Snoring respirations most commonly suggest:", ["The tongue is partially obstructing the upper airway", "Fluid in the alveoli", "A normal airway", "A lower-leg injury"], 0, "Relaxed tongue tissue can create snoring sounds in an altered patient."],
+      [9, "Gurgling respirations should make the EMT suspect:", ["Fluid in the airway that may need suctioning", "Perfect airway patency", "A broken arm", "A normal respiratory pattern"], 0, "Gurgling suggests liquid such as blood, vomitus, or secretions."],
+      [9, "Stridor usually points to:", ["Upper-airway narrowing or obstruction", "A normal finding", "Lower-extremity trauma", "Only low blood sugar"], 0, "Stridor is a high-pitched upper-airway sound."],
+      [9, "The head tilt-chin lift is used when:", ["Spinal injury is not suspected", "A neck injury is strongly suspected", "The patient is choking but conscious", "The patient refuses all care"], 0, "Head tilt-chin lift is a basic airway maneuver when spinal injury is not a concern."],
+      [9, "The jaw-thrust maneuver is preferred when:", ["Spinal injury is suspected", "The patient is fully alert and talking normally", "Only a finger injury exists", "The patient has normal breathing and no trauma"], 0, "Jaw thrust opens the airway while limiting neck movement."],
+      [9, "An oropharyngeal airway is most appropriate for a patient who:", ["Lacks a gag reflex", "Is awake and gagging", "Can speak normally", "Refuses transport"], 0, "An OPA can trigger gagging or vomiting if the gag reflex is present."],
+      [9, "A nasopharyngeal airway may be useful because it:", ["Can be better tolerated by some responsive patients", "Requires no sizing", "Is placed in the mouth", "Works only after intubation"], 0, "NPAs are nasal adjuncts and may be tolerated when an OPA is not."],
+      [9, "Before suctioning, the EMT should be ready to:", ["Provide oxygen and ventilatory support as needed", "Ignore oxygenation", "Suction continuously for several minutes", "Stop monitoring breathing"], 0, "Suctioning can interrupt oxygenation, so support must be ready."],
+      [9, "Visible vomit in the mouth of an unresponsive patient should be:", ["Cleared with suction", "Ignored until arrival", "Pushed deeper with a finger", "Covered with a mask only"], 0, "Material in the airway threatens ventilation and aspiration."],
+      [9, "A conscious adult with severe foreign-body airway obstruction should generally receive:", ["Abdominal thrusts", "An OPA first", "Blind finger sweeps", "A blood pressure cuff"], 0, "Abdominal thrusts are a common first response for conscious adult choking."],
+      [9, "Blind finger sweeps are avoided because they may:", ["Push an object deeper into the airway", "Improve oxygen saturation", "Measure ETCO2", "Prevent vomiting"], 0, "Only visible, reachable objects should be removed."],
+      [9, "A stoma patient who is not breathing adequately may need ventilation:", ["Through the stoma if that is the airway", "Only through the nose", "Only after taking blood pressure", "Never by EMTs"], 0, "Some patients breathe through a surgical neck opening."],
+      [9, "For an unconscious nontrauma patient with secretions, the recovery position may help:", ["Drain fluids from the mouth", "Immobilize the spine", "Increase blood pressure automatically", "Measure pulse pressure"], 0, "Side positioning can help reduce airway fluid problems when appropriate."],
+      [9, "Airway reassessment is important because:", ["An initially open airway can become obstructed", "Airways never change", "It replaces vital signs", "It only matters in children"], 0, "Airway status can change rapidly."],
+
+      [10, "Ventilation means:", ["Moving air into and out of the lungs", "Oxygen moving from blood to cells only", "Blood pressure measurement", "Skin color assessment"], 0, "Ventilation is air movement."],
+      [10, "Respiration means:", ["Gas exchange involving oxygen and carbon dioxide", "Only chest rise", "Only pulse rate", "Only airway opening"], 0, "Respiration is gas exchange."],
+      [10, "External respiration occurs between the:", ["Alveoli and pulmonary capillaries", "Muscles and systemic capillaries", "Stomach and intestines", "Skin and air"], 0, "External respiration occurs in the lungs."],
+      [10, "Internal respiration occurs between the:", ["Systemic capillaries and body cells", "Alveoli and atmosphere", "Mouth and trachea", "Stomach and liver"], 0, "Internal respiration is tissue-level gas exchange."],
+      [10, "Minute volume equals:", ["Respiratory rate times tidal volume", "Pulse times blood pressure", "SpO2 times ETCO2", "Temperature plus pulse"], 0, "Minute volume is the amount of air moved per minute."],
+      [10, "A patient breathing too shallowly may have poor:", ["Tidal volume", "Documentation", "Pupil reaction only", "Skin temperature only"], 0, "Shallow breathing lowers air moved per breath."],
+      [10, "Artificial ventilation is indicated when breathing is:", ["Absent or inadequate", "Normal and effective", "Fast after exercise but improving", "Only described as anxious"], 0, "Ventilation support is for apnea or inadequate breathing."],
+      [10, "The best BVM technique usually uses:", ["Two rescuers when available", "No mask seal", "Only one loose hand", "No oxygen ever"], 0, "Two-person BVM improves mask seal and ventilation control."],
+      [10, "When ventilating with a BVM, excessive force or rate can cause:", ["Gastric inflation and reduced effectiveness", "Improved perfusion in every patient", "Accurate blood pressure readings", "No complications"], 0, "Overventilation can push air into the stomach and worsen patient status."],
+      [10, "Chest rise during ventilation should be:", ["Visible but not excessive", "As large as possible", "Absent", "Ignored"], 0, "Adequate ventilation uses enough volume to see chest rise without overinflation."],
+      [10, "Hypoxia is best described as:", ["Inadequate oxygen at the tissue level", "Too much oxygen in the tank", "A normal respiratory rate", "Only a pulse problem"], 0, "Hypoxia means tissues are not getting enough oxygen."],
+      [10, "Cyanosis may suggest:", ["Poor oxygenation", "Perfect perfusion", "Normal oxygenation", "Only fever"], 0, "Bluish color can be a late sign of poor oxygenation."],
+      [10, "Dead space matters because it is air that:", ["Does not participate in gas exchange", "Always reaches alveoli", "Measures blood pressure", "Contains no nitrogen"], 0, "Dead space ventilation does not exchange gases."],
+      [10, "A pocket mask is useful because it:", ["Provides a barrier while giving rescue breaths", "Measures ETCO2", "Splints the airway", "Replaces suction"], 0, "Pocket masks reduce direct exposure during rescue breathing."],
+      [10, "If ventilations are making the abdomen rise more than the chest, suspect:", ["Air entering the stomach", "Perfect ventilations", "Only a fever", "A normal finding"], 0, "Abdominal inflation suggests gastric inflation or poor airway/volume technique."],
+
+      [13, "Vital signs are important because they:", ["Show how well vital body functions are working", "Only complete billing", "Replace patient history", "Never need trending"], 0, "Vital signs help evaluate patient status and change over time."],
+      [13, "The four classic vital signs include:", ["Pulse, respirations, blood pressure, and temperature", "Height, weight, age, and address", "Skin, pupils, pain, and allergies only", "ETCO2, SpO2, ECG, and glucose only"], 0, "Classic vitals include pulse, respiratory rate, BP, and temperature."],
+      [13, "Systolic blood pressure is the pressure when the heart:", ["Contracts", "Rests between beats", "Stops beating", "Exhales"], 0, "Systolic is the higher number during contraction."],
+      [13, "Diastolic blood pressure is the pressure when the heart:", ["Rests between beats", "Contracts", "Ventilates", "Measures oxygen"], 0, "Diastolic is the lower number during relaxation."],
+      [13, "Pulse pressure is calculated by:", ["Subtracting diastolic from systolic pressure", "Adding pulse and respirations", "Multiplying SpO2 by ETCO2", "Dividing temperature by pulse"], 0, "Pulse pressure is systolic minus diastolic."],
+      [13, "A weak, rapid pulse can suggest:", ["Poor perfusion or shock", "Normal circulation in every adult", "Only a broken finger", "Perfect oxygenation"], 0, "Pulse quality and rate help assess perfusion."],
+      [13, "Respiratory rate should be assessed with attention to:", ["Rate, rhythm, quality, and work of breathing", "Only the number", "Only patient age", "Only skin color"], 0, "Breathing assessment includes more than counting."],
+      [13, "Cool, pale, moist skin may suggest:", ["Poor perfusion or shock", "Normal exertion only", "No concern", "Only fever"], 0, "Skin signs are perfusion clues."],
+      [13, "Pulse oximetry estimates:", ["Hemoglobin oxygen saturation", "Carbon dioxide level directly", "Blood pressure", "Blood glucose"], 0, "Pulse oximetry estimates SpO2."],
+      [13, "A pulse oximeter reading should be interpreted with:", ["Patient condition and waveform/trend context", "No clinical assessment", "Only the first number seen", "Insurance information"], 0, "SpO2 has limitations and should match patient presentation."],
+      [13, "Pulse oximetry may be unreliable with:", ["Poor perfusion, motion, cold extremities, or some toxins", "Good waveform and warm fingers only", "Normal lighting only", "A normal pulse"], 0, "Several factors can distort SpO2 readings."],
+      [13, "Capnography monitors:", ["Exhaled carbon dioxide", "Skin temperature", "Systolic pressure", "Pupil size"], 0, "Capnography measures CO2 in exhaled air."],
+      [13, "ETCO2 can help assess:", ["Ventilation, perfusion, and metabolism trends", "Only bone injury", "Only blood type", "Only fever"], 0, "End-tidal CO2 is affected by ventilation and circulation."],
+      [13, "Trending vital signs means:", ["Repeating and comparing measurements over time", "Taking one set only", "Ignoring changes", "Only measuring pulse"], 0, "Trends often reveal deterioration or improvement."],
+      [13, "A manual blood pressure requires:", ["Cuff, stethoscope, and correct technique", "Pulse oximeter only", "Thermometer only", "Capnography only"], 0, "Manual BP is taken by auscultation with a cuff and stethoscope."],
+
+      [19, "Respiratory distress means the patient is:", ["Working harder to breathe but still compensating", "Not breathing at all", "Always in cardiac arrest", "Only anxious"], 0, "Distress is increased work before failure."],
+      [19, "Respiratory failure means:", ["Breathing or gas exchange is inadequate for body needs", "Breathing is always normal", "Only pulse is abnormal", "The airway is always clear"], 0, "Failure means ventilation/oxygenation is no longer adequate."],
+      [19, "A patient in tripod position is usually trying to:", ["Improve breathing mechanics", "Protect a broken wrist", "Measure blood pressure", "Sleep comfortably"], 0, "Tripod positioning can help accessory muscle use."],
+      [19, "Wheezing most strongly suggests:", ["Narrowed lower airways", "Fluid in the alveoli only", "Normal lungs", "Upper airway stridor"], 0, "Wheezing is commonly associated with bronchoconstriction."],
+      [19, "Crackles may suggest:", ["Fluid in small airways or alveoli", "A clear airway", "A normal finding in all patients", "Only anxiety"], 0, "Crackles often reflect fluid-related lung problems."],
+      [19, "Asthma commonly involves:", ["Bronchoconstriction, swelling, and mucus", "Only high blood pressure", "Only heart rhythm changes", "No airway change"], 0, "Asthma narrows lower airways."],
+      [19, "COPD patients may have:", ["Chronic airflow limitation and increased work of breathing", "No respiratory risk", "Only abdominal pain", "No need for assessment"], 0, "COPD can reduce airflow and reserve."],
+      [19, "Pneumonia can impair oxygenation because it:", ["Affects lung tissue and gas exchange", "Only changes pupil size", "Only causes legal issues", "Improves alveolar function"], 0, "Infected lung tissue can interfere with gas exchange."],
+      [19, "Pulmonary edema is:", ["Fluid buildup in the lungs", "Air in the stomach", "Nerve inflammation", "A normal breathing pattern"], 0, "Pulmonary edema can cause severe shortness of breath and crackles."],
+      [19, "A pulmonary embolism is most commonly:", ["A clot blocking pulmonary circulation", "A mucus plug in the nose", "An ankle fracture", "A normal pulse"], 0, "PE blocks blood flow through the lungs."],
+      [19, "A metered-dose inhaler may help when the patient has:", ["Bronchospasm and a prescribed bronchodilator", "No respiratory complaint", "Only abdominal pain", "A legal refusal"], 0, "MDIs often deliver bronchodilators for bronchospasm."],
+      [19, "Before assisting with a prescribed inhaler, the EMT should generally:", ["Confirm the right patient, medication, indication, and local protocol", "Administer any inhaler found nearby", "Ignore contraindications", "Skip reassessment"], 0, "Medication assistance requires checks and protocol."],
+      [19, "CPAP is used only for patients who:", ["Are breathing and can tolerate the mask", "Are not breathing at all", "Have no respiratory problem", "Need spinal immobilization"], 0, "CPAP supports spontaneous breathing; it does not replace ventilation in apnea."],
+      [19, "A sudden drop in mental status during respiratory distress may indicate:", ["Worsening hypoxia or respiratory failure", "Improvement", "Only anxiety", "No need to intervene"], 0, "Altered mental status can signal failing oxygenation/ventilation."],
+      [19, "In a severe respiratory emergency, the EMT should prioritize:", ["Airway, breathing support, oxygenation, and rapid reassessment", "Waiting for symptoms to disappear", "Only taking one blood pressure", "Avoiding transport decisions"], 0, "Respiratory emergencies require rapid ABC-focused care and reassessment."]
+    ]);
+
     const chapters = [
       ["Chapter 1", "Introduction to EMS", "EMS components, provider levels, medical direction, scope, certification, QI, evidence, public health.", "Know who controls care, what EMTs can do, and how the system improves."],
       ["Chapter 2", "Well-Being of the EMT", "Scene safety, PPE, infection routes, OSHA/Ryan White, TB/TST, stress, grief, fatigue, hazards.", "Protect yourself first so you can keep thinking clearly and protect the patient."],
@@ -1843,7 +1982,11 @@
       ["Chapter 5", "Medical Terminology", "Prefixes, suffixes, roots, combining forms, abbreviations, anatomical position, body planes, and directional terms.", "Break the word apart first: prefix, root, suffix, then location or direction."],
       ["Chapter 6", "Anatomy and Physiology", "Body organization, homeostasis, cells, tissues, organ systems, body cavities, oxygenation, perfusion, and metabolism.", "Structure is anatomy. Function is physiology. Homeostasis is the balance."],
       ["Chapter 7", "Principles of Pathophysiology", "Disease processes, hypoxia, hypoperfusion, shock, compensation, inflammation, edema, respiratory failure, and perfusion failure.", "Pathophysiology explains what goes wrong and how the body tries to compensate."],
-      ["Chapter 8", "Life Span Development", "Newborns, infants, children, adolescents, adults, older adults, communication, physiology, development, and age-related risk.", "Age changes anatomy, physiology, communication, and what danger looks like."]
+      ["Chapter 8", "Life Span Development", "Newborns, infants, children, adolescents, adults, older adults, communication, physiology, development, and age-related risk.", "Age changes anatomy, physiology, communication, and what danger looks like."],
+      ["Chapter 9", "Airway Management", "Airway assessment, obstruction recognition, opening maneuvers, suction, airway adjuncts, choking care, stomas, and reassessment.", "Hear the airway: snoring is tongue, gurgling is fluid, stridor is upper-airway danger."],
+      ["Chapter 10", "Respiration and Artificial Ventilation", "Ventilation, respiration, oxygenation, tidal volume, minute volume, BVM, pocket mask, hypoxia, cyanosis, and overventilation risk.", "Ventilation moves air. Respiration exchanges gases. Too much bagging can hurt."],
+      ["Chapter 13", "Vital Signs and Monitoring Devices", "Pulse, respirations, blood pressure, temperature, skin, pupils, SpO2, ETCO2, auscultation, palpation, and trending.", "One set is a snapshot. Trends tell the story."],
+      ["Chapter 19", "Respiratory Emergencies", "Distress versus failure, asthma, COPD, pneumonia, pulmonary edema, pulmonary embolism, inhalers, CPAP, breath sounds, and reassessment.", "Respiratory patients can crash fast: work of breathing plus mental status tells you urgency."]
     ];
 
     const modes = [
@@ -1932,7 +2075,8 @@
 
     const $ = (id) => document.getElementById(id);
     const shuffle = (items) => [...items].sort(() => Math.random() - .5);
-    const chapterName = (n) => chapters[n - 1][1];
+    const chapterNumber = (chapter) => Number(String(chapter[0]).match(/\d+/)?.[0] || 0);
+    const chapterName = (n) => (chapters.find(chapter => chapterNumber(chapter) === n) || [null, `Chapter ${n}`])[1];
     let toastTimer;
     let quizTimerId;
 
@@ -1987,8 +2131,8 @@
     }
 
     function filterOptions(activeChapter, attr, labelFor = bankLabel) {
-      const options = [[0, `All ${labelFor(0)}`], ...chapters.map((_, index) => {
-        const chapter = index + 1;
+      const options = [[0, `All ${labelFor(0)}`], ...chapters.map((entry) => {
+        const chapter = chapterNumber(entry);
         return [chapter, `Ch ${chapter} (${labelFor(chapter)})`];
       })];
       return options.map(([chapter, label]) => `
@@ -2322,6 +2466,38 @@
         if (/adolescent|puberty|privacy|respect/.test(lower)) return "The patient is an adolescent, so privacy, respect, and development affect communication.";
         if (/early adult|middle adult|older|geriatric|polypharmacy|fall|end-of-life|directive|aging|reserve/.test(lower)) return "The crew considers adult life stage, chronic illness, medications, fall risk, and patient wishes.";
         return "The EMT changes communication and assessment priorities based on the patient's stage of life.";
+      }
+      if (item.chapter === 9) {
+        if (/snoring|tongue|head tilt|chin lift|jaw-thrust|spinal|open airway|patent/.test(lower)) return "An altered patient has noisy breathing, and the EMT must choose the safest way to open or maintain the airway.";
+        if (/gurgling|suction|vomit|blood|fluid|secretions/.test(lower)) return "The patient has fluid in the airway, so the crew has to clear it without losing oxygenation.";
+        if (/opa|oropharyngeal|npa|nasopharyngeal|gag|adjunct/.test(lower)) return "The airway is at risk, and the EMT must choose the correct basic airway adjunct.";
+        if (/foreign|choking|obstruction|abdominal thrust|blind finger|stridor/.test(lower)) return "The call involves a suspected airway obstruction, and the EMT must act without pushing the blockage deeper.";
+        if (/stoma|recovery position/.test(lower)) return "A special airway situation changes how the crew positions or ventilates the patient.";
+        return "The crew is managing a basic airway problem and reassessing whether air can move.";
+      }
+      if (item.chapter === 10) {
+        if (/ventilation|artificial|bvm|bag|pocket mask|positive-pressure|chest rise|gastric/.test(lower)) return "A patient is not breathing adequately, and the EMT must support ventilation without over-bagging.";
+        if (/respiration|external|internal|gas exchange|alveoli|capillaries|oxygen|carbon dioxide/.test(lower)) return "The crew is connecting respiratory anatomy to the oxygen and carbon dioxide exchange problem.";
+        if (/tidal|minute volume|dead space|shallow|rate/.test(lower)) return "The patient's breathing pattern may not be moving enough useful air for gas exchange.";
+        if (/hypoxia|cyanosis/.test(lower)) return "The patient is showing possible signs of poor oxygen delivery, so oxygenation and ventilation have to be reassessed.";
+        return "The call focuses on whether the patient is moving air and exchanging gases effectively.";
+      }
+      if (item.chapter === 13) {
+        if (/pulse|blood pressure|systolic|diastolic|pulse pressure|shock|perfusion/.test(lower)) return "The EMT is reading circulation clues from pulse quality, blood pressure, and perfusion signs.";
+        if (/respiratory rate|breathing|skin|pupil|temperature/.test(lower)) return "The crew is gathering a full set of vital signs and looking for signs that match the complaint.";
+        if (/pulse oximetry|spo2|oximeter|saturation|poor perfusion|motion|cold/.test(lower)) return "A monitor gives an oxygen saturation estimate, but the EMT must decide whether the number fits the patient.";
+        if (/capnography|etco2|carbon dioxide|ventilation|waveform/.test(lower)) return "The EMT is using exhaled carbon dioxide trends to judge ventilation and perfusion.";
+        if (/trend|repeating|manual blood pressure|stethoscope|auscultation|palpation/.test(lower)) return "The crew repeats measurements to decide if the patient is improving or getting worse.";
+        return "The call requires accurate vital signs and smart use of monitoring devices.";
+      }
+      if (item.chapter === 19) {
+        if (/distress|failure|mental status|hypoxia|work of breathing|tripod/.test(lower)) return "A short-of-breath patient may be moving from distress toward failure, so the EMT watches work of breathing and mental status closely.";
+        if (/wheezing|asthma|bronchospasm|inhaler|metered-dose/.test(lower)) return "The patient has signs of bronchospasm, and the crew considers oxygen, reassessment, and prescribed inhaler assistance under protocol.";
+        if (/copd|hypoxic drive|chronic/.test(lower)) return "The patient has chronic lung disease, so the EMT balances oxygenation, ventilation, and close reassessment.";
+        if (/crackles|pulmonary edema|pneumonia|fluid/.test(lower)) return "The patient has breath sounds or history suggesting fluid or infection affecting gas exchange.";
+        if (/pulmonary embolism|clot|sudden/.test(lower)) return "A sudden respiratory complaint raises concern for a circulation problem in the lungs.";
+        if (/cpap/.test(lower)) return "A breathing patient with severe distress may need positive airway pressure if protocol and tolerance allow it.";
+        return "The crew is treating a respiratory emergency where airway, breathing support, oxygenation, and reassessment drive decisions.";
       }
       if (/consent|refus|competent|minor|capacity|emancipated|involuntary/.test(lower)) return "A patient-care decision depends on permission, refusal, age, or decision-making ability.";
       if (/abandonment|duty|negligence|transfer|harm|standard|breach|causation|damages|proximate/.test(lower)) return "Your crew is responsible for continuing appropriate care, meeting the expected standard, and transferring care properly.";
