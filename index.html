@@ -1766,6 +1766,76 @@
       definition
     })));
 
+    const chapterNineteenPdfCards = [
+      ["Respiratory emergency", "An acute breathing problem where oxygenation, ventilation, or perfusion may be failing.", 19],
+      ["Adequate breathing", "Breathing sufficient to support life with acceptable rate, rhythm, depth, air movement, mental status, color, and oxygenation.", 19],
+      ["Inadequate breathing", "Breathing that does not meet the body's metabolic needs and requires immediate intervention.", 19],
+      ["Silent chest", "Absent or extremely diminished lung sounds despite breathing effort, an ominous sign in severe asthma or airway narrowing.", 19],
+      ["Agonal respirations", "Sporadic, shallow, gasping breaths usually seen just before respiratory arrest.", 19],
+      ["One-word dyspnea", "Severe shortness of breath where the patient can speak only one word before needing another breath.", 19],
+      ["Pursed-lip breathing", "A breathing pattern used by some respiratory patients to keep small airways open during exhalation.", 19],
+      ["Seesaw breathing", "Pediatric distress pattern where the chest and abdomen move in opposite directions.", 19],
+      ["Pediatric respiratory bradycardia", "A late and dangerous sign of severe hypoxia in an infant or child with respiratory distress.", 19],
+      ["Upper airway problem", "A respiratory issue above the lower bronchi, often associated with stridor, drooling, or airway swelling.", 19],
+      ["Lower airway problem", "A respiratory issue in bronchi, bronchioles, or alveoli, often associated with wheezing, crackles, or rhonchi.", 19],
+      ["Wheezes", "High-pitched musical lung sounds caused by air moving through narrowed lower air passages.", 19],
+      ["Crackles", "Fine crackling or bubbling sounds, often caused by fluid in alveoli or opening of closed alveoli.", 19],
+      ["Rhonchi", "Lower-pitched rattling or snoring lung sounds caused by secretions in larger airways.", 19],
+      ["Stridor", "High-pitched inspiratory upper-airway sound suggesting partial obstruction of the trachea or larynx.", 19],
+      ["Respiratory OPQRST", "History questions adapted to breathing difficulty: onset, provocation, quality/cough, radiation, severity, and time.", 19],
+      ["Respiratory SAMPLE", "History questions that include symptoms, allergies, medications, past breathing problems, last intake, and events such as travel or exposure.", 19],
+      ["Pedal edema", "Swelling in the feet, ankles, or calves that can suggest fluid overload or heart failure.", 19],
+      ["Sacral edema", "Fluid swelling around the low back, often seen in bedridden patients with fluid overload.", 19],
+      ["Jugular vein distention", "Visible neck vein distention that can occur with heart failure or other pressure problems.", 19],
+      ["CPAP", "Continuous positive airway pressure, a noninvasive mask therapy using flow and pressure to help keep airways and alveoli open.", 19],
+      ["PEEP", "Positive end expiratory pressure, pressure remaining in the respiratory system at the end of exhalation.", 19],
+      ["CPAP indication", "A breathing patient with severe distress from selected causes such as pulmonary edema, drowning, asthma, COPD, or impending failure per protocol.", 19],
+      ["CPAP contraindication", "A reason not to use CPAP, such as inability to follow instructions, inadequate breathing, vomiting, shock, hypotension, pneumothorax, chest trauma, or poor mask seal.", 19],
+      ["CPAP side effect", "Possible complications include blood pressure drop, pneumothorax risk, gastric distention/vomiting, aspiration, anxiety, or eye dryness from mask leak.", 19],
+      ["COPD", "Chronic obstructive pulmonary disease, commonly including chronic bronchitis and emphysema.", 19],
+      ["Chronic bronchitis", "COPD pattern with inflamed bronchiole lining, excess mucus, and damaged cilia.", 19],
+      ["Emphysema", "COPD pattern where alveolar walls break down, surface area decreases, elasticity is lost, and stale air is trapped.", 19],
+      ["Hypoxic drive", "A breathing stimulus based on low oxygen in some COPD patients; oxygen should still not be withheld when indicated.", 19],
+      ["Asthma", "A chronic disease with episodic attacks of bronchoconstriction, airway inflammation, and thick mucus.", 19],
+      ["Bronchoconstriction", "Constriction or blockage of the bronchi that lead from the trachea to the lungs.", 19],
+      ["Rescue inhaler", "A fast-acting inhaled medication, often albuterol or levalbuterol, used for acute bronchoconstriction.", 19],
+      ["Steroid inhaler", "A maintenance inhaler used to reduce inflammation and prevent attacks, not to reverse an acute attack.", 19],
+      ["Pulmonary edema", "Abnormal fluid accumulation in or around alveoli, often from left-sided heart failure.", 19],
+      ["Heart failure breathing clue", "Worsening shortness of breath when lying down, waking at night short of breath, weight gain, edema, crackles, or frothy sputum.", 19],
+      ["Pneumonia", "Infection of one or both lungs causing inflammation and often cough, fever, chills, sputum, pleuritic pain, or confusion in older adults.", 19],
+      ["Spontaneous pneumothorax", "A lung collapse without obvious injury, often from rupture of a weak bleb.", 19],
+      ["Pleuritic chest pain", "Sharp chest pain that worsens with breathing.", 19],
+      ["Pulmonary embolism", "Blockage of a pulmonary artery by a clot, air, or fat, causing variable but potentially life-threatening respiratory signs.", 19],
+      ["Deep vein thrombosis", "A clot in a deep vein, often in the leg or pelvis, that can break free and cause a pulmonary embolism.", 19],
+      ["Epiglottitis", "Infection and swelling around the epiglottis that can suddenly obstruct the airway.", 19],
+      ["Drooling with tripod posture", "A dangerous upper-airway clue that may suggest epiglottitis, especially with fever, muffled voice, and distress.", 19],
+      ["Croup", "Viral inflammation of the larynx, trachea, and bronchi, often causing barking cough and hoarse voice in young children.", 19],
+      ["Bronchiolitis", "Viral inflammation of small airways, commonly from RSV in young children.", 19],
+      ["RSV", "Respiratory syncytial virus, a common cause of bronchiolitis and infant hospitalization.", 19],
+      ["Cystic fibrosis", "A genetic disease causing thick sticky mucus in lungs and digestive tract, leading to infections and breathing problems.", 19],
+      ["Viral respiratory infection", "A contagious respiratory illness treated supportively, with oxygen for hypoxia and infection-control precautions.", 19],
+      ["Metered-dose inhaler", "A handheld inhaler that delivers a measured dose of medication with each activation.", 19],
+      ["Spacer device", "A chamber attached to an inhaler that keeps medication airborne and makes timing easier.", 19],
+      ["Five rights of inhaler assistance", "Right patient, right time, right medication, right dose, and right route.", 19],
+      ["Inhaler contraindication", "Do not assist if the patient cannot use the device, it is not prescribed for them, permission is absent, or the max dose was already taken.", 19],
+      ["Inhaler side effects", "Possible increased pulse rate, tremors, nervousness, or jittery feeling.", 19],
+      ["Small-volume nebulizer", "A device that aerosolizes liquid medication so the patient can inhale it over several minutes.", 19],
+      ["Albuterol", "A fast-acting beta-agonist bronchodilator commonly used first-line for bronchoconstriction.", 19],
+      ["Ipratropium bromide", "A slower-onset, longer-lasting anticholinergic bronchodilator.", 19],
+      ["DuoNeb", "A combination of albuterol and ipratropium that provides bronchodilation through two mechanisms.", 19]
+    ].map(([term, definition, chapter], index) => ({ id: cards.length + index, term, definition, chapter }));
+    cards.push(...chapterNineteenPdfCards);
+    flashDeck.push(...chapterNineteenPdfCards.map(({ id, term, definition, chapter }) => ({
+      id,
+      chapter,
+      q: definition,
+      options: [term],
+      answer: 0,
+      why: definition,
+      term,
+      definition
+    })));
+
     const quiz = [
       [1, "What is the main purpose of an EMS system?", ["Provide emergency care before and during transport", "Replace emergency departments", "Diagnose every illness in the field", "Only transport patients"], 0, "EMS starts emergency medical care and continues it during transport."],
       [1, "Which level of EMS provider has training beyond EMT and can perform more advanced skills?", ["EMR", "AEMT or paramedic", "Dispatcher", "Bystander"], 1, "AEMTs and paramedics have advanced training compared with EMTs."],
@@ -2411,6 +2481,118 @@
       [13, "If a ventilated trauma patient's SpO2 remains 90 percent, the EMT should:", ["Reassess airway, seal, chest rise, oxygen source, and ventilation effectiveness", "Only document the number", "Stop ventilating", "Remove oxygen"], 0, "Low saturation despite BVM means ventilation and oxygen delivery need troubleshooting."]
     ]);
 
+    addQuizItems([
+      [19, "Adequate breathing is best described as breathing that:", ["Is sufficient to support life", "Always has no distress", "Requires BVM in every patient", "Has a fixed rate of 30 in adults"], 0, "Adequate breathing meets metabolic needs even if the patient is working harder."],
+      [19, "Inadequate breathing means:", ["Breathing is not sufficient to support life", "The patient is always talking normally", "The oxygen tank is empty", "The patient only needs documentation"], 0, "Inadequate breathing requires immediate intervention."],
+      [19, "Normal adult breathing rate is:", ["12 to 20 per minute", "30 to 60 per minute", "60 to 100 per minute", "6 to 10 per minute"], 0, "Adult normal respiratory rate is 12 to 20."],
+      [19, "A normal infant breathing rate is:", ["30 to 60 per minute", "12 to 20 per minute", "6 to 10 per minute", "80 to 140 per minute"], 0, "Infants breathe faster than adults."],
+      [19, "A patient can be in respiratory distress but still breathing adequately when:", ["Compensation is meeting metabolic needs", "They are apneic", "They have no chest rise", "They have agonal respirations"], 0, "Distress does not always mean failure yet."],
+      [19, "A key early sign of inadequate breathing is often:", ["Mental status change", "Perfect speech", "Normal oxygen saturation after exertion", "Warm dry skin only"], 0, "The brain is very sensitive to hypoxia and rising carbon dioxide."],
+      [19, "Cyanosis is a warning sign of:", ["Severe hypoxia", "Normal ventilation", "A routine medication side effect only", "A normal pulse"], 0, "Cyanosis is a late, serious oxygenation clue."],
+      [19, "A patient who can speak only one or two words before breathing again has:", ["A severe breathing problem", "Normal breathing", "No respiratory distress", "Only a legal issue"], 0, "Limited speech correlates with severe dyspnea."],
+      [19, "A silent chest in severe asthma means:", ["Air movement may be dangerously poor", "The patient is improving for sure", "No auscultation is needed", "The airway is clear"], 0, "Wheezing may disappear when air movement becomes too poor to make sound."],
+      [19, "Agonal respirations are:", ["Sporadic shallow gasping breaths before arrest", "Normal sleeping respirations", "A productive cough", "A blood pressure finding"], 0, "Agonal respirations are inadequate and require ventilation."],
+      [19, "If you are uncertain whether breathing is inadequate, the chapter recommends:", ["Provide artificial ventilation", "Wait until respiratory arrest", "Use only a nasal cannula", "Do nothing"], 0, "Err toward ventilation when breathing may be inadequate."],
+      [19, "A nonrebreather mask is not enough for inadequate breathing because:", ["It requires adequate breathing to pull oxygen into the lungs", "It delivers artificial ventilations", "It replaces a BVM", "It suctions the airway"], 0, "A nonrebreather oxygenates; it does not ventilate an inadequate breather."],
+      [19, "An adult with no breathing should be ventilated at:", ["10 to 12 breaths per minute", "30 to 60 breaths per minute", "1 breath per minute", "24 to 40 breaths per minute"], 0, "Adult artificial ventilation rate is about 10 to 12 per minute."],
+      [19, "An infant or child with no breathing should be ventilated at:", ["12 to 20 breaths per minute", "4 to 6 breaths per minute", "30 to 60 breaths per minute", "Only when cyanotic"], 0, "Pediatric artificial ventilation rate is 12 to 20 per minute."],
+      [19, "Hyperventilating a patient during BVM care can:", ["Decrease brain perfusion by lowering carbon dioxide too much", "Always improve brain blood flow", "Prevent all gastric inflation", "Replace airway opening"], 0, "Too much ventilation can constrict cerebral vessels."],
+      [19, "Adequate artificial ventilation should produce:", ["Visible chest rise and fall", "Abdominal distention only", "No chest movement", "A silent pulse"], 0, "Chest rise/fall is the key visible ventilation sign."],
+      [19, "In infants and children with respiratory distress, bradycardia means:", ["Severe hypoxia and imminent cardiac arrest", "Normal compensation", "The child is improving", "No oxygen is needed"], 0, "Pediatric bradycardia in respiratory distress is a late danger sign."],
+      [19, "A child with bradycardia and respiratory distress should receive:", ["Immediate ventilation with high-flow oxygen by appropriately sized BVM", "Only blow-by oxygen", "Only a pulse oximeter", "A prescribed adult inhaler first"], 0, "Ventilation and oxygenation are the priority."],
+      [19, "Pediatric seesaw breathing occurs when:", ["Chest and abdomen move in opposite directions", "Both pupils constrict", "The pulse is irregular", "The BP cuff is too small"], 0, "Seesaw breathing is a pediatric respiratory distress sign."],
+      [19, "You should avoid putting a tongue depressor in a child with suspected upper-airway swelling because:", ["It can trigger spasm and worsen obstruction", "It improves airway swelling", "It measures SpO2", "It treats croup"], 0, "Agitating or probing the airway can be dangerous."],
+      [19, "Which pediatric sign is a late sign of respiratory failure?", ["Decreased heart rate", "Mild tachypnea while crying", "Normal capillary refill", "Warm dry skin"], 0, "Decreased heart rate is late and ominous."],
+      [19, "When assessing breathing difficulty with OPQRST, Quality should include asking about:", ["Cough and sputum", "Insurance status", "Shoe size", "Only last meal"], 0, "Cough and sputum help characterize respiratory complaints."],
+      [19, "For respiratory SAMPLE, Events may include asking about:", ["Recent travel or contact with infectious respiratory outbreaks", "Only height and weight", "Only payment method", "Only family address"], 0, "Exposure/travel can matter in respiratory infections."],
+      [19, "Tripod position usually means the patient is trying to:", ["Improve breathing mechanics", "Protect a sprained ankle", "Sleep", "Lower glucose"], 0, "Tripod posture can improve accessory muscle use."],
+      [19, "Pedal edema may suggest:", ["Fluid overload or heart failure", "Asthma only", "A normal finding in every patient", "Croup"], 0, "Leg edema can be a fluid-overload clue."],
+      [19, "A patient who sleeps propped on multiple pillows and wakes short of breath may have:", ["Heart failure with pulmonary edema", "Simple wrist pain", "Epiglottitis only", "A normal sleep habit"], 0, "Orthopnea and nighttime dyspnea are heart failure clues."],
+      [19, "When using a pulse oximeter in breathing difficulty, if available immediately, get:", ["A room-air reading before oxygen", "Only a post-oxygen reading", "No reading ever", "A glucose value from it"], 0, "Room-air SpO2 gives a baseline, but never delay needed oxygen."],
+      [19, "You should never delay necessary oxygen just to:", ["Get a pulse oximeter reading", "Open the airway", "Ventilate apnea", "Treat life threats"], 0, "Treat the patient first."],
+      [19, "Wheezes are:", ["High-pitched musical sounds from narrowed lower airways", "Low-pitched ankle sounds", "Always upper-airway sounds", "Fluid in the legs"], 0, "Wheezing commonly reflects narrowed bronchioles."],
+      [19, "Crackles are often caused by:", ["Fluid in alveoli or opening of closed alveoli", "Narrowed upper airway only", "A clear airway", "A blood clot in the leg only"], 0, "Crackles are commonly associated with fluid and alveolar issues."],
+      [19, "Rhonchi are:", ["Lower-pitched rattling sounds from secretions in larger airways", "Always silent", "Pupil changes", "A type of oxygen cylinder"], 0, "Rhonchi often sound like rattling or snoring in larger airways."],
+      [19, "Stridor suggests:", ["Upper-airway obstruction", "Fluid in the alveoli only", "Lower leg swelling", "Normal lungs"], 0, "Stridor is a high-pitched upper-airway sound."],
+      [19, "Lung sounds should be auscultated:", ["On both sides in multiple chest, back, and mid-axillary areas", "Only once over the stomach", "Only if the patient has no distress", "Only after transport"], 0, "Comparing areas can localize problems and trends."],
+      [19, "If wheezes disappear and the patient worsens, suspect:", ["Air movement has become inadequate", "The attack is definitely over", "The inhaler cured everything", "No reassessment is needed"], 0, "Wheezing can vanish when ventilation becomes too poor."],
+      [19, "The patient's overall status is more important than:", ["Lung sounds alone", "Airway patency", "Breathing adequacy", "Mental status"], 0, "Lung sounds are useful but only one part of assessment."],
+      [19, "For a breathing patient in significant distress with hypoxia, oxygen may be given by:", ["Nonrebreather at 15 L/min or nasal cannula at 6 L/min to maintain SpO2 around 95 percent", "No oxygen ever", "Only room air CPAP", "Only glucose meter"], 0, "Use oxygen based on distress, hypoxia, and protocol."],
+      [19, "A patient with breathing difficulty but adequate breathing is usually placed:", ["In a position of comfort, often sitting up", "Supine with legs elevated every time", "Prone on the floor", "With head lower than feet"], 0, "Most dyspneic patients breathe better sitting upright."],
+      [19, "CPAP is:", ["Noninvasive positive pressure with flow through a mask", "A replacement for BVM in apnea", "A blood glucose device", "A suction catheter"], 0, "CPAP supports breathing patients with pressure."],
+      [19, "CPAP should never be used when:", ["Artificial ventilation is indicated", "The patient is breathing and following commands", "Pulmonary edema is suspected and BP is adequate", "Protocol allows it"], 0, "CPAP requires spontaneous breathing."],
+      [19, "The main therapeutic effect of CPAP often comes from:", ["Pressure, not just oxygen concentration", "Suction", "Lowering airway pressure to zero", "Making the patient lie flat"], 0, "CPAP splints airways/alveoli with pressure."],
+      [19, "PEEP means pressure at:", ["The end of exhalation", "The start of documentation", "The glucose strip", "The radial pulse"], 0, "PEEP is positive end expiratory pressure."],
+      [19, "Most CPAP systems are designed to provide approximately:", ["7 to 15 cm H2O PEEP", "0 to 1 cm H2O", "60 to 100 mg/dL", "96 to 100 percent glucose"], 0, "The chapter lists common CPAP PEEP range as 7 to 15 cm H2O."],
+      [19, "Common CPAP indications include:", ["Pulmonary edema, drowning, asthma/COPD, or selected respiratory failure per protocol", "Vomiting with altered mental status", "Shock with hypotension", "Suspected pneumothorax"], 0, "CPAP can help selected breathing patients with distress."],
+      [19, "A systolic BP below 90 is generally a contraindication to:", ["CPAP", "Airway assessment", "Oxygen by nasal cannula only", "Listening to lungs"], 0, "CPAP can reduce venous return and blood pressure."],
+      [19, "CPAP is contraindicated when the patient:", ["Cannot protect the airway or follow instructions", "Is alert and breathing with pulmonary edema", "Can sit up and cooperate", "Has an adequate blood pressure"], 0, "Mental status and airway protection matter."],
+      [19, "CPAP is contraindicated in suspected pneumothorax because:", ["Positive pressure may worsen lung collapse", "It improves all collapsed lungs", "It prevents chest trauma", "It suctions air out"], 0, "Positive pressure can worsen air leakage."],
+      [19, "If a patient deteriorates on CPAP, the EMT should:", ["Remove CPAP and begin ventilating with a bag-mask", "Tighten it and ignore changes", "Stop all oxygen", "Wait until arrival"], 0, "Deterioration means CPAP is failing or no longer appropriate."],
+      [19, "COPD most commonly includes:", ["Chronic bronchitis and emphysema", "Croup and epiglottitis", "Pneumothorax and DVT", "Diabetes and stroke"], 0, "COPD is an umbrella for chronic obstructive lung disease."],
+      [19, "Cigarette smoking causes:", ["The overwhelming majority of COPD cases", "Most croup cases", "All pulmonary emboli", "All epiglottitis"], 0, "Smoking is the major COPD cause."],
+      [19, "Chronic bronchitis involves:", ["Inflamed bronchioles, excess mucus, and damaged cilia", "Alveolar walls only breaking down", "A clot in pulmonary circulation", "Swelling above the epiglottis only"], 0, "Chronic bronchitis is mucus/inflammation/cilia damage."],
+      [19, "Emphysema involves:", ["Breakdown of alveolar walls and loss of elastic surface area", "Only upper-airway swelling", "A barking cough only", "A blood clot from the leg"], 0, "Emphysema traps stale air and reduces gas exchange surface."],
+      [19, "A COPD patient with green or dark sputum and fever may have:", ["An infection worsening chronic disease", "Only normal baseline COPD", "A broken rib only", "A normal airway"], 0, "Upper respiratory infection commonly worsens COPD."],
+      [19, "If oxygen is indicated for a COPD patient, the EMT should:", ["Not withhold it because of hypoxic drive concerns", "Always refuse oxygen", "Give no oxygen unless unconscious", "Only use room air"], 0, "Treat hypoxia and distress; monitor breathing closely."],
+      [19, "Asthma differs from COPD because asthma:", ["Has episodic flare-ups and does not produce hypoxic drive", "Only affects older smokers", "Always causes heart failure", "Cannot be life-threatening"], 0, "Asthma has episodic bronchoconstriction and inflammation."],
+      [19, "Asthma attacks can be triggered by:", ["Stings, pollutants, infection, exercise, or emotional stress", "Only high blood pressure", "Only lying flat", "Only DVT"], 0, "Many triggers can provoke asthma."],
+      [19, "In asthma, airflow is especially restricted during:", ["Exhalation", "Pupil constriction", "Blood pressure measurement", "Capillary refill"], 0, "Exhalation narrows airways and traps air."],
+      [19, "Pulmonary edema is often caused by:", ["Left-sided heart failure", "A viral upper airway infection only", "A DVT only", "An inhaler overdose only"], 0, "Left heart failure backs pressure into the lungs."],
+      [19, "Classic acute pulmonary edema findings include:", ["Abrupt dyspnea, crackles, frothy sputum, sweaty skin, and low SpO2", "Barking cough only", "Drooling with tripod only", "Leg pain after a cast only"], 0, "Pulmonary edema creates fluid-related respiratory distress."],
+      [19, "In severe pulmonary edema, frothy sputum may be:", ["White or pink-tinged", "Always black", "Always absent", "The same as glucose"], 0, "Frothy sputum can be white or pink."],
+      [19, "For pulmonary edema, keep the legs:", ["Dependent if possible", "Elevated above the head whenever possible", "Tied together", "Ignored"], 0, "Raising legs can increase fluid return to an overloaded circulation."],
+      [19, "CPAP may help pulmonary edema by:", ["Increasing alveolar pressure and preventing fluid shift/collapse", "Removing all lung fluid instantly", "Curing the heart failure", "Replacing all oxygen"], 0, "CPAP pressure can splint open alveoli and reduce fluid movement."],
+      [19, "Pneumonia is:", ["Infection of one or both lungs", "A clot in pulmonary circulation", "A collapsed lung without injury", "A maintenance inhaler"], 0, "Pneumonia is lung infection."],
+      [19, "An older adult with pneumonia may present mainly with:", ["Confusion", "Only ankle pain", "No symptoms ever", "Normal mental status always"], 0, "Older adults may have subtle or atypical symptoms."],
+      [19, "Localized crackles on one side may suggest:", ["Pneumonia", "Classic asthma only", "A normal lung exam", "Epiglottitis"], 0, "Pneumonia can affect a region of one lung."],
+      [19, "Spontaneous pneumothorax usually results from:", ["Rupture of a weak bleb", "Excess mucus only", "A viral barking cough", "High glucose"], 0, "A bleb can rupture and collapse the lung."],
+      [19, "High-risk patients for spontaneous pneumothorax include:", ["COPD smokers and tall thin people", "Only toddlers with croup", "Only patients with diabetes", "Only patients with pneumonia vaccine"], 0, "COPD/smoking and tall thin body type are risk clues."],
+      [19, "Suspected pneumothorax with significant distress should prompt:", ["ALS contact, oxygen, and no CPAP", "CPAP immediately", "No oxygen", "Only an inhaler"], 0, "CPAP is contraindicated in suspected pneumothorax."],
+      [19, "JVD and hypotension in a worsening pneumothorax suggest:", ["A life-threatening pressure problem", "A normal mild pneumothorax", "Croup", "Simple bronchitis"], 0, "These findings can indicate tension physiology."],
+      [19, "Pulmonary embolism is most commonly caused by:", ["A blood clot from a deep vein", "A barking cough", "A steroid inhaler", "Too much mucus in the nose"], 0, "DVT can embolize to the lungs."],
+      [19, "Risk factors for DVT include:", ["Prolonged immobility, active cancer, or limb immobilization in a cast", "Running a short distance", "Drinking water", "Using a spacer"], 0, "Stasis and cancer increase clot risk."],
+      [19, "Classic PE presentation includes:", ["Sudden pleuritic chest pain, shortness of breath, anxiety, tachycardia, and tachypnea", "Slow barking cough after bedtime only", "Drooling and muffled voice only", "Fever with green sputum only"], 0, "PE often presents suddenly, but signs are variable."],
+      [19, "A PE patient may also have:", ["Leg pain or swelling", "Only wheezing from asthma", "Only a hoarse voice", "Only an inhaler prescription"], 0, "Leg findings may point to DVT source."],
+      [19, "Epiglottitis is dangerous because:", ["Swelling can close off the airway", "It always improves with a tongue depressor", "It affects only the lower leg", "It is a glucose problem"], 0, "The airway can obstruct suddenly."],
+      [19, "Suspected epiglottitis should be managed by:", ["Keeping the patient calm, not inspecting the throat, oxygen if tolerated, and rapid transport", "Forcing the mouth open", "Laying the patient flat", "Delaying transport"], 0, "Do not agitate or inspect the airway."],
+      [19, "A still child leaning forward, drooling, and distressed suggests:", ["Epiglottitis", "A simple ankle sprain", "Normal sleep", "Pulmonary embolism only"], 0, "This is a classic dangerous upper-airway picture."],
+      [19, "Croup classically causes:", ["Barking cough and hoarse voice, often at night", "Leg swelling and JVD", "Sudden DVT pain", "Pink frothy sputum"], 0, "Croup affects upper airway structures in young children."],
+      [19, "Croup usually affects children about:", ["6 months to 4 years", "40 to 60 years", "Only newborns in the first hour", "Only older adults"], 0, "Croup is common in young children."],
+      [19, "If a child with croup has cyanosis, altered mental status, or stridor with severe distress, the EMT should:", ["Initiate artificial respirations as needed and transport immediately", "Wait at home for steam only", "Inspect the throat deeply", "Give no oxygen"], 0, "Signs of inadequate breathing require ventilation and transport."],
+      [19, "Bronchiolitis is commonly caused by:", ["RSV", "A DVT", "Heart failure only", "A fractured rib only"], 0, "RSV is the most common bronchiolitis cause."],
+      [19, "Bronchiolitis commonly affects:", ["Children younger than 5 years", "Only middle-aged smokers", "Only tall thin adults", "Only dialysis patients"], 0, "RSV bronchiolitis is common in young children."],
+      [19, "For an infant with bronchiolitis and nasal mucus, the EMT may improve ventilation by:", ["Using a bulb syringe to clear the nose", "Forcing a tongue depressor into the mouth", "Withholding oxygen", "Applying CPAP despite apnea"], 0, "Infants depend heavily on nasal airflow."],
+      [19, "Cystic fibrosis causes:", ["Thick sticky mucus in lungs and digestive system", "Only a blood clot", "A simple sore throat", "Only high blood pressure"], 0, "CF creates chronic mucus and infection issues."],
+      [19, "With cystic fibrosis, the EMT should use the knowledge of:", ["The patient or parent, because they often know the disease and what helps", "Only a bystander who does not know the patient", "No one", "A random inhaler"], 0, "Patients and parents are often experts in their CF care."],
+      [19, "Viral respiratory infections require EMTs to think about:", ["Supportive care and infection control precautions", "Antibiotics in the field", "No PPE", "Only CPAP"], 0, "Viral illnesses are contagious and usually treated supportively."],
+      [19, "If respiratory infection is suspected, PPE should include:", ["Eye protection, gloves, and a surgical mask; N95 as needed for higher-risk illness", "No mask", "Only a BP cuff", "Only hearing protection"], 0, "Droplet and respiratory precautions protect the EMT."],
+      [19, "Antibiotics are used for:", ["Bacterial infections, not routine viral respiratory infections", "All viral colds in EMS", "Every asthma attack", "Every PE"], 0, "Viral infections do not get cured by antibiotics."],
+      [19, "A metered-dose inhaler delivers:", ["A measured dose with each activation", "Continuous aerosol for several minutes", "Positive airway pressure", "Blood glucose"], 0, "MDI stands for metered-dose inhaler."],
+      [19, "Before assisting with an inhaler, determine:", ["When and how many times the patient already used it", "Only the patient's shoe size", "Only the oxygen cylinder color", "Nothing"], 0, "Overuse/max dose matters."],
+      [19, "The five rights of inhaler assistance are right patient, time, medication, dose, and:", ["Route", "Room", "Radio", "Rhythm"], 0, "Medication administration uses the five rights."],
+      [19, "A rescue inhaler may contain:", ["Albuterol or levalbuterol", "Only a steroid maintenance drug", "Antibiotic pills", "Glucose gel"], 0, "Fast-acting bronchodilators are rescue medications."],
+      [19, "A steroid maintenance inhaler such as Advair or Flovent should be used:", ["For prevention/maintenance, not to reverse an acute attack", "As the main acute rescue inhaler", "Only for PE", "As CPAP"], 0, "Maintenance inhalers do not rescue acute bronchoconstriction."],
+      [19, "A spacer device helps because it:", ["Keeps medication airborne and makes timing less critical", "Measures blood pressure", "Prevents every side effect", "Creates CPAP pressure"], 0, "Spacers improve medication delivery."],
+      [19, "After activating an inhaler, the patient should hold their breath for:", ["5 to 10 seconds or as long as possible", "30 minutes", "No time", "One hour"], 0, "Breath-holding lets medication contact lung tissue."],
+      [19, "If a second inhaler puff is ordered, wait:", ["15 to 30 seconds", "10 minutes exactly", "No time", "One hour"], 0, "The chapter gives 15 to 30 seconds between ordered administrations."],
+      [19, "Do not assist with an inhaler if:", ["It is not prescribed for the patient", "The patient has wheezing and owns it", "Medical direction authorizes it", "It is a rescue inhaler and patient is alert"], 0, "The inhaler must be prescribed to the patient unless protocol says otherwise."],
+      [19, "Do not assist with an inhaler if the patient:", ["Is unable to use the device because they are not alert enough", "Can follow instructions", "Has physician-prescribed medication", "Has authorization"], 0, "The patient must be able to use it properly."],
+      [19, "Common side effects of inhaled bronchodilators include:", ["Increased pulse, tremors, and nervousness", "Guaranteed lower pulse", "No possible side effects", "Pupil fixation"], 0, "Bronchodilators can cause jittery sympathetic effects."],
+      [19, "After inhaler use, the EMT should:", ["Reassess vital signs and focused respiratory status", "Assume the call is over", "Stop monitoring", "Skip documentation"], 0, "Reassessment shows response or deterioration."],
+      [19, "A small-volume nebulizer differs from an inhaler because it:", ["Delivers aerosolized medication over several minutes", "Gives only one puff", "Provides CPAP pressure", "Measures ETCO2"], 0, "SVNs provide continuous aerosol over multiple breaths."],
+      [19, "Nebulized albuterol works by:", ["Dilating bronchial passageways through beta stimulation", "Drying the corneas", "Clot removal", "Antibiotic effect"], 0, "Albuterol is a beta-agonist bronchodilator."],
+      [19, "Ipratropium bromide is:", ["An anticholinergic bronchodilator with slower onset and longer duration", "A steroid maintenance inhaler only", "A clot dissolver", "A fever reducer"], 0, "Ipratropium blocks parasympathetic bronchoconstriction."],
+      [19, "DuoNeb combines:", ["Albuterol and ipratropium", "Oxygen and glucose", "CPAP and suction", "Steroid and antibiotic"], 0, "DuoNeb uses two bronchodilator mechanisms."],
+      [19, "Patients who are not breathing adequately will not benefit from a nebulizer because:", ["They cannot breathe deeply enough to get medication into the lungs", "Nebulizers never work", "Medication works only in the mouth", "It measures glucose"], 0, "Ventilation must be adequate for inhaled medication delivery."],
+      [19, "An oxygen-powered nebulizer commonly runs at:", ["6 to 8 L/min or manufacturer recommendation", "1 L/min only", "15 to 25 cm H2O", "200 psi"], 0, "The chapter lists 6 to 8 L/min for the SVN example."],
+      [19, "The best action for a barely responsive patient with slow shallow breaths is:", ["Assist ventilations with oxygen", "Assist with inhaler first", "Use CPAP first", "Place nasal cannula only"], 0, "Slow shallow breathing is inadequate."],
+      [19, "A 69-year-old with difficulty breathing, swollen ankles, two-pillow sleep, and weight gain most likely has:", ["Heart failure/pulmonary edema", "Croup", "Exercise-induced asthma", "Simple pneumothorax"], 0, "Edema, orthopnea, and weight gain point to heart failure."],
+      [19, "A 10-year-old with episodic wheezing after exercise most likely has:", ["Asthma", "Heart failure", "COPD", "Pulmonary embolism"], 0, "Exercise can trigger asthma in children."],
+      [19, "An older COPD patient with fever and increased mucus production may have:", ["COPD exacerbation from infection", "Epiglottitis", "DuoNeb overdose only", "Normal lungs"], 0, "Infection commonly worsens COPD."],
+      [19, "A patient with sudden pleuritic chest pain after recent immobilization should raise concern for:", ["Pulmonary embolism", "Croup", "Maintenance inhaler use", "Simple cold only"], 0, "Immobility and pleuritic pain are PE clues."]
+    ]);
+
     const chapters = [
       ["Chapter 1", "Introduction to EMS", "EMS components, provider levels, medical direction, scope, certification, QI, evidence, public health.", "Know who controls care, what EMTs can do, and how the system improves."],
       ["Chapter 2", "Well-Being of the EMT", "Scene safety, PPE, infection routes, OSHA/Ryan White, TB/TST, stress, grief, fatigue, hazards.", "Protect yourself first so you can keep thinking clearly and protect the patient."],
@@ -2940,12 +3122,24 @@
         return "The call requires accurate vital signs and smart use of monitoring devices.";
       }
       if (item.chapter === 19) {
-        if (/distress|failure|mental status|hypoxia|work of breathing|tripod/.test(lower)) return "A short-of-breath patient may be moving from distress toward failure, so the EMT watches work of breathing and mental status closely.";
-        if (/wheezing|asthma|bronchospasm|inhaler|metered-dose/.test(lower)) return "The patient has signs of bronchospasm, and the crew considers oxygen, reassessment, and prescribed inhaler assistance under protocol.";
-        if (/copd|hypoxic drive|chronic/.test(lower)) return "The patient has chronic lung disease, so the EMT balances oxygenation, ventilation, and close reassessment.";
-        if (/crackles|pulmonary edema|pneumonia|fluid/.test(lower)) return "The patient has breath sounds or history suggesting fluid or infection affecting gas exchange.";
-        if (/pulmonary embolism|clot|sudden/.test(lower)) return "A sudden respiratory complaint raises concern for a circulation problem in the lungs.";
-        if (/cpap/.test(lower)) return "A breathing patient with severe distress may need positive airway pressure if protocol and tolerance allow it.";
+        if (/cpap|peep|positive airway|mask seal|hypotension|pneumothorax|vomiting|nauseated|claustrophobia|continuous positive/.test(lower)) return "A breathing patient may need CPAP, but the crew must confirm indications, blood pressure, airway protection, and contraindications first.";
+        if (/inhaler|metered-dose|spacer|rescue inhaler|steroid inhaler|five rights|albuterol|levalbuterol|combivent|maximum prescribed|tremors|nervousness/.test(lower)) return "A wheezing patient has an inhaler available, and the EMT must decide whether it is the right rescue medication and whether assistance is allowed.";
+        if (/nebulizer|svn|ipratropium|duoneb|oxygen-powered|aerosolized/.test(lower)) return "The patient may need a nebulized bronchodilator, so the crew checks protocol, medication rights, breathing adequacy, and reassessment findings.";
+        if (/epiglottitis|drooling|muffled|sore throat|painful swallowing|inspect the throat|haemophilus|still child/.test(lower)) return "A patient has a dangerous upper-airway picture, so the crew keeps them calm and avoids provoking airway closure.";
+        if (/croup|barking|hoarse|bedtime|stridor/.test(lower)) return "A young child has a barking cough or stridor, and the crew must judge distress versus failure while avoiding airway agitation.";
+        if (/bronchiolitis|rsv|bulb syringe|runny nose|multiple children|infant/.test(lower)) return "An infant or young child has viral lower-airway symptoms, and clearing nasal obstruction may matter for ventilation.";
+        if (/cystic fibrosis|cf|thick sticky|parent|large amounts of mucus|frequent pneumonia/.test(lower)) return "A patient with cystic fibrosis or their parent knows the baseline disease pattern, and the crew uses that history while supporting breathing.";
+        if (/viral respiratory|influenza|infection control|surgical mask|n-95|droplets|contagious|antibiotics|supportive care/.test(lower)) return "The call may involve a contagious respiratory infection, so the EMT balances supportive care with infection-control protection.";
+        if (/pulmonary embolism|embolism|dvt|clot|immobil|cast|cancer|leg pain|leg swelling|pleuritic|sudden/.test(lower)) return "Sudden dyspnea or pleuritic pain raises concern for a clot blocking pulmonary circulation.";
+        if (/spontaneous pneumothorax|bleb|collapsed lung|tall|thin|absent on one side|jvd|chest trauma/.test(lower)) return "A lung may be collapsed, so the crew gives oxygen, avoids CPAP, watches for worsening pressure signs, and requests ALS when needed.";
+        if (/pulmonary edema|heart failure|frothy|pink|orthopnea|pillow|weight gain|pedal edema|sacral edema|jugular|jvd|crackles|fluid/.test(lower)) return "A heart-failure patient may have fluid in the lungs, so position, oxygen, CPAP eligibility, and lung sounds guide care.";
+        if (/pneumonia|fever|chills|green|yellow|bloody sputum|confusion|localized crackles/.test(lower)) return "A patient has infection clues with cough, fever, sputum, or confusion, and the crew supports oxygenation while watching for failure.";
+        if (/copd|chronic bronchitis|emphysema|hypoxic drive|home oxygen|smoking|green or dark sputum|chronic obstructive/.test(lower)) return "A chronic lung patient is worse than baseline, and the crew treats hypoxia without being frozen by hypoxic-drive worries.";
+        if (/wheezing|asthma|bronchospasm|bronchoconstriction|silent chest|exercise|air pollutants|mucus/.test(lower)) return "The patient has signs of bronchospasm, and the crew watches for the dangerous shift from wheezing to poor air movement.";
+        if (/pediatric|child|infant|bradycardia|seesaw|grunting|nasal flaring|retractions|capillary refill|decreased muscle tone/.test(lower)) return "A pediatric respiratory patient may compensate until they suddenly crash, so the crew treats bradycardia and fatigue as danger signs.";
+        if (/lung sound|wheezes|rhonchi|crackles|stridor|auscult|silent chest|upper airway|lower airway/.test(lower)) return "The EMT is matching lung sounds and airway level to the right respiratory problem and intervention.";
+        if (/inadequate|agonal|one-word|mental status|cyanosis|low oxygen|not breathing|artificial ventilation|nonrebreather|bvm|bag-mask|hyperventilat/.test(lower)) return "A short-of-breath patient may be moving from distress into failure, and the EMT must decide when oxygen is not enough and ventilation is needed.";
+        if (/adequate|distress|work of breathing|tripod|pursed|position of comfort|opqrst|sample|chief complaint/.test(lower)) return "A patient feels short of breath, and the crew has to decide whether compensation is still working while gathering a focused respiratory history.";
         return "The crew is treating a respiratory emergency where airway, breathing support, oxygenation, and reassessment drive decisions.";
       }
       if (/consent|refus|competent|minor|capacity|emancipated|involuntary/.test(lower)) return "A patient-care decision depends on permission, refusal, age, or decision-making ability.";
